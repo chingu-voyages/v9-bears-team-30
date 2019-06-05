@@ -1,0 +1,11 @@
+{
+  "name": "base-code",
+  "version": "1.0.0",
+  "description": "Basic boilerplate for Apollo GraphQl project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "willjw3",
+  "license": "MIT"
+}
