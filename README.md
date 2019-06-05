@@ -8,11 +8,11 @@ Project Name and Description -- coming soon
 - Navigate into the project root.
 - Install server dependencies. From the project root: `cd server && npm install`.
 - Install client dependencies. From the project root: `cd client && npm install`. 
-- Run in development mode: From the project root: `npm run dev`.
+- Run in development mode: From the project root: `npm run dev`. If you get any webpack errors, try `cd client && npm install --save-dev -g webpack webpack-dev-server`
 
 ### Tech Stack
 - Server-side: GraphQL - Apollo Server
-- Client-side: GraphQL - Apollo Client and React
+- Client-side: GraphQL - Apollo Client and React<br>
 ![Apollo-GraphQL](https://dl.dropboxusercontent.com/s/ba9jwbdbe2y1py8/apollo-graphql.png?dl=0)
 ![React](https://dl.dropboxusercontent.com/s/oire3bcb8x25mez/react.png?dl=0)
 
