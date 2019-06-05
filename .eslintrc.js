@@ -22,13 +22,13 @@ module.exports = {
     "indent": "off",
     "comma-dangle": "off",
     "no-trailing-spaces": "off",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "no-multiple-empty-lines": "off",
     "semi": "off",
     "eol-last": "warn",
     "linebreak-style": "off",
     "quotes": "off",
     "space-before-function-paren": "off",
-    "no-console": "warn"
+    "no-console": "off"
   }
 }
