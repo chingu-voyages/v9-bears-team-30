@@ -1,13 +1,13 @@
 {
-    "name": "basic-apollo-server",
+    "name": "server",
     "version": "1.0.0",
-    "description": "Boilerplate for Apollo Server project",
+    "description": "Server-side code for chingu-v9",
     "main": "src/index.js",
     "scripts": {
         "start": "nodemon src/index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "willjw3",
+    "author": "willjw3 and DMethan",
     "license": "MIT",
     "dependencies": {
         "apollo-datasource": "^0.5.0",
