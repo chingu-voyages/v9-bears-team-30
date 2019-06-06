@@ -22,7 +22,7 @@ module.exports = {
     "indent": "off",
     "comma-dangle": "off",
     "no-trailing-spaces": "off",
-    "no-unused-vars": "error",
+    "no-unused-vars": "warn",
     "no-multiple-empty-lines": "off",
     "semi": "off",
     "eol-last": "warn",
