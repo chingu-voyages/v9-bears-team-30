@@ -11,7 +11,7 @@
     "build": "cd client && webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "willjw3",
+  "author": "willjw3 and DMethan",
   "license": "MIT",
   "dependencies": {
     "apollo-datasource": "^0.5.0",
