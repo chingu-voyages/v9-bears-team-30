@@ -1,7 +1,7 @@
 # Chingu Voyage 9
 ## v9-bears-team-30
 
-Project Name and Description -- *coming soon*
+Project Name and Description -- *coming soon*<br>
 [![Build Status](https://travis-ci.org/chingu-voyages/v9-bears-team-30.svg?branch=develop)](https://travis-ci.org/chingu-voyages/v9-bears-team-30)
 
 ### Usage
