@@ -2,6 +2,7 @@
 ## v9-bears-team-30
 
 Project Name and Description -- *coming soon*
+[![Build Status](https://travis-ci.org/chingu-voyages/v9-bears-team-30.svg?branch=develop)](https://travis-ci.org/chingu-voyages/v9-bears-team-30)
 
 ### Usage
 - Clone the repository.
