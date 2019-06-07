@@ -1,1 +1,5 @@
+# node_modules not published to GitHub
 node_modules/
+
+# Keep db connection string and other secret info protected
+.env

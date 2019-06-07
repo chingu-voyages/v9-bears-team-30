@@ -15,7 +15,6 @@ const server = new ApolloServer({
 
 DB()
 
-
 server.listen().then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 })
