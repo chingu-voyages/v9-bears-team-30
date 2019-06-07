@@ -1,30 +1,15 @@
-import mongoose from "mongoose"
-import MongoMemoryServer from "mongodb-memory-server"
+const mongoose = require("mongoose")
+mongoose.connect("mongodb+srv://chingu:bears-30@climatespy-34iab.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true})
 
-import User from "./models/user"
-import { resolve } from "url";
+const User = require("./models/user")
 
-export async function mockData() {
-    const mockUser = await User.create({
-        _id: mongoose.Types.ObjectId(),
-        username: "Jack Foo",
-        email: "jfoo@bar.com",
-        password: "fooyou"
+async function dbConnection() {
+    const db = mongoose.connection
+    db.on("error", console.error.bind(console, "connection error:"))
+    db.once("open", () => {
+        console.log("Connected, yo!")
     })
 }
 
-export async function setupDb() {
-    const mongoServer = new MongoMemoryServer()
-    const mongoUri = await mongoServer.getConnectionString()
-    mongoose.connect(mongoUri, { useNewUrlParser: true })
-    const conn = new Promise((resolve, reject) => {
-        mongoose.connection
-        .on("error", err => {
-            reject(err)
-        })
-        .once("open", () => {
-            return resolve()
-        })
-    })
-    return conn
-}
+
+module.exports = dbConnection
