@@ -1,0 +1,63 @@
+html, body,
+h1, h2, h3, h4, h5, h6,
+a, p, span,
+em, small, strong,
+sub, sup,
+mark, del, ins, strike,
+abbr, dfn,
+blockquote, q, cite,
+code, pre,
+ol, ul, li, dl, dt, dd,
+div, section, article,
+main, aside, nav,
+header, hgroup, footer,
+img, figure, figcaption,
+address, time,
+audio, video,
+canvas, iframe,
+details, summary,
+fieldset, form, label, legend,
+table, caption,
+tbody, tfoot, thead,
+tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div {
+    overflow: hidden;
+}
+
+body {
+    background: skyblue;
+}
+
+h1, h2, p {
+    margin-left: 5%;
+}
+
+.header {
+    margin-top: 0;
+    height: 100px;
+    background: beige;
+}
+
+.title {
+    margin-top: 35px;
+}
+
+#info {
+    margin-top: 30px;
+}
+
+.those-guys {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.those-guys p {
+    padding: 10px;
+}
+
+
