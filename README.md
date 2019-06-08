@@ -1,41 +1,22 @@
-## React-Express Boilerplate
-*Updated: June/2019*<br>
-Boilerplate code for a full-stack react-express app. Includes Express (Node) along with React.
-<br>
-Features a very basic webpack configuration.
-### webpack.config.js
-```
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+# Chingu Voyage 9
+## v9-bears-team-30
 
-module.exports = {
-    entry: "./src/index.js",
-    output: {
-        path: path.join(__dirname, "/dist"),
-        filename: "index_bundle.js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html"
-        })
-    ]
-}
-```
+Project Name and Description -- *coming soon*<br>
+[![Build Status](https://travis-ci.org/chingu-voyages/v9-bears-team-30.svg?branch=develop)](https://travis-ci.org/chingu-voyages/v9-bears-team-30)
+
+### Usage
+- Clone the repository.
+- Navigate into the project root.
+- Install all dependencies. From the project root: `npm install`. 
+- Run in development mode. From the project root: `npm run dev`. If you get any webpack errors, try `npm install --save-dev -g webpack webpack-dev-server`.
+- To run just the server and use GraphQL Playground, from the project root: `npm run server`.
+- Run Eslint. From the project root: `npm run lint`.
+
+### Tech Stack
+- Server-side: NodeJS and MongoDB
+- Client-side: React<br>
+
+### Authors
+- @DMethan
+- @willjw3
+
