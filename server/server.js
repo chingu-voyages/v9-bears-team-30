@@ -2,6 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const DB = require("./db")
+const userRouter = require("./src/routes/userApi")
 
 const app = express()
 
@@ -10,15 +11,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get("/api/thoseguys", (req, res) => {
-    const thoseguys = [
-        { id: 1, firstName: "Peter", lastName: "Gibbons" },
-        { id: 2, firstName: "Michael", lastName: "Bolton" },
-        { id: 3, firstName: "William", lastName: "Lumbergh" },
-    ];
-
-    res.json(thoseguys)
-});
+app.use("/user", userRouter)
 
 const port = process.env.PORT || 5000
 
