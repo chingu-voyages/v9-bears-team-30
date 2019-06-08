@@ -4,6 +4,7 @@
   "description": "Boilerplate code for React-Express App",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "cd client && webpack-dev-server --mode development --open --hot",
@@ -18,6 +19,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.33.0",
