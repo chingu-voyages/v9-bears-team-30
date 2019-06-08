@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "stable"
+  - "lts/*"
+
+branches:
+  only:
+    - develop
+
+cache:
+  directories:
+  - node_modules
+
+
+script:
+  - npm run lint
