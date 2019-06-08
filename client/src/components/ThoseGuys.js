@@ -5,7 +5,7 @@ const ThoseGuys = () => {
     //console.log('mode is: ' + process.env.NODE_ENV)
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/thoseguys")
+        fetch("http://localhost:5000/user/api/thoseguys")
             .then(res => res.json())
             .then(guys => setThoseGuys([
                 ...thoseGuys, ...guys
@@ -30,3 +30,4 @@ const ThoseGuys = () => {
 }
 
 export default ThoseGuys
+
