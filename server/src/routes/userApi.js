@@ -7,7 +7,7 @@ router.get("/api/thoseguys", async (req, res) => {
   const userdata = await User.find({}, (err, docs) => {
     if (err) return console.error(err);
     if (docs) {
-      console.log("callback");
+      console.log("Found users");
     }
   });
   if (userdata) {
