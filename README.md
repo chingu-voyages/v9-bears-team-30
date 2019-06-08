@@ -1,8 +1,8 @@
 ## React-Express Boilerplate
-Updated: June/2019<br>
+*Updated: June/2019*<br>
 Boilerplate code for a full-stack react-express app. Includes Express (Node) along with React.
 <br>
-Includes a very basic webpack configuration.
+Features a very basic webpack configuration.
 ### webpack.config.js
 ```
 const path = require("path")
