@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
-    "client": "cd client && webpack-dev-server --mode development --open --hot",
+    "client": "webpack-dev-server --mode development --open --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

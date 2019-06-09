@@ -1,8 +1,8 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
-const DB = require("./db")
-const userRouter = require("./src/routes/userApi")
+const DB = require("./server/db")
+const userRouter = require("./server/routes/userApi")
 
 const app = express()
 
