@@ -8,7 +8,7 @@ const App = () => {
     return (
         <div>
             <Header />
-            <h1 id="info">Basic React App!</h1>
+            <h1 id="info">Bears Team 30 App!</h1>
             <ThoseGuys />
         </div>
     )
