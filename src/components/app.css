@@ -30,7 +30,7 @@ div {
 }
 
 body {
-    background: skyblue;
+    background: rgb(148, 192, 236);
 }
 
 h1, h2, p {
@@ -40,11 +40,12 @@ h1, h2, p {
 .header {
     margin-top: 0;
     height: 100px;
-    background: beige;
+    background: black;
 }
 
 .title {
     margin-top: 35px;
+    color: white;
 }
 
 #info {
