@@ -1,13 +1,11 @@
 import React from "react"
 
-import Home from "./Home"
 import "./app.css"
+import Routes from "./routes"
 
 const App = () => {
     return (
-        <div>
-            <Home />
-        </div>
+      <Routes />
     )
 }
 
