@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: "eslint:recommended",
+  extends: ["eslint:recommended", "plugin:react/recommended"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly"
@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["react", "jest"],
   rules: {
     indent: "off",
     "comma-dangle": "off",
@@ -26,8 +26,11 @@ module.exports = {
     semi: "off",
     "eol-last": "warn",
     "linebreak-style": "off",
-    quotes: "off",
+    "quotes": "off",
     "space-before-function-paren": "off",
-    "no-console": "off"
+    "no-console": "warn",
+    "no-undef": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off"
   }
 };
