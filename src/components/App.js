@@ -1,7 +1,7 @@
-import React from "react"
-
-import "./app.css"
-import Routes from "./routes"
+import React from "react";
+import "./app.css";
+import Routes from "./routes";
+import { connect } from 'react-redux';
 
 const App = () => {
     return (
@@ -9,4 +9,4 @@ const App = () => {
     )
 }
 
-export default App
+export default connect(null, null)(App);
