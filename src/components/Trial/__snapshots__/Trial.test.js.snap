@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trial renders 1`] = `
+<DocumentFragment>
+  <div>
+    <h1
+      data-testid="heading-text"
+    >
+      This is a Test
+    </h1>
+  </div>
+</DocumentFragment>
+`;
