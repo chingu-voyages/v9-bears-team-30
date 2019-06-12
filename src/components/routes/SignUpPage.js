@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeSignupEmail } from '../actions/changeSignupEmailAction';
-import { changeSignupPassword } from '../actions/changeSignupPasswordAction';
-import { putSignup } from '../actions/putSignupAction';
+import { changeSignupEmail } from '../../actions/changeSignupEmailAction';
+import { changeSignupPassword } from '../../actions/changeSignupPasswordAction';
+import { putSignup } from '../../actions/putSignupAction';
 
 export class SignUpPage extends Component {
 
