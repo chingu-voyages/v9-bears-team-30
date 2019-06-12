@@ -41,6 +41,23 @@ export class SignUpPage extends Component {
 
   render() {
 
+    var isSaving = this.props.saving;
+    let button;
+
+    if (isSaving) {
+      button = (
+         <button className='signup-button'>
+          Saving...
+         </button>
+      );
+    } else {
+      button = (
+        <button className='signup-button' onClick={this.handleClick}>
+          Save
+        </button>
+      );
+    }
+
     return (
       <div onClick={this.handleChange}>
         <h1>Join ClimateSpy today, it's free.</h1>
@@ -51,9 +68,7 @@ export class SignUpPage extends Component {
           <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
         </div>        
         <div className='signup-button-container'>          
-          <button className='signup-button' onClick={this.handleClick}>
-            Save
-          </button>
+            { button }
         </div>
       </div>
     )
@@ -64,7 +79,8 @@ export class SignUpPage extends Component {
 const mapStateToProps = ( state ) => {   
   return { 
     signupEmail: state.signupEmail.signupEmail,
-    signupPassword: state.signupPassword.signupPassword
+    signupPassword: state.signupPassword.signupPassword,
+    saving: state.putSignup.saving
   }
 };
 
