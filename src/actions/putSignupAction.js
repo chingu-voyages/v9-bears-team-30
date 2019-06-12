@@ -19,7 +19,6 @@ export const putSignup = (emailAndPassword) => {
 			dispatch(putSignupSucess(res.data));
 		})
 		.catch(err => {
-			console.log('error caught');
 			dispatch(putSignupFailure(err.response.data.message));
 		});
 	};
