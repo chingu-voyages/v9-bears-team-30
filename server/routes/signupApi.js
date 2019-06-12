@@ -3,8 +3,6 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.post("/api/new-user", function(req,res) {
-  console.log('api hit');
-  console.log('sent '+req.body.emailAndPassword)
 
   let newUser = new User({
     username: 'temp',
