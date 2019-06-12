@@ -1,28 +1,58 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeSignupEmail } from '../actions/changeSignupEmailAction';
+import { changeSignupPassword } from '../actions/changeSignupPasswordAction';
 
 export class SignUpPage extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      myState: 'my value'
-    };
-
-    this.handleChange = this.handleChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
-  handleChange() {
-    this.setState({
-      myState: 'new state'
-    });
+  //whenever user changes email input, calls action to update store
+  handleEmailChange(event) {
+    this.props.changeSignupEmail(event.target.value);
+  }
+
+  //whenever user changes password input, calls action to update store
+  handlePasswordChange(event) {
+    this.props.changeSignupPassword(event.target.value);
   }
 
   render() {
     return (
       <div onClick={this.handleChange}>
-
+        <h1>Join ClimateSpy today, it's free.</h1>
+        <div>
+          <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
+        </div>
+        <div>
+          <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
+        </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = ( state ) => {   
+  return { 
+    signupEmail: state.signupEmail.signupEmail,
+    signupPassword: state.signupPassword.signupPassword
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeSignupEmail: (signupEmail) => {
+      dispatch(changeSignupEmail(signupEmail))
+    },
+    changeSignupPassword: (signupPassword) => {
+      dispatch(changeSignupPassword(signupPassword))
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
