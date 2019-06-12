@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const app = express();
 
-router.post("/api/new-user", async (req, res) => {
+app.post("/api/new-user", function(req,res) {
   let newUser = new User({
+    username: 'temp',
     email: req.body.emailAndPassword.signupEmail,
     password: req.body.emailAndPassword.signupPassword
   });
