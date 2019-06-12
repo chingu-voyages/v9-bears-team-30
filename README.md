@@ -1,7 +1,7 @@
 # Chingu Voyage 9
 ## v9-bears-team-30
 
-**ClimateSpy** -- *A global temperature tracker*<br>
+**ClimateSpy App** -- *A global temperature tracker*<br>
 [![Build Status](https://travis-ci.org/chingu-voyages/v9-bears-team-30.svg?branch=develop)](https://travis-ci.org/chingu-voyages/v9-bears-team-30)
 
 ### Usage
