@@ -4,7 +4,6 @@ const path = require("path")
 const cors = require("cors")
 const DB = require("./server/db")
 const userRouter = require("./server/routes/userApi")
-const signupRouter = require("./server/routes/signupApi")
 
 const app = express()
 
@@ -16,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use("/user", userRouter)
-app.use("/signup", signupRouter)
 
  app.get("*", function(request, response) {
    response.sendFile(path.join(__dirname + "/public/index.html"))
