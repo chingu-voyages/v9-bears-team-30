@@ -4,6 +4,7 @@ const User = require("../models/user");
 
 router.post("/api/new-user", function(req,res) {
   console.log('api hit');
+  console.log('sent '+req.body.emailAndPassword)
 
   let newUser = new User({
     username: 'temp',
@@ -16,6 +17,7 @@ router.post("/api/new-user", function(req,res) {
     res.send('success');
   })
   .catch(err => {
+    console.log(err);
     res.status(400).send(err);
   });
 });

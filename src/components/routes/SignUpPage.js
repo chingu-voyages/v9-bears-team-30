@@ -34,8 +34,9 @@ export class SignUpPage extends Component {
   signupMaker() {
     var newSignup =  {
       signupEmail: this.props.signupEmail,
-      password: this.props.signupPassword
+      signupPassword: this.props.signupPassword
     }
+    console.log (newSignup);
     return newSignup;
   }
 
