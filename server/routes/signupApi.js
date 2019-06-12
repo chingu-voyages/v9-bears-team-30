@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-const app = express();
 
-app.post("/api/new-user", function(req,res) {
+router.post("/api/new-user", function(req,res) {
+  console.log('api hit');
+
   let newUser = new User({
     username: 'temp',
     email: req.body.emailAndPassword.signupEmail,
