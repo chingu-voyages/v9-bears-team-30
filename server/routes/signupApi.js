@@ -6,7 +6,7 @@ router.post("/api/new-user", async (req, res) => {
   let newUser = new User({
     email: req.body.emailAndPassword.signupEmail,
     password: req.body.emailAndPassword.signupPassword
-  });;
+  });
 
   newUser.save()
   .then(item => {
