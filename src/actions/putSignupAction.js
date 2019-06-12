@@ -12,7 +12,7 @@ export const putSignup = (emailAndPassword) => {
 		//first dispatch an immediate synchronous action to the store to indicate that we’ve started saving 
 		dispatch(putSignupStarted());
 
-		return axios.post("/api/new-signup", {
+		return axios.post("/api/new-user", {
 				emailAndPassword
 		})
 		.then(res => {
