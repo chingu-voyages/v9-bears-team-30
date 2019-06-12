@@ -36,7 +36,6 @@ export class SignUpPage extends Component {
       signupEmail: this.props.signupEmail,
       signupPassword: this.props.signupPassword
     }
-    console.log (newSignup);
     return newSignup;
   }
 
@@ -62,7 +61,7 @@ export class SignUpPage extends Component {
 
     return (
       <div onClick={this.handleChange}>
-        <h1>Join ClimateSpy today, it's free.</h1>
+        <h1>Join ClimateSpy today, it&apos;s free.</h1>
         <div>
           <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
         </div>

@@ -11,11 +11,10 @@ router.post("/api/new-user", function(req,res) {
   });
 
   newUser.save()
-  .then(item => {
+  .then(() => {
     res.send('success');
   })
   .catch(err => {
-    console.log(err);
     res.status(400).send(err);
   });
 });
