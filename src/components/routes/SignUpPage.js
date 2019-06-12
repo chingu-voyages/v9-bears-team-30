@@ -41,21 +41,23 @@ export class SignUpPage extends Component {
 
   render() {
 
-    var isSaving = this.props.saving;
-    let button;
+    //make either a button that says "Sign Up" or "Loading..."
+    let button = generateButton(this.props.saving);
 
-    if (isSaving) {
-      button = (
-         <button className='signup-button'>
-          Saving...
-         </button>
-      );
-    } else {
-      button = (
-        <button className='signup-button' onClick={this.handleClick}>
-          Save
-        </button>
-      );
+    function generateButton(isSaving) {
+      if (isSaving) {
+        return (
+          <button className='signup-button'>
+            Loading...
+          </button>
+        );
+      } else {
+        return (
+          <button className='signup-button' onClick={this.handleClick}>
+            Sign Up
+          </button>
+        );
+      }
     }
 
     return (
