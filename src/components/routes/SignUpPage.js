@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeSignupEmail } from '../actions/changeSignupEmailAction';
 import { changeSignupPassword } from '../actions/changeSignupPasswordAction';
+import { putSignup } from '../actions/putSignupAction';
 
 export class SignUpPage extends Component {
 
@@ -10,6 +11,8 @@ export class SignUpPage extends Component {
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.signupMaker = this.signupMaker.bind(this);
   }
 
   //whenever user changes email input, calls action to update store
@@ -22,7 +25,22 @@ export class SignUpPage extends Component {
     this.props.changeSignupPassword(event.target.value);
   }
 
+  //when signup is clicked, we send email and password as object to put function
+  handleClick() {
+    this.props.putSignup(this.signupMaker());
+  }
+
+  //combine email and password into a single signup object to send to db
+  signupMaker() {
+    var newSignup =  {
+      signupEmail: this.props.signupEmail,
+      password: this.props.signupPassword
+    }
+    return newSignup;
+  }
+
   render() {
+
     return (
       <div onClick={this.handleChange}>
         <h1>Join ClimateSpy today, it's free.</h1>
@@ -31,6 +49,11 @@ export class SignUpPage extends Component {
         </div>
         <div>
           <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
+        </div>        
+        <div className='signup-button-container'>          
+          <button className='signup-button' onClick={this.handleClick}>
+            Save
+          </button>
         </div>
       </div>
     )
@@ -53,6 +76,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeSignupPassword: (signupPassword) => {
       dispatch(changeSignupPassword(signupPassword))
+    },
+    putSignup: (emailAndPassword) => {
+      dispatch(putSignup(emailAndPassword))
     }
   }
 };
