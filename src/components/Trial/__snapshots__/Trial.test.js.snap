@@ -8,6 +8,11 @@ exports[`Trial renders 1`] = `
     >
       This is a Test
     </h1>
+    <p
+      data-testid="inject-text"
+    >
+      Yo!
+    </p>
   </div>
 </DocumentFragment>
 `;
