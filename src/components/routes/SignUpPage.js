@@ -37,6 +37,7 @@ export class SignUpPage extends Component {
   }
 }
 
+//pass store state as props. value must equal a valid store key. 
 const mapStateToProps = ( state ) => {   
   return { 
     signupEmail: state.signupEmail.signupEmail,
@@ -44,6 +45,7 @@ const mapStateToProps = ( state ) => {
   }
 };
 
+//passes actions as props. dispatch(callback()) must equal an imported action name
 const mapDispatchToProps = (dispatch) => {
   return {
     changeSignupEmail: (signupEmail) => {
@@ -55,4 +57,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
+//connects store actions and states to component
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
