@@ -61,15 +61,17 @@ export class SignUpPage extends Component {
     
 
     return (
-      <div className='signup-container' onClick={this.handleChange}>
-        <div className='signup-heading-container'>
-          <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
-        </div>
-        <div className='signup-form'>
-          <div className='user-input-container'>
-            <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>   
-            <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>            
-            { button }
+      <div className='signup-page' onClick={this.handleChange}>
+        <div className='signup-container'>
+          <div className='signup-heading-container'>
+            <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
+          </div>
+          <div className='signup-form'>
+            <div className='user-input-container'>
+              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>   
+              <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>            
+              { button }
+            </div>
           </div>
         </div>
       </div>
