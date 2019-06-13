@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeSignupEmail } from '../../actions/changeSignupEmailAction';
 import { changeSignupPassword } from '../../actions/changeSignupPasswordAction';
 import { putSignup } from '../../actions/putSignupAction';
+import './signup.css';
 
 export class SignUpPage extends Component {
 
@@ -60,16 +61,18 @@ export class SignUpPage extends Component {
     
 
     return (
-      <div onClick={this.handleChange}>
-        <h1>Join ClimateSpy today, it&apos;s free.</h1>
-        <div>
-          <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
-        </div>
-        <div>
-          <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
-        </div>        
-        <div className='signup-button-container'>          
-            { button }
+      <div className='signup-page' onClick={this.handleChange}>
+        <div className='signup-container'>
+          <div className='signup-heading-container'>
+            <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
+          </div>
+          <div className='signup-form'>
+            <div className='user-input-container'>
+              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>   
+              <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>            
+              { button }
+            </div>
+          </div>
         </div>
       </div>
     )
