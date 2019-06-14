@@ -61,19 +61,11 @@ export class SignUpPage extends Component {
       this.setState({
         emailEmptyError: true
       });
-    } else {
-      this.setState({
-        emailEmptyError: false
-      });
-    }
+    } 
 
     if (!this.props.signupPassword) {
       this.setState({
         passwordEmptyError: true
-      });
-    } else {
-      this.setState({
-        passwordEmptyError: false
       });
     }
   }
