@@ -96,7 +96,7 @@ export class SignUpPage extends Component {
   //resets error message, called from onChange functions
   resetErrors() {    
     //reset and remove email error message on typing
-    if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError) {
+    if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError) {
       this.setState({
         emailEmptyError: false,
         passwordEmptyError: false,
