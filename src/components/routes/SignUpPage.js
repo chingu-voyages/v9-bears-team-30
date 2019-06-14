@@ -29,7 +29,12 @@ export class SignUpPage extends Component {
 
   //when signup is clicked, we send email and password as object to put function
   handleClick() {
-    this.props.putSignup(this.signupMaker());
+    //call checkEmpty to check for empty email/pw
+    this.checkEmpty();
+    //only send post request if forms aren't empty
+    if (!this.state.emailEmptyError && !this.state.passwordEmptyError) {
+      this.props.putSignup(this.signupMaker());
+    }
   }
 
   //combine email and password into a single signup object to send to db
