@@ -79,7 +79,9 @@ export class SignUpPage extends Component {
     }
 
     if (!passwordRegex.test(this.props.signupPassword)) {
-      console.log('password invalid');
+      this.setState({
+        passwordInvalidError: true
+      });
     }
   }
 
