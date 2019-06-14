@@ -74,7 +74,7 @@ export class SignUpPage extends Component {
       });
     }
 
-    if (this.props.signupPassword.length<8) {
+    if (this.props.signupPassword.length<6) {
       this.setState({
         passwordTooShortError: true
       });
@@ -149,7 +149,7 @@ export class SignUpPage extends Component {
                 <span>Password must contain at least one number, letter, and special symbol</span>
               }
               {this.state.passwordTooShortError &&
-                <span>Password must contain at least eight alphanumeric characters</span>
+                <span>Password must be longer than six characters</span>
               }
               { button }
             </div>
