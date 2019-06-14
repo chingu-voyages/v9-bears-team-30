@@ -20,15 +20,18 @@ export class SignUpPage extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.signupMaker = this.signupMaker.bind(this);
     this.checkEmpty = this.checkEmpty.bind(this);
+    this.resetErrors = this.resetErrors.bind(this);
   }
 
-  //whenever user changes email input, calls action to update store
+  //whenever user changes email input, removes error messages and calls action to update store
   handleEmailChange(event) {
+    this.resetErrors();
     this.props.changeSignupEmail(event.target.value);
   }
 
-  //whenever user changes password input, calls action to update store
-  handlePasswordChange(event) {
+  //whenever user changes password input, removes error messages and calls action to update store
+  handlePasswordChange(event) {    
+    this.resetErrors();
     this.props.changeSignupPassword(event.target.value);
   }
 
@@ -69,6 +72,17 @@ export class SignUpPage extends Component {
       });
     } else {
       this.setState({
+        passwordEmptyError: false
+      });
+    }
+  }
+
+  //resets error message, called from onChange functions
+  resetErrors() {    
+    //reset and remove email error message on typing
+    if (this.state.emailEmptyError || this.state.passwordEmptyError) {
+      this.setState({
+        emailEmptyError: false,        
         passwordEmptyError: false
       });
     }
