@@ -13,7 +13,8 @@ export class SignUpPage extends Component {
     this.state = {
       emailEmptyError: false,
       passwordEmptyError: false,
-      passwordTooShortError: false
+      passwordTooShortError: false,
+      passwordInvalidError: false
     }
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -76,7 +77,7 @@ export class SignUpPage extends Component {
         passwordTooShortError: true
       });
     }
-    
+
     if (!passwordRegex.test(this.props.signupPassword)) {
       console.log('password invalid');
     }
@@ -88,7 +89,9 @@ export class SignUpPage extends Component {
     if (this.state.emailEmptyError || this.state.passwordEmptyError) {
       this.setState({
         emailEmptyError: false,        
-        passwordEmptyError: false
+        passwordEmptyError: false,
+        passwordTooShortError: false,
+        passwordInvalidError: false
       });
     }
   }
