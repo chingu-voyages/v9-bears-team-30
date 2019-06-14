@@ -10,6 +10,11 @@ export class SignUpPage extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      emailEmptyError: false,
+      passwordEmptyError: false
+    }
+
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
