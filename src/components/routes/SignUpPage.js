@@ -149,7 +149,7 @@ export class SignUpPage extends Component {
                 <span>Password must contain at least one number, letter, and special symbol</span>
               }
               {this.state.passwordTooShortError &&
-                <span>Password must be longer than six characters</span>
+                <span>Password must be at least six characters</span>
               }
               { button }
             </div>
