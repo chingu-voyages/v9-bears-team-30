@@ -14,7 +14,8 @@ export class SignUpPage extends Component {
       emailEmptyError: false,
       passwordEmptyError: false,
       passwordTooShortError: false,
-      passwordInvalidError: false
+      passwordInvalidError: false,
+      emailInvalidError: false
     }
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -59,6 +60,7 @@ export class SignUpPage extends Component {
   //check for empty fields, too short pw, invalid pw
   checkErrors() {
     let passwordRegex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
+    let emailRegex = /\S+@\S+\.\S+/;
 
     if (!this.props.signupEmail) {
       this.setState({
@@ -83,6 +85,12 @@ export class SignUpPage extends Component {
         passwordInvalidError: true
       });
     }
+
+    if (!emailRegex.test(this.props.signupEmail)) {
+      this.setState({
+        emailInvalidError: true
+      });
+    }
   }
 
   //resets error message, called from onChange functions
@@ -90,10 +98,11 @@ export class SignUpPage extends Component {
     //reset and remove email error message on typing
     if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError) {
       this.setState({
-        emailEmptyError: false,        
+        emailEmptyError: false,
         passwordEmptyError: false,
         passwordTooShortError: false,
-        passwordInvalidError: false
+        passwordInvalidError: false,
+        emailInvalidError: false
       });
     }
   }
