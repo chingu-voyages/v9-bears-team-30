@@ -94,8 +94,14 @@ export class SignUpPage extends Component {
           </div>
           <div className='signup-form'>
             <div className='user-input-container'>
-              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>   
-              <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>            
+              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
+              {this.state.emailEmptyError &&
+                <span>email can't be empty</span>
+              }
+              <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>              
+              {this.state.emailEmptyError &&
+                <span>pw can't be empty</span>
+              }
               { button }
             </div>
           </div>
