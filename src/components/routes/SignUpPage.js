@@ -20,7 +20,7 @@ export class SignUpPage extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.signupMaker = this.signupMaker.bind(this);
-    this.checkEmpty = this.checkEmpty.bind(this);
+    this.checkErrors = this.checkErrors.bind(this);
     this.resetErrors = this.resetErrors.bind(this);
   }
 
@@ -38,8 +38,8 @@ export class SignUpPage extends Component {
 
   //when signup is clicked, we send email and password as object to put function
   handleClick() {
-    //call checkEmpty to check for empty email/pw
-    this.checkEmpty();
+    //call checkErrors to check for empty email/pw
+    this.checkErrors();
     //only send post request if forms aren't empty
     if (this.props.signupEmail && this.props.signupPassword) {
       this.props.putSignup(this.signupMaker());
@@ -55,8 +55,8 @@ export class SignUpPage extends Component {
     return newSignup;
   }
 
-  //check if either field is empty on submit, update error message via state if so
-  checkEmpty() {
+  //check for empty fields, too short pw, invalid pw
+  checkErrors() {
     if (!this.props.signupEmail) {
       this.setState({
         emailEmptyError: true
@@ -66,6 +66,12 @@ export class SignUpPage extends Component {
     if (!this.props.signupPassword) {
       this.setState({
         passwordEmptyError: true
+      });
+    }
+
+    if (this.props.signupPassword.length<8) {
+      this.setState({
+        passwordTooShortError: true
       });
     }
   }
