@@ -37,7 +37,7 @@ export class SignUpPage extends Component {
     //call checkEmpty to check for empty email/pw
     this.checkEmpty();
     //only send post request if forms aren't empty
-    if (!this.state.emailEmptyError && !this.state.passwordEmptyError) {
+    if (this.props.signupEmail && this.props.signupPassword) {
       this.props.putSignup(this.signupMaker());
     }
   }
@@ -57,11 +57,19 @@ export class SignUpPage extends Component {
       this.setState({
         emailEmptyError: true
       });
+    } else {
+      this.setState({
+        emailEmptyError: false
+      });
     }
 
     if (!this.props.signupPassword) {
       this.setState({
         passwordEmptyError: true
+      });
+    } else {
+      this.setState({
+        passwordEmptyError: false
       });
     }
   }
@@ -99,7 +107,7 @@ export class SignUpPage extends Component {
                 <span>email can't be empty</span>
               }
               <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>              
-              {this.state.emailEmptyError &&
+              {this.state.passwordEmptyError &&
                 <span>pw can't be empty</span>
               }
               { button }
