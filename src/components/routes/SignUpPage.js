@@ -14,6 +14,7 @@ export class SignUpPage extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.signupMaker = this.signupMaker.bind(this);
+    this.checkEmpty = this.checkEmpty.bind(this);
   }
 
   //whenever user changes email input, calls action to update store
@@ -38,6 +39,21 @@ export class SignUpPage extends Component {
       signupPassword: this.props.signupPassword
     }
     return newSignup;
+  }
+
+  //check if either field is empty on submit, update error message via state if so
+  checkEmpty() {
+    if (!this.props.signupEmail) {
+      this.setState({
+        emailEmptyError: true
+      });
+    }
+
+    if (!this.props.signupPassword) {
+      this.setState({
+        passwordEmptyError: true
+      });
+    }
   }
 
   render() {
