@@ -120,7 +120,7 @@ export class SignUpPage extends Component {
     }    
 
     return (
-      <div className='signup-page' onClick={this.handleChange}>
+      <div className='signup-page'>
         <div className='signup-container'>
           <div className='signup-heading-container'>
             <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
