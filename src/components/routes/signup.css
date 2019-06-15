@@ -147,6 +147,15 @@
 .signup-success-message {
   color: #fff;
   font-size:16px;
+  margin-bottom:8px;
+}
+
+.signup-success-link {
+  color:lightblue;
+}
+
+.signup-success-link:hover {
+  color:white;
 }
 
 @media only screen and (max-width: 1200px) {
