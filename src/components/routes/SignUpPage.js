@@ -6,7 +6,7 @@ import { putSignup } from '../../actions/putSignupAction';
 import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
-import { SignupSuccess } frin '/../SignupSuccess';
+import { SignupSuccess } from '../SignupSuccess';
 
 export class SignUpPage extends Component {
 
@@ -60,7 +60,7 @@ export class SignUpPage extends Component {
 
   //check for empty fields, too short pw, invalid pw
   checkErrors() {
-    let passwordRegex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
+    let passwordRegex = RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
     let emailRegex = /\S+@\S+\.\S+/;
     let weHaveErrors=false;
 
@@ -168,7 +168,7 @@ const mapStateToProps = ( state ) => {
     signupEmail: state.signupEmail.signupEmail,
     signupPassword: state.signupPassword.signupPassword,
     saving: state.putSignup.saving,
-    success: state.putSignup.newSignup
+    success: state.putSignup.newSignup,
     error: state.putSignup.error
   }
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './signup.css';
+//import './routs/signup.css';
 
-export class SignUpSuccess extends Component {
+export class SignupSuccess extends Component {
 
   constructor(props) {
     super(props);
