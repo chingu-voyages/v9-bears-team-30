@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './signup.css';
 
 export class SignUpSuccess extends Component {
