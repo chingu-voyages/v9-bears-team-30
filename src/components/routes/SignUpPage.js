@@ -95,6 +95,7 @@ export class SignUpPage extends Component {
 
     //make either a button that says "Sign Up" or "Loading..."
     let button;
+    let inputErrorClass = this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError ? 'signup-input-error' : null;
 
     if (this.props.saving) {
       button = (
@@ -118,16 +119,22 @@ export class SignUpPage extends Component {
           </div>
           <div className='signup-form'>
             <div className='user-input-container'>
-              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
+              <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
               {this.state.emailInvalidError &&
-                <span className='signup-error-message'>Use a valid email address</span>
+                <div className='signup-error-message-container'>
+                  <span className='signup-error-message'>Use a valid email address</span>
+                </div>
               }
-              <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
+              <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
               {this.state.passwordInvalidError &&
-                <span className='signup-error-message'>Use at least one number, letter, and special symbol</span>
+                <div className='signup-error-message-container'>
+                  <span className='signup-error-message'>Use at least one number, letter, and special symbol</span>
+                </div>
               }
               {this.state.passwordTooShortError &&
-                <span className='signup-error-message'>Use 6 or more characters</span>
+                <div className='signup-error-message-container'>
+                  <span className='signup-error-message'>Use 6 or more characters</span>
+                </div>
               }
               { button }
             </div>

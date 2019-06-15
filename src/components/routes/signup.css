@@ -62,6 +62,10 @@
   margin-bottom:20px;
 }
 
+.signup-input-error {
+  margin-bottom:8px;
+}
+
 .signup-input:focus {
   background-color:rgba(255, 255, 255, 0.9);
   color:#333;
@@ -113,9 +117,18 @@
   border-color:#ff4b00;
 }
 
+.signup-error-message-container {
+  width:70%;
+  min-width:100px;
+}
+
 .signup-error-message {
   color:#fe0c0b;
-  text-align:center;
+  padding:0px 0px 5px;
+  padding-left:2px;
+  display:inline-block;
+  text-align:left;
+  font-size:14px;
 }
 
 @media only screen and (max-width: 1200px) {
