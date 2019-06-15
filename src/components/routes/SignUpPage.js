@@ -120,11 +120,11 @@ export class SignUpPage extends Component {
             <div className='user-input-container'>
               <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
               {this.state.emailInvalidError &&
-                <span className='signup-error-message'>You must enter a valid email address</span>
+                <span className='signup-error-message'>Use a valid email address</span>
               }
               <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
               {this.state.passwordInvalidError &&
-                <span className='signup-error-message'>Password must contain at least one number, letter, and special symbol</span>
+                <span className='signup-error-message'>Use at least one number, letter, and special symbol</span>
               }
               {this.state.passwordTooShortError &&
                 <span className='signup-error-message'>Use 6 or more characters</span>
