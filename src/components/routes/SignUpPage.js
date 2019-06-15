@@ -136,20 +136,20 @@ export class SignUpPage extends Component {
             <div className='user-input-container'>
               <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
               {this.state.emailEmptyError &&
-                <span>Email field cannot be left blank</span>
+                <span className='signup-error-message'>Email field cannot be left blank</span>
               }              
               {this.state.emailInvalidError &&
-                <span>You must enter a valid email address</span>
+                <span className='signup-error-message'>You must enter a valid email address</span>
               }
               <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
               {this.state.passwordEmptyError &&
-                <span>Password field cannot be left blank</span>
+                <span className='signup-error-message'>Password field cannot be left blank</span>
               }
               {this.state.passwordInvalidError &&
-                <span>Password must contain at least one number, letter, and special symbol</span>
+                <span className='signup-error-message'>Password must contain at least one number, letter, and special symbol</span>
               }
               {this.state.passwordTooShortError &&
-                <span>Password must be at least six characters</span>
+                <span className='signup-error-message'>Use 6 or more characters</span>
               }
               { button }
             </div>
