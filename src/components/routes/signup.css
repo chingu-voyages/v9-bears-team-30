@@ -144,6 +144,11 @@
   width:10px;
 }
 
+.signup-success-message {
+  color: #fff;
+  font-size:16px;
+}
+
 @media only screen and (max-width: 1200px) {
   .signup-page {
     background-image:url(./signup-bg-med-min.jpg);
