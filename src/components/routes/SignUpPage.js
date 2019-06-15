@@ -6,6 +6,7 @@ import { putSignup } from '../../actions/putSignupAction';
 import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { SignupSuccess } frin '/../SignupSuccess';
 
 export class SignUpPage extends Component {
 
@@ -121,36 +122,41 @@ export class SignUpPage extends Component {
 
     return (
       <div className='signup-page'>
-        <div className='signup-container'>
-          <div className='signup-heading-container'>
-            <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
-          </div>
-          <div className='signup-form'>
-            <div className='user-input-container'>
-              <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
-              {this.state.emailInvalidError &&
-                <div className='signup-error-message-container'>
-                  <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
-                  <span className='signup-error-message'>Use a valid email address</span>
-                </div>
-              }
-              <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
-              {this.state.passwordInvalidError &&
-                <div className='signup-error-message-container'>
-                  <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
-                  <span className='signup-error-message'>Use at least one number, letter, and special symbol</span>
-                </div>
-              }
-              {this.state.passwordTooShortError &&
-                <div className='signup-error-message-container'>
-                  <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
-                  <span className='signup-error-message'>Use 6 or more characters</span>
-                </div>
-              }
-              { button }
+        {!this.state.success ? (
+          <div className='signup-container'>
+            <div className='signup-heading-container'>
+              <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
+            </div>
+            <div className='signup-form'>
+              <div className='user-input-container'>
+                <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
+                {this.state.emailInvalidError &&
+                  <div className='signup-error-message-container'>
+                    <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
+                    <span className='signup-error-message'>Use a valid email address</span>
+                  </div>
+                }
+                <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
+                {this.state.passwordInvalidError &&
+                  <div className='signup-error-message-container'>
+                    <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
+                    <span className='signup-error-message'>Use at least one number, letter, and special symbol</span>
+                  </div>
+                }
+                {this.state.passwordTooShortError &&
+                  <div className='signup-error-message-container'>
+                    <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
+                    <span className='signup-error-message'>Use 6 or more characters</span>
+                  </div>
+                }
+                { button }
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <SignupSuccess/>
+        )}
+        
       </div>
     )
   }
