@@ -43,7 +43,7 @@ export class SignUpPage extends Component {
     //call checkErrors to check for empty email/pw
     this.checkErrors();
     //only send post request if forms aren't empty
-    if (this.props.signupEmail && this.props.signupPassword) {
+    if (!this.checkErrors()) {
       this.props.putSignup(this.signupMaker());
     }
   }
@@ -61,24 +61,30 @@ export class SignUpPage extends Component {
   checkErrors() {
     let passwordRegex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
     let emailRegex = /\S+@\S+\.\S+/;
+    let weHaveErrors=false;
 
     if (this.props.signupPassword.length<6) {
       this.setState({
         passwordTooShortError: true
       });
+      weHaveErrors=true;
     }
 
     if (!passwordRegex.test(this.props.signupPassword)) {
       this.setState({
         passwordInvalidError: true
       });
+      weHaveErrors=true;
     }
 
     if (!emailRegex.test(this.props.signupEmail)) {
       this.setState({
         emailInvalidError: true
       });
+      weHaveErrors=true;
     }
+
+    return weHaveErrors;
   }
 
   //resets error message, called from onChange functions
