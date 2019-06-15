@@ -11,8 +11,6 @@ export class SignUpPage extends Component {
     super(props);
 
     this.state = {
-      emailEmptyError: false,
-      passwordEmptyError: false,
       passwordTooShortError: false,
       passwordInvalidError: false,
       emailInvalidError: false
@@ -62,18 +60,6 @@ export class SignUpPage extends Component {
     let passwordRegex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
     let emailRegex = /\S+@\S+\.\S+/;
 
-    if (!this.props.signupEmail) {
-      this.setState({
-        emailEmptyError: true
-      });
-    } 
-
-    if (!this.props.signupPassword) {
-      this.setState({
-        passwordEmptyError: true
-      });
-    }
-
     if (this.props.signupPassword.length<6) {
       this.setState({
         passwordTooShortError: true
@@ -98,8 +84,6 @@ export class SignUpPage extends Component {
     //reset and remove email error message on typing
     if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError) {
       this.setState({
-        emailEmptyError: false,
-        passwordEmptyError: false,
         passwordTooShortError: false,
         passwordInvalidError: false,
         emailInvalidError: false
@@ -134,17 +118,11 @@ export class SignUpPage extends Component {
           </div>
           <div className='signup-form'>
             <div className='user-input-container'>
-              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>
-              {this.state.emailEmptyError &&
-                <span className='signup-error-message'>Email field cannot be left blank</span>
-              }              
+              <input className='signup-input' type='text' placeholder="Email" value={this.props.signupEmail} onChange={this.handleEmailChange}/>       
               {this.state.emailInvalidError &&
                 <span className='signup-error-message'>You must enter a valid email address</span>
               }
               <input className='signup-input' type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
-              {this.state.passwordEmptyError &&
-                <span className='signup-error-message'>Password field cannot be left blank</span>
-              }
               {this.state.passwordInvalidError &&
                 <span className='signup-error-message'>Password must contain at least one number, letter, and special symbol</span>
               }
