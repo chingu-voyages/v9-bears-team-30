@@ -162,6 +162,7 @@ const mapStateToProps = ( state ) => {
     signupEmail: state.signupEmail.signupEmail,
     signupPassword: state.signupPassword.signupPassword,
     saving: state.putSignup.saving,
+    success: state.putSignup.newSignup
     error: state.putSignup.error
   }
 };
