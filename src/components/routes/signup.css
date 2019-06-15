@@ -66,6 +66,7 @@
   margin-bottom:8px;
 }
 
+
 .signup-input:focus {
   background-color:rgba(255, 255, 255, 0.9);
   color:#333;
@@ -120,15 +121,23 @@
 .signup-error-message-container {
   width:70%;
   min-width:100px;
+  margin-bottom:5px;
 }
 
 .signup-error-message {
   color:#fe0c0b;
-  padding:0px 0px 5px;
-  padding-left:2px;
+  padding-bottom:5px;
+  padding-left:5px;
   display:inline-block;
   text-align:left;
   font-size:14px;
+  vertical-align:top;
+  width:90%;
+}
+
+.signup-error-icon {
+  display:inline-block;
+  width:10px;
 }
 
 @media only screen and (max-width: 1200px) {
