@@ -100,6 +100,10 @@ export class SignUpPage extends Component {
     }
   }
 
+  componentWillUpdate() {
+    console.log(this.props.success.length);
+  }
+
   render() {
 
     //make either a button that says "Sign Up" or "Loading..."
@@ -122,7 +126,7 @@ export class SignUpPage extends Component {
 
     return (
       <div className='signup-page'>
-        {this.state.success ? (
+        {this.props.success.length == 0 ? (
           <div className='signup-container'>
             <div className='signup-heading-container'>
               <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>
