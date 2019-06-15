@@ -113,6 +113,11 @@
   border-color:#ff4b00;
 }
 
+.signup-error-message {
+  color:#fe0c0b;
+  text-align:center;
+}
+
 @media only screen and (max-width: 1200px) {
   .signup-page {
     background-image:url(./signup-bg-med-min.jpg);
