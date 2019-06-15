@@ -38,7 +38,7 @@ export class SignUpPage extends Component {
     this.props.changeSignupPassword(event.target.value);
   }
 
-  //when signup is clicked, we send email and password as object to put function
+  //when signup is clicked, we send email and password as object to put function (redux)
   handleClick() {
     //call checkErrors to check for empty email/pw
     this.checkErrors();
@@ -161,7 +161,8 @@ const mapStateToProps = ( state ) => {
   return { 
     signupEmail: state.signupEmail.signupEmail,
     signupPassword: state.signupPassword.signupPassword,
-    saving: state.putSignup.saving
+    saving: state.putSignup.saving,
+    error: state.putSignup.error
   }
 };
 
