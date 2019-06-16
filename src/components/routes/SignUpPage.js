@@ -100,10 +100,6 @@ export class SignUpPage extends Component {
     }
   }
 
-  componentWillUpdate() {
-    console.log(this.props.success.length);
-  }
-
   render() {
 
     //make either a button that says "Sign Up" or "Loading..."
