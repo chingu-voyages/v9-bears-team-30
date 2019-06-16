@@ -64,7 +64,7 @@ export class SignUpPage extends Component {
 
   //check for empty fields, too short pw, invalid pw
   checkErrors() {
-    let passwordRegex = RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
+    let passwordRegex = RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})");
     let emailRegex = /\S+@\S+\.\S+/;
     let weHaveErrors=false;
 
@@ -103,10 +103,6 @@ export class SignUpPage extends Component {
         emailTakenError: false
       });
     }
-  }
-
-  componentWillUpdate() {
-    console.log(this.props.error)
   }
 
   render() {
