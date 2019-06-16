@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Black+Ops+One|Quantico|Aldrich|Wallpoet');
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    margin-top: 0;
+    height: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+    display: inline;
+    position: relative;
+    /* color: #49fb35; */
+    color: white;
+    font-family: "Wallpoet"
+}
+
+.nav-right {
+    display: inline;
+    position: relative;
+    
+}
+
+li {
+    display: inline;
+    font-family: "Quantico";
+    color: white;
+    padding-left: 30px;
+    text-decoration: none;
+}
+.link-text:hover {
+    color: #49fb35;
+}
