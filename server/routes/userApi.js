@@ -7,7 +7,7 @@ router.get("/api/thoseguys", async (req, res) => {
   const userdata = await User.find({}, (err, docs) => {
     if (err) return console.error(err);
     if (docs) {
-      console.log("Found users")
+      //console.log("Found users")
     }
   })
   if (userdata) {
@@ -20,20 +20,31 @@ router.get("/api/thoseguys", async (req, res) => {
 
 router.post("/api/new-user", function (req, res) {
 
-  let newUser = new User({
-    username: 'temp',
-    email: req.body.emailAndPassword.signupEmail,
-    password: req.body.emailAndPassword.signupPassword
+  let findExistingUser = User.findOne(
+    { email: req.body.emailAndPassword.signupEmail }
+  ).then(function(data) {
+    //return an error is username is already in collection
+    if (data) {
+      return res.status(400).send({error: 'username already exists'});
+    } else {
+      //make the object to store
+      let newUser = new User({
+        username: 'temp',
+        email: req.body.emailAndPassword.signupEmail,
+        password: req.body.emailAndPassword.signupPassword
+      });
+      
+      //save the new object
+      newUser.save((err, response) => {
+        if (err) {
+          return res.json({ success: false, error: err });
+        }
+        return res.send(response);
+      });
+    }
   });
-
-  newUser.save()
-    .then(() => {
-      res.send('success');
-    })
-    .catch(err => {
-      res.status(400).send(err);
-    });
 });
+
 
 
 
