@@ -15,7 +15,6 @@
 }
 
 .title {
-    display: inline;
     position: relative;
     /* color: #49fb35; */
     color: white;
@@ -23,7 +22,6 @@
 }
 
 .nav-right {
-    display: inline;
     position: relative;
     
 }

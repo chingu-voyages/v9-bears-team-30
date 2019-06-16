@@ -7,9 +7,9 @@ import "./header.css"
 const Header = () => {
     return (
       <div className="header">
-        <div>
+        {/* <div>
           <DrawerToggleButton />
-        </div>
+        </div> */}
         <h1 className="title">Climate Spy</h1>
         <div className="nav-right">
           <ul>
