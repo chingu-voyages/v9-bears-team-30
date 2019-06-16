@@ -11,6 +11,8 @@ export const putSignupReducer = (state = {saving: false, newSignup: [], error: n
         saving: true
       };
     case PUT_SIGNUP_SUCCESS:
+
+      console.log('put signup success');
       return {
         ...state,
         saving: false,
@@ -18,6 +20,7 @@ export const putSignupReducer = (state = {saving: false, newSignup: [], error: n
         newSignup: [...state.newSignup, action.payload]
       };
     case PUT_SIGNUP_FAILURE:
+      console.log('put signup fail');
       return {
         ...state,
         saving: false,

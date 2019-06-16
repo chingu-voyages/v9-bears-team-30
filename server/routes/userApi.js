@@ -26,7 +26,8 @@ router.post("/api/new-user", function (req, res) {
     //return an error is username is already in collection
     if (data) {
       console.log('already here');
-      return res.send({error: 'username already exists'});
+      console.log(data);
+      return res.status(400).send({error: 'username already exists'});
     } else {
       //make the object to store
       let newUser = new User({
