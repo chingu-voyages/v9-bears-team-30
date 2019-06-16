@@ -21,7 +21,7 @@ export const putSignupReducer = (state = {saving: false, newSignup: [], error: n
       return {
         ...state,
         saving: false,
-        error: action.payload.error
+        error: action.payload.error.response.data
       };
     default:
       return state;

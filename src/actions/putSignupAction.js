@@ -19,7 +19,7 @@ export const putSignup = (emailAndPassword) => {
 			dispatch(putSignupSucess(res.data));
 		})
 		.catch(err => {
-			dispatch(putSignupFailure(err.response.data.message));
+			dispatch(putSignupFailure(err));
 		});
 	};
 };
