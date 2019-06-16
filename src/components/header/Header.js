@@ -4,16 +4,16 @@ import { NavLink } from "react-router-dom"
 import DrawerToggleButton from "../sidedrawer/DrawerToggleButton"
 import "./header.css"
 
-const Header = () => {
+const Header = (props) => {
     return (
       <div className="header">
-        {/* <div>
-          <DrawerToggleButton />
-        </div> */}
+        <div>
+          <DrawerToggleButton click={props.drawerClickHandler} />
+        </div>
         <h1 className="title">Climate Spy</h1>
         <div className="nav-right">
           <ul>
-            <li>
+            <li className="nav-link">
               <NavLink
                 to="/signup"
                 style={{ color: `white`, textDecoration: `none` }}
@@ -21,7 +21,7 @@ const Header = () => {
                 <span className="link-text">Sign Up</span>
               </NavLink>
             </li>
-            <li>
+            <li className="nav-link">
               <NavLink
                 to="/users"
                 style={{ color: `white`, textDecoration: `none` }}
