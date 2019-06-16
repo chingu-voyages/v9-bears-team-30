@@ -140,6 +140,12 @@ export class SignUpPage extends Component {
                     <span className='signup-error-message'>Use a valid email address</span>
                   </div>
                 }
+                {this.props.error &&                  
+                  <div className='signup-error-message-container'>
+                    <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
+                    <span className='signup-error-message'>Email address already taken</span>
+                  </div>
+                }
                 <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signupPassword} onChange={this.handlePasswordChange}/>
                 {this.state.passwordInvalidError &&
                   <div className='signup-error-message-container'>
