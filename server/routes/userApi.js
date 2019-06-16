@@ -20,7 +20,7 @@ router.get("/api/thoseguys", async (req, res) => {
 
 router.post("/api/new-user", function (req, res) {
 
-  let findExistingUser = Links.findOne(
+  let findExistingUser = User.findOne(
     { email: req.body.emailAndPassword.signupEmail }
   ).then(function(data) {
     //return an error is username is already in collection
