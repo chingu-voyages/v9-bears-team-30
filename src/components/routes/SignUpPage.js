@@ -108,7 +108,7 @@ export class SignUpPage extends Component {
 
     //make either a button that says "Sign Up" or "Loading..."
     let button;
-    let inputErrorClass = this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError ? 'signup-input-error' : null;
+    let inputErrorClass = this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError || this.props.error ? 'signup-input-error' : null;
 
     if (this.props.saving) {
       button = (
@@ -140,7 +140,7 @@ export class SignUpPage extends Component {
                     <span className='signup-error-message'>Use a valid email address</span>
                   </div>
                 }
-                {this.props.error &&                  
+                {this.props.error &&
                   <div className='signup-error-message-container'>
                     <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
                     <span className='signup-error-message'>Email address already taken</span>
