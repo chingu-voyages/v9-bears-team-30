@@ -8,7 +8,6 @@ class WorldMap extends Component {
         super();
         this.state = {
             worlddata: [],
-            tokyotemp: 0,
             cities: [
                 {
                     name: "Tokyo",
@@ -231,7 +230,7 @@ class WorldMap extends Component {
                                     fill={this.textColor(city.temp)}
                                     onClick={() => this.handleMarkerClick(i)}
                                 >
-                                    {city.name} {city.temp} &#8451;
+                                    {city.name} {city.temp} &#176;C
                                 </text>
                             </svg>
                         ))}
