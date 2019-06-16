@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron');
+body {
+  overflow-x: hidden;
+}
+
+.map-wrapper {
+  background: black;
+}
+
+.temp-text {
+  font-size: 10px;
+  font-family: "Orbitron";
+}
