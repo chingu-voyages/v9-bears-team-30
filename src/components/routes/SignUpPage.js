@@ -16,7 +16,8 @@ export class SignUpPage extends Component {
     this.state = {
       passwordTooShortError: false,
       passwordInvalidError: false,
-      emailInvalidError: false
+      emailInvalidError: false,
+      emailTakenError: true
     }
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -41,11 +42,14 @@ export class SignUpPage extends Component {
 
   //when signup is clicked, we send email and password as object to put function (redux)
   handleClick() {
-    //call checkErrors to check for empty email/pw
+    //call checkErrors to check for pre-post errors
     this.checkErrors();
-    //only send post request if forms aren't empty
+    //only send post request if no pre-post errors
     if (!this.checkErrors()) {
       this.props.putSignup(this.signupMaker());
+      this.setState({
+        emailTakenError: true
+      })
     }
   }
 
@@ -91,11 +95,12 @@ export class SignUpPage extends Component {
   //resets error message, called from onChange functions
   resetErrors() {    
     //reset and remove email error message on typing
-    if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError) {
+    if (this.state.emailEmptyError || this.state.passwordEmptyError || this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError || this.props.error) {
       this.setState({
         passwordTooShortError: false,
         passwordInvalidError: false,
-        emailInvalidError: false
+        emailInvalidError: false,
+        emailTakenError: false
       });
     }
   }
@@ -109,6 +114,14 @@ export class SignUpPage extends Component {
     //make either a button that says "Sign Up" or "Loading..."
     let button;
     let inputErrorClass = this.state.passwordTooShortError || this.state.passwordInvalidError || this.state.emailInvalidError || this.props.error ? 'signup-input-error' : null;
+    let emailError;
+
+    //shows email taken error when we have that error, we're not awaiting a post request, and we're not typing
+    if (this.state.emailTakenError && this.props.error && !this.props.saving) {
+      emailError=true;
+    } else if (!this.state.emailTakenError && this.props.error) {
+      emailError=false;
+    }
 
     if (this.props.saving) {
       button = (
@@ -140,7 +153,7 @@ export class SignUpPage extends Component {
                     <span className='signup-error-message'>Use a valid email address</span>
                   </div>
                 }
-                {this.props.error &&
+                {emailError &&
                   <div className='signup-error-message-container'>
                     <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
                     <span className='signup-error-message'>Email address already taken</span>
