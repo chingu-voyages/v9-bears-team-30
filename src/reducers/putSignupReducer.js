@@ -13,6 +13,7 @@ export const putSignupReducer = (state = {saving: false, newSignup: [], error: n
     case PUT_SIGNUP_SUCCESS:
 
       console.log('put signup success');
+      console.log(action);
       return {
         ...state,
         saving: false,
@@ -21,10 +22,11 @@ export const putSignupReducer = (state = {saving: false, newSignup: [], error: n
       };
     case PUT_SIGNUP_FAILURE:
       console.log('put signup fail');
+      console.log(action.payload.error.response.data);
       return {
         ...state,
         saving: false,
-        error: action.payload.error
+        error: action.payload.error.response.data
       };
     default:
       return state;

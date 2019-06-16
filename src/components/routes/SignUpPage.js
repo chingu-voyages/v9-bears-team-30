@@ -101,7 +101,7 @@ export class SignUpPage extends Component {
   }
 
   componentWillUpdate() {
-    console.log(this.props.success.length)
+    console.log(this.props.error)
   }
 
   render() {
