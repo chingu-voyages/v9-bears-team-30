@@ -13,6 +13,7 @@ const SideDrawer = (props) => {
 
     return (
       <nav className="side-drawer">
+        <h1>Climate Spy</h1>
         <ul>
           <li className="drawer-links">
             <Link

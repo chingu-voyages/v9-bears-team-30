@@ -23,6 +23,10 @@
     z-index: 200;
 }
 
+h1 {
+    font-family: "Wallpoet"
+}
+
 ul {
     list-style: none;
     height: 100%;
