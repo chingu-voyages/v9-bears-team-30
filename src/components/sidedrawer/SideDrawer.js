@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -6,13 +6,18 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import "./sideDrawer.css"
 
 const SideDrawer = (props) => {
-    let drawerClasses = "side-drawer"
-    if (props.show) {
-        drawerClasses = "side-drawer", "open"
+    const [drawerClass, setDrawerClass] = useState(props.drawer)
+    
+    const closeClickHandler = (e) => {
+      e.preventDefault()
+      setDrawerClass("side-drawer close")
+      setTimeout(() => {
+        props.click()
+      }, 520)
     }
 
     return (
-      <nav className="side-drawer">
+      <nav className={drawerClass}>
         <h1>Climate Spy</h1>
         <ul>
           <li className="drawer-links">
@@ -32,7 +37,7 @@ const SideDrawer = (props) => {
             </Link>
           </li>
           <li>
-            <button className="close-button" onClick={props.closeClickHandler}>
+            <button className="close-button" onClick={closeClickHandler}>
               <FontAwesomeIcon
                 className="left-arrow-icon"
                 icon={faArrowAltCircleLeft}

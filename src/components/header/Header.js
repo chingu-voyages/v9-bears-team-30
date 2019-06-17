@@ -10,27 +10,32 @@ const Header = (props) => {
         <div>
           <DrawerToggleButton click={props.drawerClickHandler} />
         </div>
-        <h1 className="title">Climate Spy</h1>
-        <div className="nav-right">
-          <ul>
-            <li className="nav-link">
-              <NavLink
-                to="/signup"
-                style={{ color: `white`, textDecoration: `none` }}
-              >
-                <span className="link-text">Sign Up</span>
-              </NavLink>
-            </li>
-            <li className="nav-link">
-              <NavLink
-                to="/users"
-                style={{ color: `white`, textDecoration: `none` }}
-              >
-                <span className="link-text">Users</span>
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <nav>
+          <div className="logo">
+            <NavLink to="/" className="title">Climate Spy</NavLink>
+          </div>
+          <div className="spacer"></div>
+          <div className="nav-right">
+            <ul className="links">
+              <li className="nav-link">
+                <NavLink
+                  to="/signup"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text">Sign Up</span>
+                </NavLink>
+              </li>
+              <li className="nav-link">
+                <NavLink
+                  to="/users"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text">Users</span>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
     );
 }

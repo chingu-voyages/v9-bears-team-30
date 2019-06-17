@@ -12,10 +12,11 @@ const DrawerToggleButton = (props) => {
         icon={faBars}
         size="2x"
         transform="shrink-1"
-        color="#fe0c0b"
+        color="#49fb35"
         />
       </button>
     );
 }
 
 export default DrawerToggleButton
+
