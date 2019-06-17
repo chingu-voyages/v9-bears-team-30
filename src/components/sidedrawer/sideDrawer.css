@@ -35,6 +35,7 @@ li {
 .close-button {
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .side-drawer.open {
