@@ -1,0 +1,76 @@
+.toggle-button {
+    display: none;
+    cursor: pointer;
+    background: transparent; 
+    border: none;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.side-drawer {
+    position: absolute;
+    display: block;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: -100%;
+    width: 70%;
+    max-width: 400px;
+    font-family: "Quantico";
+    font-size: 2rem;
+    padding-top: 100px;
+    padding-left: 30px;
+    z-index: 200;
+    animation: slide-open 0.5s forwards;
+}
+
+.side-drawer.close {
+    position: absolute;
+    display: block;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    font-family: "Quantico";
+    font-size: 2rem;
+    padding-top: 100px;
+    padding-left: 30px;
+    z-index: 200;
+    animation: slide-closed 0.5s forwards;
+}
+
+@keyframes slide-open {
+    100% { left: 0; }
+}
+@keyframes slide-closed {
+    100% { left: -100%; }
+}
+
+h1 {
+    font-family: "Wallpoet"
+}
+
+ul {
+    list-style: none;
+    height: 100%;
+}
+
+li {
+    margin-top: 30px;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .toggle-button{display: block;}
+}
