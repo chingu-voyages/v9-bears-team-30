@@ -29,7 +29,12 @@ div {
     overflow: hidden;
 }
 
+html {
+    height: 100%
+}
+
 body {
+    height: 100%;
     background: rgb(148, 192, 236);
 }
 
@@ -37,16 +42,6 @@ h1, h2, p {
     margin-left: 5%;
 }
 
-.header {
-    margin-top: 0;
-    height: 100px;
-    background: black;
-}
-
-.title {
-    margin-top: 35px;
-    color: white;
-}
 
 #info {
     margin-top: 30px;
