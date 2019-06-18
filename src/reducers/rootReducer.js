@@ -13,6 +13,6 @@ export const rootReducer = combineReducers({
 	signupPassword: signupPasswordReducer,
 	putSignup: putSignupReducer,
 	signinEmail: signinEmailReducer,
-	signinPassword: signinPasswordReducer
+	signinPassword: signinPasswordReducer,
 	getSignup: getSigninReducer
 });
