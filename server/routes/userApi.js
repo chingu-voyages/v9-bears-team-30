@@ -19,7 +19,6 @@ router.get("/api/thoseguys", async (req, res) => {
 })
 
 router.post("/api/new-user", function (req, res) {
-
   let findExistingUser = User.findOne(
     { email: req.body.emailAndPassword.signupEmail }
   ).then(function(data) {
