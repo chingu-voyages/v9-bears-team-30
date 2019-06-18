@@ -16,7 +16,7 @@ export class SigninSuccess extends Component {
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message'>Thank you for joining ClimateSpy!</p>
+            <p className='signup-success-message'>Thank you for signing in!</p>
             <a className='signup-success-link' href="">Go back</a>
           </div>
         </div>

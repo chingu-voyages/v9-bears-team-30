@@ -45,21 +45,22 @@ router.post("/api/new-user", function (req, res) {
 });
 
 router.get("/api/signin", function (req, res) {
+  console.log(req.query);
   let findExistingUser = User.findOne(
     { 
-      email: req.body.emailAndPassword.signinEmail,
-      password: req.body.emailAndPassword.signinPassword
+      email: req.query.email,
+      password: req.query.password
     }
-  ).then(function(data) {
-    //return an error is username or password is not already in collection
-    if (!data) {
-      return res.status(400).send({error: 'username or password not found'});
-    } else {
-      return res.status(200).send(data);
-    }
-  });
+  ).then(function (data) {
+        if(!data) {
+          console.log('got an error: ' + data);
+          return res.status(400).send({data});
+        } else {
+          console.log('got some data: ' + JSON.stringify(data));
+          return res.send(data);
+        }
+      });
 });
-
 
 
 
