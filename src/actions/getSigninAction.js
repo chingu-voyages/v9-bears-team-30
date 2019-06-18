@@ -21,9 +21,11 @@ export const getSignin = (emailAndPassword) => {
 			}
 		})
 		.then(res => {
+			console.log('success');
 			dispatch(getSigninSucess(res.data));
 		})
 		.catch(err => {
+			console.log('fail');
 			dispatch(getSigninFailure(err));
 		});
 	};

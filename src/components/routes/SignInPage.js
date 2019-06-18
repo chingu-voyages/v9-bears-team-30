@@ -13,26 +13,19 @@ export class SignInPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      invalidEmailOrPassword: false
-    }
-
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.signinMaker = this.signinMaker.bind(this);
-    this.resetErrors = this.resetErrors.bind(this);
   }
 
-  //whenever user changes email input, removes error messages and calls action to update store
+  //whenever user changes email input, calls action to update store
   handleEmailChange(event) {
-    this.resetErrors();
     this.props.changeSigninEmail(event.target.value);
   }
 
-  //whenever user changes password input, removes error messages and calls action to update store
-  handlePasswordChange(event) {    
-    this.resetErrors();
+  //whenever user changes password input, calls action to update store
+  handlePasswordChange(event) {
     this.props.changeSigninPassword(event.target.value);
   }
 
@@ -50,20 +43,11 @@ export class SignInPage extends Component {
     return newSignin;
   }
 
-  //resets error message, called from onChange functions to remove  error message on typing
-  resetErrors() {
-    if (this.state.invalidEmailOrPassword) {
-      this.setState({
-        invalidEmailOrPassword: false
-      });
-    }
-  }
-
   render() {
 
     //make either a button that says "Sign Up" or "Loading..."
     let button;
-    let inputErrorClass = this.state.invalidEmailOrPassword;
+    let inputErrorClass = this.props.error;
 
     if (this.props.saving) {
       button = (
@@ -89,8 +73,8 @@ export class SignInPage extends Component {
             <div className='signup-form'>
               <div className='user-input-container'>
                 <input className='signup-input' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
-                <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
-                {this.state.invalidEmailOrPassword &&
+                <input className='signup-input' type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
+                {this.props.error &&
                   <div className='signup-error-message-container'>
                     <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
                     <span className='signup-error-message'>The username or password did not match. Please try again.</span>
