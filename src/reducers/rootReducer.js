@@ -14,5 +14,5 @@ export const rootReducer = combineReducers({
 	putSignup: putSignupReducer,
 	signinEmail: signinEmailReducer,
 	signinPassword: signinPasswordReducer,
-	getSignup: getSigninReducer
+	getSignin: getSigninReducer
 });
