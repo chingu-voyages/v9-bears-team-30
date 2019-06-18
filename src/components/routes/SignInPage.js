@@ -7,7 +7,7 @@ import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SigninSuccess } from '../SigninSuccess';
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 export class SignInPage extends Component {
 

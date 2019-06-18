@@ -7,6 +7,7 @@ import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SignupSuccess } from '../SignupSuccess';
+import { NavLink } from "react-router-dom";
 
 export class SignUpPage extends Component {
 
@@ -169,6 +170,14 @@ export class SignUpPage extends Component {
                   </div>
                 }
                 { button }
+                <div className='signup-signin-link-container'>
+                  <span className='signup-signin-link-text'>
+                    Already a member? 
+                    <NavLink to="/signin" className="signup-signin-link">
+                      <span> Sign in</span>
+                    </NavLink>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
