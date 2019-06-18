@@ -3,7 +3,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import Home from "./home";
 import User from "./Users";
-import SignUpPage from "./SignUpPage"
+import SignUpPage from "./SignUpPage";
+import SignInPage from "./SignInPage";
 
 export default () => {
   return (
@@ -11,6 +12,7 @@ export default () => {
       <Route exact path="/" component={Home} />
       <Route path="/users" component={User} />
       <Route path="/signup" component={SignUpPage} />
+      <Route path="/signin" component={SignInPage} />
     </BrowserRouter>
   );
 };
