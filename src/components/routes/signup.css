@@ -162,6 +162,18 @@
   color:white;
 }
 
+.signup-signin-link-container {
+  margin-top:13.33px;
+  font-size:13.33px;
+  color:#CCC;
+  font-family: 'Arial';
+}
+
+.signup-signin-link {
+  color:#EEE;
+  text-decoration:none;
+}
+
 @media only screen and (max-width: 1200px) {
   .signup-page {
     background-image:url(./signup-bg-med-min.jpg);

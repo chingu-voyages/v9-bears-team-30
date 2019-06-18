@@ -7,6 +7,7 @@ import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SignupSuccess } from '../SignupSuccess';
+import { NavLink } from "react-router-dom";
 
 export class SignUpPage extends Component {
 
@@ -42,8 +43,6 @@ export class SignUpPage extends Component {
 
   //when signup is clicked, we send email and password as object to put function (redux)
   handleClick() {
-    //call checkErrors to check for pre-post errors
-    this.checkErrors();
     //only send post request if no pre-post errors
     if (!this.checkErrors()) {
       this.props.putSignup(this.signupMaker());
@@ -169,6 +168,15 @@ export class SignUpPage extends Component {
                   </div>
                 }
                 { button }
+                <div className='signup-signin-link-container'>
+                  <span className='signup-signin-link-text'>
+                    Already a member? 
+                    <NavLink to="/signin" className="signup-signin-link">
+                      <span> Sign in</span>
+                    </NavLink>
+                    .
+                  </span>
+                </div>
               </div>
             </div>
           </div>
