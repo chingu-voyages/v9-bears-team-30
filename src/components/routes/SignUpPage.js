@@ -43,8 +43,6 @@ export class SignUpPage extends Component {
 
   //when signup is clicked, we send email and password as object to put function (redux)
   handleClick() {
-    //call checkErrors to check for pre-post errors
-    this.checkErrors();
     //only send post request if no pre-post errors
     if (!this.checkErrors()) {
       this.props.putSignup(this.signupMaker());
