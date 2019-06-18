@@ -24,13 +24,13 @@ export class SignInPage extends Component {
     this.resetErrors = this.resetErrors.bind(this);
   }
 
-  //whenever user changes email inget, removes error messages and calls action to update store
+  //whenever user changes email input, removes error messages and calls action to update store
   handleEmailChange(event) {
     this.resetErrors();
     this.props.changeSigninEmail(event.target.value);
   }
 
-  //whenever user changes password inget, removes error messages and calls action to update store
+  //whenever user changes password input, removes error messages and calls action to update store
   handlePasswordChange(event) {    
     this.resetErrors();
     this.props.changeSigninPassword(event.target.value);
@@ -63,7 +63,7 @@ export class SignInPage extends Component {
 
     //make either a button that says "Sign Up" or "Loading..."
     let button;
-    let ingetErrorClass = this.state.invalidEmailOrPassword;
+    let inputErrorClass = this.state.invalidEmailOrPassword;
 
     if (this.props.saving) {
       button = (
@@ -87,9 +87,9 @@ export class SignInPage extends Component {
               <h1 className='signup-heading-h1'>Log In</h1>
             </div>
             <div className='signup-form'>
-              <div className='user-inget-container'>
-                <inget className='signup-inget' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
-                <inget className={'signup-inget ' + ingetErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
+              <div className='user-input-container'>
+                <input className='signup-input' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
+                <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
                 {this.state.invalidEmailOrPassword &&
                   <div className='signup-error-message-container'>
                     <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
