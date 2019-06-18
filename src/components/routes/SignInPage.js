@@ -7,6 +7,7 @@ import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SigninSuccess } from '../SigninSuccess';
+import { NavLink } from "react-router-dom"
 
 export class SignInPage extends Component {
 
@@ -81,6 +82,14 @@ export class SignInPage extends Component {
                   </div>
                 }
                 { button }
+                <div className='signup-signin-link-container'>
+                  <span className='signup-signin-link-text'>
+                    New to ClimateSpy? 
+                    <NavLink to="/signup" className="signup-signin-link">
+                      <span> Create an account.</span>
+                    </NavLink>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
