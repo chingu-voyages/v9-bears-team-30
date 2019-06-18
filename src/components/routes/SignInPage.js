@@ -86,8 +86,9 @@ export class SignInPage extends Component {
                   <span className='signup-signin-link-text'>
                     New to ClimateSpy? 
                     <NavLink to="/signup" className="signup-signin-link">
-                      <span> Create an account.</span>
+                      <span> Create an account</span>
                     </NavLink>
+                    .
                   </span>
                 </div>
               </div>

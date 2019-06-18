@@ -176,6 +176,7 @@ export class SignUpPage extends Component {
                     <NavLink to="/signin" className="signup-signin-link">
                       <span> Sign in</span>
                     </NavLink>
+                    .
                   </span>
                 </div>
               </div>
