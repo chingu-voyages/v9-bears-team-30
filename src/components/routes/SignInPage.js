@@ -64,7 +64,7 @@ export class SignInPage extends Component {
     }    
 
     return (
-      <div className='signup-page'>
+      <div className='signup-page signin-page'>
         {this.props.success.length == 0 ? (
           <div className='signup-container'>
             <div className='signup-heading-container'>

@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.signin-page {  
+  background-image: url(./signin-bg-large-min.jpg);
+}
+
 .signup-container {  
   width:400px;
   max-width:95%;
@@ -162,11 +166,19 @@
   .signup-page {
     background-image:url(./signup-bg-med-min.jpg);
   }  
+
+  .signin-page {    
+    background-image:url(./signin-bg-med-min.jpg);
+  }
 }
 
 @media only screen and (max-width: 500px) {
   .signup-page {
     background-image:url(./signup-bg-small-min.jpg);
+  }
+
+  .signin-page {    
+    background-image:url(./signin-bg-small-min.jpg);
   }
 
   .signup-heading-h1 {
