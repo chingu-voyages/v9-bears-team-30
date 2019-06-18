@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeSigninEmail } from '../../actions/changeSigninEmailAction';
 import { changeSigninPassword } from '../../actions/changeSigninPasswordAction';
-import { putSignin } from '../../actions/putSigninAction';
-import './signin.css';
+import { getSignin } from '../../actions/getSigninAction';
+import './signup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SigninSuccess } from '../SigninSuccess';
@@ -130,7 +130,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(changeSigninPassword(signinPassword))
     },
     putSignin: (emailAndPassword) => {
-      dispatch(putSignin(emailAndPassword))
+      dispatch(getSignin(emailAndPassword))
     }
   }
 };
