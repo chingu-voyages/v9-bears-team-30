@@ -197,3 +197,14 @@
     padding: 40px 20px 15px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .signup-heading-h1 {
+    padding: 10px 10px 15px;
+    font-size:30px;
+  }
+
+  .signup-form {
+    padding: 20px 0px;
+  }
+}
