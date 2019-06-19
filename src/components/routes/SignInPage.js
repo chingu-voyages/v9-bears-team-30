@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { SigninSuccess } from '../SigninSuccess';
 import { NavLink } from "react-router-dom";
+import Layout from "../layouts/layout";
 
 export class SignInPage extends Component {
 
@@ -65,40 +66,42 @@ export class SignInPage extends Component {
     }    
 
     return (
-      <div className='signup-page signin-page'>
-        {this.props.success.length == 0 ? (
-          <div className='signup-container'>
-            <div className='signup-heading-container'>
-              <h1 className='signup-heading-h1'>Log In</h1>
-            </div>
-            <div className='signup-form'>
-              <div className='user-input-container'>
-                <input className='signup-input' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
-                <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
-                {this.props.error &&
-                  <div className='signup-error-message-container'>
-                    <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
-                    <span className='signup-error-message'>The username or password did not match. Please try again.</span>
+      <Layout>
+        <div className='signup-page signin-page'>
+          {this.props.success.length == 0 ? (
+            <div className='signup-container'>
+              <div className='signup-heading-container'>
+                <h1 className='signup-heading-h1'>Log In</h1>
+              </div>
+              <div className='signup-form'>
+                <div className='user-input-container'>
+                  <input className='signup-input' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
+                  <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
+                  {this.props.error &&
+                    <div className='signup-error-message-container'>
+                      <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
+                      <span className='signup-error-message'>The username or password did not match. Please try again.</span>
+                    </div>
+                  }
+                  { button }
+                  <div className='signup-signin-link-container'>
+                    <span className='signup-signin-link-text'>
+                      New to ClimateSpy? 
+                      <NavLink to="/signup" className="signup-signin-link">
+                        <span> Create an account</span>
+                      </NavLink>
+                      .
+                    </span>
                   </div>
-                }
-                { button }
-                <div className='signup-signin-link-container'>
-                  <span className='signup-signin-link-text'>
-                    New to ClimateSpy? 
-                    <NavLink to="/signup" className="signup-signin-link">
-                      <span> Create an account</span>
-                    </NavLink>
-                    .
-                  </span>
                 </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <SigninSuccess/>
-        )}
-        
-      </div>
+          ) : (
+            <SigninSuccess/>
+          )}
+          
+        </div>
+      </Layout>
     )
   }
 }
