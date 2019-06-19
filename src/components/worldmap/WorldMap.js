@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
 import "./worldmap.css"
 
 class WorldMap extends Component {
@@ -235,7 +237,18 @@ class WorldMap extends Component {
                             </svg>
                         ))}
                     </g>
+                    <g className="more-info">
+                        <text
+                            className="bottom-text"
+                            x="40%"
+                            y="75%"
+                            fill="white"
+                            >
+                           ↓ Search Options ↓
+                        </text>
+                    </g>
                 </svg>
+                <div id="bottom"/>
             </div>
         );
     }

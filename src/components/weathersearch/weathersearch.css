@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron');
+.search-wrapper {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    font-family: "Orbitron"
+}
+
+h3 {
+    color: white;
+}
+
+.weather-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.temp {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
