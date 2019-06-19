@@ -47,5 +47,14 @@ nav {
 
 @media only screen and (max-width: 600px) {
     .nav-right{display: none;}
+
+    .header {
+        height:60px;        
+    }
 }
 
+@media only screen and (max-width: 350px) {
+    .title {
+        font-size:2.2rem;
+    }
+}
