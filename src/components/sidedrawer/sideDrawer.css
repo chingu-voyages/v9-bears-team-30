@@ -21,7 +21,6 @@
     max-width: 400px;
     font-family: "Quantico";
     font-size: 2rem;
-    padding-top: 100px;
     padding-left: 30px;
     z-index: 200;
     animation: slide-open 0.5s forwards;
@@ -39,7 +38,6 @@
     max-width: 400px;
     font-family: "Quantico";
     font-size: 2rem;
-    padding-top: 100px;
     padding-left: 30px;
     z-index: 200;
     animation: slide-closed 0.5s forwards;
@@ -53,12 +51,12 @@
 }
 
 h1 {
-    font-family: "Wallpoet"
+    font-family: "Wallpoet";
+    padding-top:100px;
 }
 
 ul {
     list-style: none;
-    height: 100%;
 }
 
 li {
@@ -73,4 +71,5 @@ li {
 
 @media only screen and (max-width: 600px) {
     .toggle-button{display: block;}
+
 }
