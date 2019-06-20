@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import "../weathersearch/weathersearch.css"
 
 const WeatherSearch = () => {
+//   const cites = ["Tokyo", "Jakarta", "Delhi", "Beijing", "New York", "Sao Paulo", "Mexico City", "Moscow", "Riyadh", "Los Angeles", "Bangkok", "Buenos Aires", "Fairbanks", "Marrakech", "Cape Town", "Milan", "Kinshasa", "Warsaw", "Winnipeg", "Melbourne"]
   const [coordinates, setCoordinates] = useState({ latitude: 51.509865, longitude: -0.118092})
   const [city, setCity] = useState("")  
   const [weather, setWeather] = useState({
@@ -15,10 +16,6 @@ const WeatherSearch = () => {
       skies: ""
     })
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-        const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
-        setCoordinates(localCoordinates)
-    })
 
     const onSubmit = async (event) => {
         event.preventDefault()
@@ -39,6 +36,37 @@ const WeatherSearch = () => {
                         skies: weatherdata.weather[0].description
                     }
                     setWeather(weatherUpdate)
+                })
+            })
+    }
+    const onSubmit2 = async (event) => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
+            setCoordinates(localCoordinates)
+        })
+
+        console.log(coordinates)
+
+
+        event.preventDefault()
+        await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
+            .then(response => {
+                if (response.status !== 200) {
+                    console.log(`There was a problem: ${response.status}`);
+                    return;
+                }
+                response.json().then((weatherdata) => {
+                    const weatherUpdate = {
+                        location: weatherdata.name,
+                        country: weatherdata.sys.country,
+                        currentTemp: weatherdata.main.temp,
+                        maxTemp: weatherdata.main.temp_max,
+                        minTemp: weatherdata.main.temp_min,
+                        humidity: weatherdata.main.humidity,
+                        skies: weatherdata.weather[0].description
+                    }
+                    setWeather(weatherUpdate)
+                    console.log(weather)
                 })
             })
     }
@@ -67,6 +95,8 @@ const WeatherSearch = () => {
         }
         fetchData()         
     },[coordinates])
+
+    console.log(weather)
 
     return (
         <div className="search-wrapper">
@@ -111,6 +141,10 @@ const WeatherSearch = () => {
                 <button type="submit" onClick={onSubmit}>
                     Get Weather
                 </button>
+                <button type="submit" onClick={onSubmit2}>
+                    Get My Weather
+                </button>
+
             </div>
         </div>
     )

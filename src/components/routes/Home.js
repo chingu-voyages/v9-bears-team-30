@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <Layout>
             <WorldMap />
-            <WeatherSearch />
+            {/* <WeatherSearch /> */}
         </Layout>
     )
 }

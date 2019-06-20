@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
 import "./worldmap.css"
 
 class WorldMap extends Component {
@@ -196,7 +194,7 @@ class WorldMap extends Component {
     render() {
         return (
             <div className="map-wrapper">
-                <svg width={`100vw`} height={`120vh`} viewBox="0 0 800 500">
+                <svg width={`100vw`} height={`120vh`} viewBox="0 0 800 450">
                     <g className="countries">
                         {this.state.worlddata.map((d, i) => (
                             <path
@@ -241,7 +239,7 @@ class WorldMap extends Component {
                         <text
                             className="bottom-text"
                             x="40%"
-                            y="75%"
+                            y="80%"
                             fill="white"
                             >
                            ↓ Search Options ↓
