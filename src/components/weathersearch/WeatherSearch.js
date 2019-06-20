@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react"
 import "../weathersearch/weathersearch.css"
 
 const WeatherSearch = () => {
+  const [coordinates, setCoordinates] = useState({ latitude: 51.509865, longitude: -0.118092})
+  const [city, setCity] = useState("")  
   const [weather, setWeather] = useState({
       location: "", 
       country: "",
@@ -13,24 +15,43 @@ const WeatherSearch = () => {
       skies: ""
     })
 
+    navigator.geolocation.getCurrentPosition(function (position) {
+        const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
+        setCoordinates(localCoordinates)
+    })
+
+    const onSubmit = async (event) => {
+        event.preventDefault()
+        await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
+            .then(response => {
+                if (response.status !== 200) {
+                    console.log(`There was a problem: ${response.status}`);
+                    return;
+                }
+                response.json().then((weatherdata) => {
+                    const weatherUpdate = {
+                        location: weatherdata.name,
+                        country: weatherdata.sys.country,
+                        currentTemp: weatherdata.main.temp,
+                        maxTemp: weatherdata.main.temp_max,
+                        minTemp: weatherdata.main.temp_min,
+                        humidity: weatherdata.main.humidity,
+                        skies: weatherdata.weather[0].description
+                    }
+                    setWeather(weatherUpdate)
+                })
+            })
+    }
+
     useEffect(() => {
         const fetchData = async () => {
-            const result = await fetch("http://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&APPID=b224698208e2070675e548d5b0911143")
+            await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
                 .then(response => {
                     if (response.status !== 200) {
                         console.log(`There was a problem: ${response.status}`);
                         return;
                     }
                     response.json().then((weatherdata) => {
-                        // console.log(weatherdata)
-                        // console.log(weatherdata.name)
-                        // console.log(weatherdata.sys.country)
-                        // console.log(Math.round(weatherdata.main.temp))
-                        // console.log(Math.round(weatherdata.main.temp_max))
-                        // console.log(Math.round(weatherdata.main.temp_min))
-                        // console.log(weatherdata.main.humidity)
-                        // console.log(weatherdata.weather[0].description)
-
                         const weatherUpdate = {
                             location: weatherdata.name,
                             country: weatherdata.sys.country,
@@ -40,16 +61,13 @@ const WeatherSearch = () => {
                             humidity: weatherdata.main.humidity,
                             skies: weatherdata.weather[0].description
                         }
-
                         setWeather(weatherUpdate)
-                        //console.log(weather)
                     })
-                })
+                })    
         }
-        fetchData()        
-    }, {})
+        fetchData()         
+    },[coordinates])
 
-    console.log(weather)
     return (
         <div className="search-wrapper">
             <h3>Weather for {weather.location ? weather.location : "Data Loading..."}</h3>
@@ -78,6 +96,21 @@ const WeatherSearch = () => {
                         <p> {weather.skies ? weather.skies : "Data Loading..."}</p>
                     </div>
                 </div>
+            </div>
+            <h3>See Weather Data For Another Location</h3>
+            <div className="form-group">
+                <label htmlFor="city">City (Example: Mumbai)</label>
+                <input 
+                    type="text"
+                    value={city}
+                    onChange={event => {
+                        event.preventDefault()
+                        setCity(event.target.value)
+                    }}
+                />
+                <button type="submit" onClick={onSubmit}>
+                    Get Weather
+                </button>
             </div>
         </div>
     )

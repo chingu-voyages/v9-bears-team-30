@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron');
 .search-wrapper {
-    background: black;
+    background: steelblue;
     display: flex;
     flex-direction: column;
     text-align: center;
     color: white;
-    font-family: "Orbitron"
+    font-family: "Orbitron";
+    border-style: none;
+    border-left: none;
+    border-right: none;
+    border-width: 5px;
+    border-color: white;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 h3 {
-    color: white;
+    color: black;
+    margin-top: 20px;
 }
 
 .weather-data {
@@ -21,4 +29,28 @@ h3 {
     display: flex;
     flex-direction: column;
     padding: 10px;
+}
+
+/* .left {
+    float: right;
+}
+
+.right {
+    float: left;
+} */
+
+.form-group {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+input {
+    margin-left: 10px;
+}
+
+button {
+    margin-left: 10px;
+    background: transparent;
+    color: white;
+    border-radius: 5px;
 }
