@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron|Quantico');
 body {
   overflow-x: hidden;
 }
@@ -14,6 +14,6 @@ body {
 
 .bottom-text {
   font-size: 15px;
-  font-family: "Orbitron";
+  font-family: "Quantico";
 }
 

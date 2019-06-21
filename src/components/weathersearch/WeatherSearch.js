@@ -44,10 +44,7 @@ const WeatherSearch = () => {
             const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
             setCoordinates(localCoordinates)
         })
-
         console.log(coordinates)
-
-
         event.preventDefault()
         await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
             .then(response => {

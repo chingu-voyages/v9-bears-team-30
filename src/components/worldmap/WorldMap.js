@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import "./worldmap.css"
@@ -236,14 +237,16 @@ class WorldMap extends Component {
                         ))}
                     </g>
                     <g className="more-info">
-                        <text
-                            className="bottom-text"
-                            x="40%"
-                            y="80%"
-                            fill="white"
+                        <Link to="./search">
+                            <text
+                                className="bottom-text"
+                                x="2%"
+                                y="60%"
+                                fill="dodgerblue"
                             >
-                           ↓ Search Options ↓
-                        </text>
+                              &#128279; Search Weather by Location
+                            </text>
+                        </Link>  
                     </g>
                 </svg>
                 <div id="bottom"/>
