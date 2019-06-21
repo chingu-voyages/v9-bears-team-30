@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 
-import "../weathersearch/weathersearch.css"
+import Layout from "../../layouts/layout"
+import "./weathersearch.css"
 
 const WeatherSearch = () => {
 //   const cites = ["Tokyo", "Jakarta", "Delhi", "Beijing", "New York", "Sao Paulo", "Mexico City", "Moscow", "Riyadh", "Los Angeles", "Bangkok", "Buenos Aires", "Fairbanks", "Marrakech", "Cape Town", "Milan", "Kinshasa", "Warsaw", "Winnipeg", "Melbourne"]
@@ -19,7 +20,7 @@ const WeatherSearch = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault()
-        await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
+        await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -44,9 +45,10 @@ const WeatherSearch = () => {
             const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
             setCoordinates(localCoordinates)
         })
-        console.log(coordinates)
+        
         event.preventDefault()
-        await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
+        
+        await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -66,11 +68,13 @@ const WeatherSearch = () => {
                     console.log(weather)
                 })
             })
+        
+
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=b224698208e2070675e548d5b0911143`)
+            await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
                 .then(response => {
                     if (response.status !== 200) {
                         console.log(`There was a problem: ${response.status}`);
@@ -88,62 +92,67 @@ const WeatherSearch = () => {
                         }
                         setWeather(weatherUpdate)
                     })
-                })    
+                })
+                
         }
-        fetchData()         
+        fetchData()          
     },[coordinates])
 
     console.log(weather)
 
     return (
-        <div className="search-wrapper">
-            <h3>Weather for {weather.location ? weather.location : "Data Loading..."}</h3>
-            <div className="weather-data">
-                <div className="temp">
+        <Layout>
+            <div className="search-wrapper">
+                <h3 id="title">Weather for {weather.location ? weather.location : "Data Loading..."}</h3>
+                <div className="weather-data">
                     <div className="temp">
-                        <h3>Current Temperature</h3>
-                        <p> {weather.currentTemp ? Math.round(weather.currentTemp) : "Data Loading..."} &#176;C</p>
+                        <div className="temp">
+                            <h3>Current Temperature</h3>
+                            <p> {weather.currentTemp ? Math.round(weather.currentTemp) : "Data Loading..."} &#176;C</p>
+                        </div>
+                        <div className="temp">
+                            <h3>Today&apos;s Minimum</h3>
+                            <p> {weather.minTemp ? Math.round(weather.minTemp) : "Data Loading..."} &#176;C</p>
+                        </div>
+                        <div className="temp">
+                            <h3>Today&apos;s Maximum</h3>
+                            <p> {weather.maxTemp ? Math.round(weather.maxTemp) : "Data Loading..."} &#176;C</p>
+                        </div>
                     </div>
                     <div className="temp">
-                        <h3>Today&apos;s Minimum</h3>
-                        <p> {weather.minTemp ? Math.round(weather.minTemp) : "Data Loading..."} &#176;C</p>
-                    </div>
-                    <div className="temp">
-                        <h3>Today&apos;s Maximum</h3>
-                        <p> {weather.maxTemp ? Math.round(weather.maxTemp) : "Data Loading..."} &#176;C</p>
+                        <div className="temp">
+                            <h3>Humidity</h3>
+                            <p> {weather.humidity ? Math.round(weather.humidity) : "Data Loading..."} %</p>
+                        </div>
+                        <div className="temp">
+                            <h3>Skies</h3>
+                            <p> {weather.skies ? weather.skies : "Data Loading..."}</p>
+                        </div>
+                        <button id="local-weather" type="submit" onClick={onSubmit2}>
+                            Get Local Weather
+                        </button>
                     </div>
                 </div>
-                <div className="temp">
-                    <div className="temp">
-                        <h3>Humidity</h3>
-                        <p> {weather.humidity ? Math.round(weather.humidity) : "Data Loading..."} %</p>
-                    </div>
-                    <div className="temp">
-                        <h3>Skies</h3>
-                        <p> {weather.skies ? weather.skies : "Data Loading..."}</p>
-                    </div>
-                </div>
-            </div>
-            <h3>See Weather Data For Another Location</h3>
-            <div className="form-group">
-                <label htmlFor="city">City (Example: Mumbai)</label>
-                <input 
-                    type="text"
-                    value={city}
-                    onChange={event => {
-                        event.preventDefault()
-                        setCity(event.target.value)
-                    }}
-                />
-                <button type="submit" onClick={onSubmit}>
-                    Get Weather
-                </button>
-                <button type="submit" onClick={onSubmit2}>
-                    Get My Weather
-                </button>
+                <h3>See Weather Data For Another Location</h3>
+                <div className="form-group">
+                    <label htmlFor="city">City (Example: Mumbai)</label>
+                    <input
+                        type="text"
+                        placeholder="Enter city name"
+                        value={city}
+                        onChange={event => {
+                            event.preventDefault()
+                            setCity(event.target.value)
+                        }}
+                    />
+                    <button id="remote-weather" type="submit" onClick={onSubmit}>
+                        Get Remote Weather
+                    </button>
 
+                </div>
             </div>
-        </div>
+        </Layout>
+        
     )
 }
 
