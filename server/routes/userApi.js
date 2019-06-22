@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 router.get("/api/thoseguys", async (req, res) => {
   let users;
@@ -54,22 +55,48 @@ router.post("/api/new-user", function (req, res) {
 });
 
 router.get("/api/signin", function (req, res) {
-  // console.log(req.query);
-  let findExistingUser = User.findOne(
-    { 
-      email: req.query.email,
-      password: req.query.password
-    }
-  ).then(function (data) {
-        if(!data) {
-          // console.log('got an error: ' + data);
-          return res.status(400).send({data});
-        } else {
-          // console.log('got some data: ' + JSON.stringify(data));
-          return res.send(data);
+  //declare variables
+  let email = req.query.email;
+  let password = req.query.password;
+  
+  //search for email
+  User.findOne({ email: email }).then(data => {
+    //check if user exists
+    if(!data) {
+      // console.log('got an error: ' + data);
+      return res.status(400).send({data});
+    } 
+
+    //check password
+    bcrypt.compare(password, data.password).then(isMatch => {
+      if (isMatch) {
+        //user matched
+        //create JWT Payload
+        const payload = {
+          id: data.id,
+          name: data.name
         }
-      });
+        //sign token
+        jwt.sign(
+          payload,
+          kews.secretOrKey,
+          {
+            expiresIn: 31556926
+          },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token
+            });
+          });
+      } else {
+        return res.status(400).send({data});
+      }
+    });
+  });
 });
+
+
 
 
 
