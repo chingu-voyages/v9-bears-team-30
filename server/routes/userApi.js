@@ -39,17 +39,16 @@ router.post("/api/new-user", function (req, res) {
       //hash password before saving
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;          
+          if (err) throw err;
           newUser.password = hash;
+          //save the new object
+          newUser.save((err, response) => {
+            if (err) {
+              return res.json({ success: false, error: err });
+            }
+            return res.send(response);
+          });          
         });
-      });
-
-      //save the new object
-      newUser.save((err, response) => {
-        if (err) {
-          return res.json({ success: false, error: err });
-        }
-        return res.send(response);
       });
     }
   });
