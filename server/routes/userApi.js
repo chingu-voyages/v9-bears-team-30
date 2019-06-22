@@ -1,6 +1,8 @@
-const express = require("express")
-const router = express.Router()
-const User = require("../models/user")
+const express = require("express");
+const router = express.Router();
+const User = require("../models/user");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 router.get("/api/thoseguys", async (req, res) => {
   let users;
@@ -24,7 +26,7 @@ router.post("/api/new-user", function (req, res) {
   ).then(function(data) {
     //return an error is username is already in collection
     if (data) {
-      return res.status(400).send({error: 'username already exists'});
+      return res.status(400).send({error: 'email already exists'});
     } else {
       //make the object to store
       let newUser = new User({
@@ -33,6 +35,13 @@ router.post("/api/new-user", function (req, res) {
         password: req.body.emailAndPassword.signupPassword
       });
       
+      //hash password before saving
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+        });
+      });
+
       //save the new object
       newUser.save((err, response) => {
         if (err) {
