@@ -1,4 +1,5 @@
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
 
 export const GETSIGNIN = 'GETSIGNIN';
 export const GET_SIGNIN_SUCCESS = 'GET_SIGNIN_SUCCESS';
