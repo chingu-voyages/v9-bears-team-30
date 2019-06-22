@@ -24,6 +24,7 @@ export const getSignin = (emailAndPassword) => {
 		})
 		.then(res => {
 			//save to local storage
+			console.log(res.data);
 			const { token } = res.data;
 			localStorage.setItem("jwtToken", token);
 			//set token to Auth header
@@ -32,7 +33,7 @@ export const getSignin = (emailAndPassword) => {
 			const decoded = jwt_decode(token);
 			//set current user
 			//dispatch(setCurrentUser(decoded));
-			dispatch(getSigninSucess(res.data));
+			dispatch(getSigninSucess(decoded));
 		})
 		.catch(err => {
 			dispatch(getSigninFailure(err));
@@ -44,11 +45,9 @@ const getSigninStarted = () => ({
 	type: GET_SIGNIN_STARTED
 });
 
-const getSigninSucess = emailAndPassword => ({
+const getSigninSucess = decoded => ({
 	type: GET_SIGNIN_SUCCESS,
-	payload: {
-		...emailAndPassword
-	}
+	payload: decoded
 });
 
 const getSigninFailure = error => ({
@@ -58,14 +57,6 @@ const getSigninFailure = error => ({
 	}
 });
 
-// Set logged in user
-export const setCurrentUser = decoded => {
-  return {
-    type: GET_SIGNIN_SUCCESS,
-    payload: decoded
-  };
-};
-
 //log user out
 export const logoutUser = () => dispatch => {
 	//remove token from local storage
@@ -73,5 +64,5 @@ export const logoutUser = () => dispatch => {
 	//remove auth header for future requests
 	setAuthToken(false);
 	//set current user to empty object which will set isAuthenticated to false
-	dispatch(setCurrentUser({}));
+	dispatch(getSigninSucess({}));
 }

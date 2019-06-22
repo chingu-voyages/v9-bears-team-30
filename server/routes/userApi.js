@@ -65,14 +65,14 @@ router.get("/api/signin", function (req, res) {
     if(!data) {
       return res.status(400).send({data});
     } 
-    console.log('user matched: ' + data);
+    console.log('email matched: ' + data);
 
     //check password
     bcrypt.compare(password, data.password).then(isMatch => {
       if (isMatch) {
         //user matched
 
-      console.log('user matched');
+      console.log('password matched');
         //create JWT Payload
         const payload = {
           id: data.id,
@@ -92,6 +92,7 @@ router.get("/api/signin", function (req, res) {
             });
           });
       } else {
+        console.log('password no match');
         return res.status(400).send({data});
       }
     });
