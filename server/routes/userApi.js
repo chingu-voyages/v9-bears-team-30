@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+const keys = require("../config/keys");
 
 router.get("/api/thoseguys", async (req, res) => {
   let users;
@@ -39,7 +39,8 @@ router.post("/api/new-user", function (req, res) {
       //hash password before saving
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
+          if (err) throw err;          
+          newUser.password = hash;
         });
       });
 
@@ -63,14 +64,16 @@ router.get("/api/signin", function (req, res) {
   User.findOne({ email: email }).then(data => {
     //check if user exists
     if(!data) {
-      // console.log('got an error: ' + data);
       return res.status(400).send({data});
     } 
+    console.log('user matched: ' + data);
 
     //check password
     bcrypt.compare(password, data.password).then(isMatch => {
       if (isMatch) {
         //user matched
+
+      console.log('user matched');
         //create JWT Payload
         const payload = {
           id: data.id,
