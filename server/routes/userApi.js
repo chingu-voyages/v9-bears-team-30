@@ -81,7 +81,7 @@ router.get("/api/signin", function (req, res) {
         //sign token
         jwt.sign(
           payload,
-          kews.secretOrKey,
+          keys.secretOrKey,
           {
             expiresIn: 31556926
           },
