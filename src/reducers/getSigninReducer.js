@@ -13,6 +13,7 @@ export const getSigninReducer = (state = {saving: false, isAuthenticated: false,
         saving: true
       };
     case GET_SIGNIN_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         saving: false,

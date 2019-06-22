@@ -45,7 +45,7 @@ const getSigninStarted = () => ({
 	type: GET_SIGNIN_STARTED
 });
 
-const getSigninSucess = decoded => ({
+export const getSigninSucess = decoded => ({
 	type: GET_SIGNIN_SUCCESS,
 	payload: decoded
 });
@@ -59,6 +59,8 @@ const getSigninFailure = error => ({
 
 //log user out
 export const logoutUser = () => dispatch => {
+
+    console.log('logoutUser action called');
 	//remove token from local storage
 	localStorage.removeItem("jwtToken");
 	//remove auth header for future requests
