@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import Layout from "../../layouts/layout"
+import Layout from "../layouts/layout"
 import "./weathersearch.css"
 
 const WeatherSearch = () => {
@@ -18,7 +18,7 @@ const WeatherSearch = () => {
     })
 
 
-    const onSubmit = async (event) => {
+    const getRemoteWeather = async (event) => {
         event.preventDefault()
         await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
             .then(response => {
@@ -40,7 +40,7 @@ const WeatherSearch = () => {
                 })
             })
     }
-    const onSubmit2 = async (event) => {
+    const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
             const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
             setCoordinates(localCoordinates)
@@ -92,8 +92,7 @@ const WeatherSearch = () => {
                         }
                         setWeather(weatherUpdate)
                     })
-                })
-                
+                })    
         }
         fetchData()          
     },[coordinates])
@@ -128,7 +127,7 @@ const WeatherSearch = () => {
                             <h3>Skies</h3>
                             <p> {weather.skies ? weather.skies : "Data Loading..."}</p>
                         </div>
-                        <button id="local-weather" type="submit" onClick={onSubmit2}>
+                        <button id="local-weather" type="submit" onClick={getLocalWeather}>
                             Get Local Weather
                         </button>
                     </div>
@@ -145,10 +144,9 @@ const WeatherSearch = () => {
                             setCity(event.target.value)
                         }}
                     />
-                    <button id="remote-weather" type="submit" onClick={onSubmit}>
+                    <button id="remote-weather" type="submit" onClick={getRemoteWeather}>
                         Get Remote Weather
                     </button>
-
                 </div>
             </div>
         </Layout>

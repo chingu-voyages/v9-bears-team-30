@@ -5,7 +5,7 @@ import Home from "./home";
 import User from "./Users";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
-import WeatherSearch from "./weathersearch/WeatherSearch"
+import CityData from "./search/CityData"
 
 export default () => {
   return (
@@ -14,7 +14,7 @@ export default () => {
       <Route path="/users" component={User} />
       <Route path="/signup" component={SignUpPage} />
       <Route path="/signin" component={SignInPage} />
-      <Route path="/search" component={WeatherSearch} />
+      <Route path="/search" component={CityData} />
     </BrowserRouter>
   );
 };

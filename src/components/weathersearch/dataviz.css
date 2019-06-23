@@ -1,0 +1,24 @@
+
+.viz-wrapper {
+    background: steelblue;
+    height: 400px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    border-style: solid;
+    /* border-left: none;
+    border-right: none; */
+    border-width: 5px;
+    border-color: white;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 120px;
+    /* margin-left: 30px; */
+}
