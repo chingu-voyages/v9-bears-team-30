@@ -22,3 +22,20 @@
     margin-top: 120px;
     /* margin-left: 30px; */
 }
+
+#canvas {
+    margin-top: 35px;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 38px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}

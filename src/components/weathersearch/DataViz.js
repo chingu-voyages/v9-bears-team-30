@@ -17,6 +17,12 @@ const DataViz = (props) => {
             height = 250;
 
         d3.select("svg").remove()
+
+        var div = d3.select(canvas.current).append("div")
+            .attr("id", "tooltip")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
         const svg = d3.select(canvas.current)
             .append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -32,8 +38,12 @@ const DataViz = (props) => {
             .call(xAxis)
             .attr('id', 'x-axis')
             .attr('transform', 'translate(60, 280)');
-
-
+        
+        svg.append('text')
+            .attr("x", 225)
+            .attr("y", 320)
+            .text("Years")
+            
         const linearScale = d3.scaleLinear()
             .domain([d3.min(data), d3.max(data)])
             .range([0, height]);
@@ -53,6 +63,12 @@ const DataViz = (props) => {
             .attr('id', 'y-axis')
             .attr('transform', 'translate(60, 30)');
 
+        svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -280)
+            .attr('y', 15)
+            .text('Annual Average Temperature (Celsius)')
+
         svg.selectAll('rect')
             .data(scaledVals)
             .enter()
@@ -68,6 +84,21 @@ const DataViz = (props) => {
             .attr('y', function (d, i) {
                 return height - d + 30;
             })
+            .on("mouseover", (d, i) => {
+                div.transition()
+                .duration(200)
+                .style("opacity", 0.9)
+                div.html(data[i] + "&#176;C")
+                .style('left', (d3.event.pageX - 18) + 'px')
+                .style('top', (d3.event.pageY - 44) + 'px')
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", 0);
+            });
+
+        
 
 
     }
