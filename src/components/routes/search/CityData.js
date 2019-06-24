@@ -9,8 +9,9 @@ const CityData = () => {
     const [cityId, setCityId] = useState(1)
     const [climateData, setClimateData] = useState({})
 
-    const getCityId = async (event) => {
-        event.preventDefault()
+    const getCityId = async (city, USState) => {
+        console.log(city)
+        console.log(USState)
         const url = 'https://app.climate.azavea.com/api/city/?page_size=1771'
         await fetch(url, {
             method: 'GET',

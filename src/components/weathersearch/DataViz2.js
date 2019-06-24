@@ -13,8 +13,8 @@ const DataViz2 = (props) => {
 
     const drawBarChart = data => {
         const margin = { top: 30, bottom: 60, right: 37, left: 30 },
-            width = 800,
-            height = 400;
+            width = 500,
+            height = 250;
 
         d3.select("svg").remove()
         const svg = d3.select(canvas.current)
@@ -31,7 +31,7 @@ const DataViz2 = (props) => {
         var xAxisGroup = svg.append('g')
             .call(xAxis)
             .attr('id', 'x-axis')
-            .attr('transform', 'translate(60, 430)');
+            .attr('transform', 'translate(60, 280)');
 
 
         const linearScale = d3.scaleLinear()
