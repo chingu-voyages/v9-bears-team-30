@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react"
 import Layout from "../layouts/layout"
 import "./weathersearch.css"
 
-const WeatherSearch = () => {
+const WeatherSearch = (props) => {
 //   const cites = ["Tokyo", "Jakarta", "Delhi", "Beijing", "New York", "Sao Paulo", "Mexico City", "Moscow", "Riyadh", "Los Angeles", "Bangkok", "Buenos Aires", "Fairbanks", "Marrakech", "Cape Town", "Milan", "Kinshasa", "Warsaw", "Winnipeg", "Melbourne"]
-  const [coordinates, setCoordinates] = useState({ latitude: 51.509865, longitude: -0.118092})
-  const [city, setCity] = useState("")  
+  const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
+  const [city, setCity] = useState("")
+  const [USState, setUSState] = useState("")  
   const [weather, setWeather] = useState({
       location: "", 
       country: "",
@@ -39,6 +40,7 @@ const WeatherSearch = () => {
                     setWeather(weatherUpdate)
                 })
             })
+         props.click(city, USState)   
     }
     const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -102,7 +104,7 @@ const WeatherSearch = () => {
     return (
         <Layout>
             <div className="search-wrapper">
-                <h3 id="title">Weather for {weather.location ? weather.location : "Data Loading..."}</h3>
+                <h3 id="title">Weather for {weather.location ? weather.location: "Data Loading..."}</h3>
                 <div className="weather-data">
                     <div className="temp">
                         <div className="temp">
@@ -132,18 +134,32 @@ const WeatherSearch = () => {
                         </button>
                     </div>
                 </div>
-                <h3>See Weather Data For Another Location</h3>
+                {/* <h3>See Weather Data For Another Location</h3> */}
                 <div className="form-group">
-                    <label htmlFor="city">City (Example: Mumbai)</label>
-                    <input
-                        type="text"
-                        placeholder="Enter city name"
-                        value={city}
-                        onChange={event => {
-                            event.preventDefault()
-                            setCity(event.target.value)
-                        }}
-                    />
+                    <div className="input">
+                        <label htmlFor="city">City (Example: New York)</label>
+                        <input
+                            type="text"
+                            placeholder="City name (case sensitive)"
+                            value={city}
+                            onChange={event => {
+                                event.preventDefault()
+                                setCity(event.target.value)
+                            }}
+                        />
+                    </div>
+                    <div className="input">
+                        <label htmlFor="city">State (Example: NY)</label>
+                        <input
+                            type="text"
+                            placeholder="State name (case sensitive)"
+                            value={USState}
+                            onChange={event => {
+                                event.preventDefault()
+                                setUSState(event.target.value)
+                            }}
+                        />
+                    </div>
                     <button id="remote-weather" type="submit" onClick={getRemoteWeather}>
                         Get Remote Weather
                     </button>

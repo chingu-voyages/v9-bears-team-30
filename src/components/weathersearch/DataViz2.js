@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react"
 import * as d3 from "d3"
 import "./dataviz.css"
 
-const DataViz = (props) => {
+const DataViz2 = (props) => {
     console.log(props)
     const canvas = useRef(null)
     useEffect(() => {
@@ -13,8 +13,8 @@ const DataViz = (props) => {
 
     const drawBarChart = data => {
         const margin = { top: 30, bottom: 60, right: 37, left: 30 },
-            width = 500,
-            height = 250;
+            width = 800,
+            height = 400;
 
         d3.select("svg").remove()
         const svg = d3.select(canvas.current)
@@ -31,7 +31,7 @@ const DataViz = (props) => {
         var xAxisGroup = svg.append('g')
             .call(xAxis)
             .attr('id', 'x-axis')
-            .attr('transform', 'translate(60, 280)');
+            .attr('transform', 'translate(60, 430)');
 
 
         const linearScale = d3.scaleLinear()
@@ -78,5 +78,5 @@ const DataViz = (props) => {
     )
 }
 
-export default DataViz
+export default DataViz2
 
