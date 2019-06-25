@@ -1,16 +1,12 @@
 
 .viz-wrapper {
-    background: beige;
+    background: steelblue;
     height: 400px;
-    /* margin-left: auto;
-    margin-right: auto; */
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: black;
+    color: white;
     border-style: solid;
-    /* border-left: none;
-    border-right: none; */
     border-width: 5px;
     border-color: white;
     border-radius: 10px;
@@ -20,7 +16,6 @@
     padding-left: 5%;
     padding-right: 5%;
     margin-top: 120px;
-    /* margin-left: 30px; */
 }
 
 #canvas {
@@ -34,8 +29,19 @@ div.tooltip {
     height: 38px;					
     padding: 2px;				
     font: 12px sans-serif;		
-    background: lightsteelblue;	
+    background: lightsteelblue;
+    color: black;	
     border: 0px;		
     border-radius: 8px;			
     pointer-events: none;			
+}
+
+.graph-title {
+    font-family: "Quantico";
+    font-size: 17px;
+}
+.graph-subtitle {
+    font-family: "Quantico";
+    font-size: 13px;
+    
 }

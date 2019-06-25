@@ -3,15 +3,16 @@ import * as d3 from "d3"
 import "./dataviz.css"
 
 const DataViz2 = (props) => {
-    console.log(props)
     const canvas = useRef(null)
     useEffect(() => {
-        //const data = [2, 4, 2, 6, 8]
-        const data = Object.values(props.data)
-        data.length && drawBarChart(data)
+        const city = props.location.city
+        const state = props.location.state 
+        const years = Object.keys(props.data)
+        const temps = Object.values(props.data)
+        temps.length && drawBarChart(city, state, years, temps)
     }, [props.data])
 
-    const drawBarChart = data => {
+    const drawBarChart = (city, state, years, temps) => {
         const margin = { top: 30, bottom: 60, right: 37, left: 30 },
             width = 500,
             height = 250;
@@ -29,12 +30,12 @@ const DataViz2 = (props) => {
             .attr("height", height + margin.top + margin.bottom);
 
         const xscale = d3.scaleLinear()
-            .domain([0, data.length])
+            .domain([d3.min(years), d3.max(years)])
             .range([0, width]);
 
-        const xAxis = d3.axisBottom(xscale);
+        const xAxis = d3.axisBottom(xscale).tickFormat(d3.format("d"));
 
-        var xAxisGroup = svg.append('g')
+        svg.append('g')
             .call(xAxis)
             .attr('id', 'x-axis')
             .attr('transform', 'translate(60, 280)');
@@ -42,44 +43,59 @@ const DataViz2 = (props) => {
         svg.append('text')
             .attr("x", 225)
             .attr("y", 320)
-            .text("Years")
+            .attr("fill", "yellow")
+            .text("Year (Starting From 2010)")
 
         const linearScale = d3.scaleLinear()
-            .domain([d3.min(data), d3.max(data)])
+            .domain([d3.min(temps), d3.max(temps)])
             .range([0, height]);
 
-        const scaledVals = data.map(function (item) {
+        const scaledVals = temps.map(function (item) {
             return linearScale(item);
         });
 
         const yscale = d3.scaleLinear()
-            .domain([d3.min(data), d3.max(data)])
+            .domain([d3.min(temps), d3.max(temps)])
             .range([height, 0]);
 
         const yAxis = d3.axisLeft(yscale)
 
-        const yAxisGroup = svg.append('g')
+        svg.append('g')
             .call(yAxis)
             .attr('id', 'y-axis')
             .attr('transform', 'translate(60, 30)');
         
         svg.append('text')
             .attr('transform', 'rotate(-90)')
-            .attr('x', -280)
+            .attr('x', -230)
             .attr('y', 15)
-            .text('Annual Average Temperature (Celsius)')
+            .attr("fill", "yellow")
+            .text('Temperature (Celsius)')
+        
+        svg.append("text")
+            .attr("x", 110)
+            .attr("y", 15)
+            .attr("class", "graph-title")
+            .attr("fill", "white")
+            .text(`Climate Change Prediction for ${city}, ${state}`)
+        svg.append("text")
+            .attr("x", 200)
+            .attr("y", 35)
+            .attr("class", "graph-subtitle")
+            .attr("fill", "white")
+            .text("Average Annual Temperature")
 
         svg.selectAll('rect')
             .data(scaledVals)
             .enter()
             .append('rect')
-            .attr('width', (width / data.length))
+            .attr('width', (width / temps.length))
             .attr('height', function (d) {
                 return d;
             })
-            .attr('fill', '#04B404')
+            .attr('fill', 'gold')
             .attr('x', function (d, i) {
-                return xscale(i) + 60;
+                return xscale(years[i]) + 60;
             })
             .attr('y', function (d, i) {
                 return height - d + 30;
@@ -88,7 +104,7 @@ const DataViz2 = (props) => {
                 div.transition()
                     .duration(200)
                     .style("opacity", 0.9)
-                div.html(data[i] + "&#176;C")
+                div.html("Year: " + years[i] + "<br>" + "Avg Temp: " + temps[i] + "&#176;C")
                     .style('left', (d3.event.pageX - 18) + 'px')
                     .style('top', (d3.event.pageY - 44) + 'px')
             })

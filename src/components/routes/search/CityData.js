@@ -8,10 +8,10 @@ import "./citydata.css"
 const CityData = () => {
     const [cityId, setCityId] = useState(1)
     const [climateData, setClimateData] = useState({})
+    const [locationInfo, setLocationInfo] = useState({"city": "New York", "state": "NY"})
 
     const getCityId = async (city, USState) => {
-        console.log(city)
-        console.log(USState)
+        setLocationInfo({"city": city, "state": USState})
         const url = 'https://app.climate.azavea.com/api/city/?page_size=1771'
         await fetch(url, {
             method: 'GET',
@@ -22,18 +22,14 @@ const CityData = () => {
                 return;
             }
             response.json().then(cityids => {
-                //console.log(cityids.features)
                 cityids.features.forEach(cityinfo => {
-                    //console.log(cityinfo.properties.name)
                     if (city == cityinfo.properties.name && USState == cityinfo.properties.admin) {
-                        // console.log(cityinfo.properties.name + ", " + cityinfo.properties.admin)
-                        // console.log(cityinfo.id)
                         setCityId(cityinfo.id)
                     }
-                })
-               
+                }) 
             })
         })
+
     }
 
     useEffect(() => {
@@ -49,27 +45,22 @@ const CityData = () => {
             }
             response.json().then(weatherdata => {
                 const weatherInfo = {}
-                //console.log(weatherdata.data)
                 const keys = Object.keys(weatherdata.data)
                 keys.forEach(key => {
                     weatherInfo[key] = Math.round(100 * weatherdata.data[key].avg) / 100
                 })
-                //console.log(weatherInfo)
                 setClimateData(weatherInfo)
             })
         })
     },[cityId])
 
-    console.log("id " + cityId)
-    console.log(climateData)
-
     let dataViz;
     let dataViz2;
 
     if (cityId === 1) {
-        dataViz = <DataViz data={climateData} />
+        dataViz = <DataViz location={locationInfo} data={climateData} />
     } else {
-        dataViz2 = <DataViz2 data={climateData} />
+        dataViz2 = <DataViz2 location={locationInfo} data={climateData} />
     }
 
     return (
