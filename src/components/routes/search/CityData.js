@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import WeatherSearch from "../../weathersearch/USWeatherSearch"
+import USWeatherSearch from "../../weathersearch/USWeatherSearch"
 import DataViz from "../../weathersearch/DataViz"
 import DataViz2 from "../../weathersearch/DataViz2"
 import "./citydata.css"
@@ -66,7 +66,7 @@ const CityData = () => {
     return (
        <div className="page-wrapper">
            <div className="column">
-            <WeatherSearch click={getCityId}/>
+            <USWeatherSearch click={getCityId}/>
            </div>
            <div className="column">
             {dataViz}
