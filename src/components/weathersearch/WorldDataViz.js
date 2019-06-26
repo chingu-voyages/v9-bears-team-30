@@ -77,7 +77,7 @@ const WorldDataViz = (props) => {
             .attr("y", 15)
             .attr("class", "graph-title")
             .attr("fill", "white")
-            .text(`Historical Temperature Data for ${city}, ${country}`)
+            .text(`Historical Temperature Data for ${country}`)
         svg.append("text")
             .attr("x", 200)
             .attr("y", 35)
