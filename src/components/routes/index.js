@@ -6,6 +6,7 @@ import User from "./Users";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
 import CityData from "./search/CityData"
+import CountryData from "./worldsearch/CountryData"
 
 export default () => {
   return (
@@ -15,6 +16,7 @@ export default () => {
       <Route path="/signup" component={SignUpPage} />
       <Route path="/signin" component={SignInPage} />
       <Route path="/search" component={CityData} />
+      <Route path="/worldsearch" component={CountryData} />
     </BrowserRouter>
   );
 };
