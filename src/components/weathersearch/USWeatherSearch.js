@@ -67,7 +67,6 @@ const WeatherSearch = (props) => {
                         skies: weatherdata.weather[0].description
                     }
                     setWeather(weatherUpdate)
-                    console.log(weather)
                 })
             })
         
@@ -104,7 +103,7 @@ const WeatherSearch = (props) => {
     return (
         <Layout>
             <div className="search-wrapper">
-                <h3 id="title">Weather for {weather.location ? weather.location: "Data Loading..."}</h3>
+                <h3 id="title">Weather for {weather.location ? weather.location: "Data Loading..."} </h3>
                 <div className="weather-data">
                     <div className="temp">
                         <div className="temp">
@@ -134,7 +133,6 @@ const WeatherSearch = (props) => {
                         </button>
                     </div>
                 </div>
-                {/* <h3>See Weather Data For Another Location</h3> */}
                 <div className="form-group">
                     <div className="input">
                         <label htmlFor="city">City (Example: New York)</label>
