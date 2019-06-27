@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+import Layout from "../../layouts/layout"
 import USWeatherSearch from "../../weathersearch/USWeatherSearch"
 import DataViz from "../../weathersearch/DataViz"
 import DataViz2 from "../../weathersearch/DataViz2"
@@ -64,17 +65,17 @@ const CityData = () => {
     }
 
     return (
-       <div className="page-wrapper">
-           <div className="column">
-            <USWeatherSearch click={getCityId}/>
-           </div>
-           <div className="column">
-            {dataViz}
-            {dataViz2}
-           </div>
-       </div>
-
-        
+        <Layout>
+            <div className="page-wrapper">
+                <div className="column">
+                    <USWeatherSearch click={getCityId} />
+                </div>
+                <div className="column">
+                    {dataViz}
+                    {dataViz2}
+                </div>
+            </div>
+        </Layout>   
     )
 }
 

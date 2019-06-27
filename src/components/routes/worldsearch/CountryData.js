@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+import Layout from "../../layouts/layout"
 import WorldWeatherSearch from "../../weathersearch/WorldWeatherSearch"
 import WorldDataViz from "../../weathersearch/WorldDataViz"
 import WorldDataViz2 from "../../weathersearch/WorldDataViz2"
@@ -57,17 +58,17 @@ const CountryData = () => {
     }
 
     return (
-        <div className="page-wrapper">
-            <div className="column">
-                <WorldWeatherSearch click={getCountryCode} />
+        <Layout>
+            <div className="page-wrapper">
+                <div className="column">
+                    <WorldWeatherSearch click={getCountryCode} />
+                </div>
+                <div className="column">
+                    {worldDataViz}
+                    {worldDataViz2}
+                </div>
             </div>
-            <div className="column">
-                {worldDataViz}
-                {worldDataViz2}
-            </div>
-        </div>
-
-
+        </Layout>
     )
 }
 

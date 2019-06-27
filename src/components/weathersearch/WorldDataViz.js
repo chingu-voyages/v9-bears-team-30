@@ -26,8 +26,10 @@ const WorldDataViz = (props) => {
 
         const svg = d3.select(canvas.current)
             .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom);
+            .attr("width", '100%')
+            .attr("height", '100%')
+            .attr('viewBox', '0 0 ' + (width + margin.left + margin.right)  + ' ' + (height + margin.top + margin.bottom))
+            .attr('preserveAspectRatio', 'xMinYMin')
 
         const xscale = d3.scaleLinear()
             .domain([d3.min(years), d3.max(years)])
