@@ -73,7 +73,7 @@ const WorldDataViz2 = (props) => {
             .text('Temperature (Celsius)')
 
         svg.append("text")
-            .attr("x", 110)
+            .attr("x", 140)
             .attr("y", 15)
             .attr("class", "graph-title")
             .attr("fill", "white")
