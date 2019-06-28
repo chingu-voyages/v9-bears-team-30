@@ -242,10 +242,20 @@ class WorldMap extends Component {
                             <text
                                 className="bottom-text"
                                 x="2%"
+                                y="55%"
+                                fill="dodgerblue"
+                            >
+                              &#128279; Climate Change Prediction (US only)
+                            </text>
+                        </Link>  
+                        <Link to="./worldsearch">
+                            <text
+                                className="bottom-text"
+                                x="2%"
                                 y="60%"
                                 fill="dodgerblue"
                             >
-                              &#128279; Search Weather by Location
+                              &#128279; Historical Weather Data (Country)
                             </text>
                         </Link>  
                     </g>

@@ -2,18 +2,18 @@ import React, { useEffect, useRef } from "react"
 import * as d3 from "d3"
 import "./dataviz.css"
 
-const DataViz2 = (props) => {
+const WorldDataViz2 = (props) => {
     const canvas = useRef(null)
     useEffect(() => {
         const city = props.location.city
-        const state = props.location.state 
+        const country = props.location.country
         const years = Object.keys(props.data)
         const temps = Object.values(props.data)
-        temps.length && drawBarChart(city, state, years, temps)
+        temps.length && drawBarChart(city, country, years, temps)
     }, [props.data])
 
-    const drawBarChart = (city, state, years, temps) => {
-        const margin = { top: 30, bottom: 60, right: 41, left: 30 },
+    const drawBarChart = (city, country, years, temps) => {
+        const margin = { top: 30, bottom: 60, right: 37, left: 30 },
             width = 500,
             height = 250;
 
@@ -46,7 +46,7 @@ const DataViz2 = (props) => {
             .attr("x", 225)
             .attr("y", 320)
             .attr("fill", "yellow")
-            .text("Year (Starting From 2010)")
+            .text("Year (Starting From 1901)")
 
         const linearScale = d3.scaleLinear()
             .domain([d3.min(temps), d3.max(temps)])
@@ -66,26 +66,26 @@ const DataViz2 = (props) => {
             .call(yAxis)
             .attr('id', 'y-axis')
             .attr('transform', 'translate(60, 30)');
-        
+
         svg.append('text')
             .attr('transform', 'rotate(-90)')
             .attr('x', -230)
             .attr('y', 15)
             .attr("fill", "yellow")
             .text('Temperature (Celsius)')
-        
+
         svg.append("text")
-            .attr("x", 110)
+            .attr("x", 140)
             .attr("y", 15)
             .attr("class", "graph-title")
             .attr("fill", "white")
-            .text(`Climate Change Prediction for ${city}, ${state}`)
+            .text(`Historical Temperature Data for ${country}`)
         svg.append("text")
             .attr("x", 200)
             .attr("y", 35)
             .attr("class", "graph-subtitle")
             .attr("fill", "white")
-            .text("Average Annual Temperature")
+            .text("Average Temperature by Year")
 
         svg.selectAll('rect')
             .data(scaledVals)
@@ -121,9 +121,8 @@ const DataViz2 = (props) => {
     return (
         <div className="viz-wrapper">
             <div id="canvas" ref={canvas}></div>
-        </div>   
+        </div>
     )
 }
 
-export default DataViz2
-
+export default WorldDataViz2
