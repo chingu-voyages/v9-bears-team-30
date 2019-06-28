@@ -237,28 +237,6 @@ class WorldMap extends Component {
                             </svg>
                         ))}
                     </g>
-                    <g className="more-info">
-                        <Link to="./search">
-                            <text
-                                className="bottom-text"
-                                x="2%"
-                                y="55%"
-                                fill="dodgerblue"
-                            >
-                              &#128279; Climate Change Prediction (US only)
-                            </text>
-                        </Link>  
-                        <Link to="./worldsearch">
-                            <text
-                                className="bottom-text"
-                                x="2%"
-                                y="60%"
-                                fill="dodgerblue"
-                            >
-                              &#128279; Historical Weather Data (Country)
-                            </text>
-                        </Link>  
-                    </g>
                 </svg>
                 <div id="bottom"/>
             </div>
