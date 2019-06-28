@@ -45,14 +45,6 @@ const Header = (props) => {
                   <span className="link-text">Sign In</span>
                 </NavLink>
               </li>
-              <li className="nav-link">
-                <NavLink
-                  to="/users"
-                  style={{ color: `white`, textDecoration: `none` }}
-                >
-                  <span className="link-text">Users</span>
-                </NavLink>
-              </li>
             </ul>
           </div>
         </nav>

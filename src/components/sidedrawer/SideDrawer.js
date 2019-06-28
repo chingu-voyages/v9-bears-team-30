@@ -52,14 +52,6 @@ const SideDrawer = (props) => {
               <span className="link-text">World Climate Data</span>
             </Link>
           </li>
-          <li className="drawer-links">
-            <Link
-              to="/users"
-              style={{ color: `black`, textDecoration: `none` }}
-            >
-              <span className="link-text">Users</span>
-            </Link>
-          </li>
           <li>
             <button className="close-button" onClick={closeClickHandler}>
               <FontAwesomeIcon
