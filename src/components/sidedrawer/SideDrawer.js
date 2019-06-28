@@ -30,6 +30,30 @@ const SideDrawer = (props) => {
           </li>
           <li className="drawer-links">
             <Link
+              to="/signin"
+              style={{ color: `black`, textDecoration: `none` }}
+            >
+              <span className="link-text">Sign In</span>
+            </Link>
+          </li>
+          <li className="drawer-links">
+            <Link
+              to="/search"
+              style={{ color: `black`, textDecoration: `none` }}
+            >
+              <span className="link-text">US Climate Data</span>
+            </Link>
+          </li>
+          <li className="drawer-links">
+            <Link
+              to="/worldsearch"
+              style={{ color: `black`, textDecoration: `none` }}
+            >
+              <span className="link-text">World Climate Data</span>
+            </Link>
+          </li>
+          <li className="drawer-links">
+            <Link
               to="/users"
               style={{ color: `black`, textDecoration: `none` }}
             >

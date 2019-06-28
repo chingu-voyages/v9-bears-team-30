@@ -12,8 +12,8 @@
 .side-drawer {
     position: absolute;
     display: block;
-    height: 100%;
     background: white;
+    height: 100%;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
     top: 0;
     left: -100%;
@@ -52,7 +52,6 @@
 
 h1 {
     font-family: "Wallpoet";
-    padding-top:100px;
 }
 
 ul {
