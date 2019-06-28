@@ -67,10 +67,10 @@ const CityData = () => {
     return (
         <Layout>
             <div className="page-wrapper">
-                <div className="column">
+                <div>
                     <USWeatherSearch click={getCityId} />
                 </div>
-                <div className="column">
+                <div>
                     {dataViz}
                     {dataViz2}
                 </div>

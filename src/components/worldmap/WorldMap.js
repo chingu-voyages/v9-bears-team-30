@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import "./worldmap.css"

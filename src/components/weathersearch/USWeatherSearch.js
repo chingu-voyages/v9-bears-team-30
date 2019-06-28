@@ -141,7 +141,7 @@ const WeatherSearch = (props) => {
                             />
                         </div>
                         <div className="input">
-                            <label htmlFor="city">State (Example: NY)</label>
+                            <label htmlFor="state">State (Example: NY)</label>
                             <input
                                 type="text"
                                 placeholder="State name (case sensitive)"
