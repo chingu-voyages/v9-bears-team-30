@@ -136,7 +136,7 @@ class WorldMap extends Component {
         this.handleMarkerClick = this.handleMarkerClick.bind(this);
     }
     textColor(t) {
-        if (t < 8) return "blue"
+        if (t < 8) return "dodgerblue"
         if (t >= 8 && t < 12) return "lightblue"
         if (t >= 12 && t < 18) return "lightgreen"
         if (t >= 18 && t < 26) return "yellow"
