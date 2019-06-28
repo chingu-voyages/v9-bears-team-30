@@ -17,8 +17,8 @@
 - Server-side: NodeJS and MongoDB
 - Client-side: React<br>
 ![Node](https://dl.dropboxusercontent.com/s/gs0xk6gy6ckbohk/node.png?dl=0)
-![MongoDB](https://dl.dropboxusercontent.com/s/7et84bgxfrb9jw3/mongodb.png?dl=0)
 ![React](https://dl.dropboxusercontent.com/s/oire3bcb8x25mez/react.png?dl=0)
+![d3](https://dl.dropboxusercontent.com/s/r9qap0x5bsfjgxn/d3.png?dl=0)
 
 ### Authors
 - @DMethan
