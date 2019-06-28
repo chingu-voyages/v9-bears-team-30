@@ -27,6 +27,14 @@ const Header = (props) => {
               </li>
               <li className="nav-link">
                 <NavLink
+                  to="/signin"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text">Sign In</span>
+                </NavLink>
+              </li>
+              <li className="nav-link">
+                <NavLink
                   to="/users"
                   style={{ color: `white`, textDecoration: `none` }}
                 >

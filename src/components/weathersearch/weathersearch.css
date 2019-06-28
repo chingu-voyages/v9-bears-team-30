@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Orbitron|Quantico');
+body {
+    background: black;
+}
+.search-wrapper {
+    background: black;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    font-family: "Quantico";
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 120px;
+}
+
+h4 {
+    background: steelblue;
+    color: black;
+    margin-top: 0px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    box-shadow: 1px 1px 10px yellow;
+}
+
+.weather-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.temp {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#climate-data {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+input {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.input {
+    margin-bottom: 20px;
+
+}
+
+button {
+    margin-left: 10px;
+    background: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Quantico"
+}
+
+#local-weather {
+    margin-top: 10px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#remote-weather {
+    margin-top: 10px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#message {
+    margin-top: 10px;
+}
