@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react"
 
-import Layout from "../layouts/layout"
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-//   const cites = ["Tokyo", "Jakarta", "Delhi", "Beijing", "New York", "Sao Paulo", "Mexico City", "Moscow", "Riyadh", "Los Angeles", "Bangkok", "Buenos Aires", "Fairbanks", "Marrakech", "Cape Town", "Milan", "Kinshasa", "Warsaw", "Winnipeg", "Melbourne"]
   const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
   const [city, setCity] = useState("")
   const [USState, setUSState] = useState("")  
@@ -97,8 +95,6 @@ const WeatherSearch = (props) => {
         }
         fetchData()          
     },[coordinates])
-
-    console.log(weather)
 
     return (
         <div className="search-wrapper">

@@ -74,8 +74,8 @@ const CityData = () => {
                     {dataViz}
                     {dataViz2}
                 </div>
-            </div>
-        </Layout>   
+            </div> 
+        </Layout>  
     )
 }
 

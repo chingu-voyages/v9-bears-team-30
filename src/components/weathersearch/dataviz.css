@@ -1,6 +1,6 @@
 
 .viz-wrapper {
-    background: black;
+    /* background: black; */
     height: 400px;
     display: flex;
     flex-direction: column;
