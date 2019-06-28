@@ -72,7 +72,7 @@ nav {
 
 @media only screen and (max-width: 600px) {
     .nav-right{display: none;}
-
+    .dropdown{display: none;}
     .header {
         height:60px;        
     }
