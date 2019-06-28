@@ -1,7 +1,9 @@
 .toggle-button {
     display: none;
     cursor: pointer;
-    background: transparent; 
+    color: yellowgreen;
+    font-size: 40px;
+    background: transparent;  
     border: none;
 }
 
