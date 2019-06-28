@@ -76,7 +76,7 @@ export class SignInPage extends Component {
               <div className='signup-form'>
                 <div className='user-input-container'>
                   <input className='signup-input' type='text' placeholder="Email" value={this.props.signinEmail} onChange={this.handleEmailChange}/>
-                  <input className={'signup-input ' + inputErrorClass} type='text' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
+                  <input className={'signup-input ' + inputErrorClass} type='password' placeholder="Password" value={this.props.signinPassword} onChange={this.handlePasswordChange}/>
                   {this.props.error &&
                     <div className='signup-error-message-container'>
                       <FontAwesomeIcon className='signup-error-icon' icon={faExclamationCircle} size='1x' transform='shrink-1' color='#fe0c0b'/>
