@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import "./worldmap.css"
@@ -137,7 +136,7 @@ class WorldMap extends Component {
         this.handleMarkerClick = this.handleMarkerClick.bind(this);
     }
     textColor(t) {
-        if (t < 8) return "blue"
+        if (t < 8) return "dodgerblue"
         if (t >= 8 && t < 12) return "lightblue"
         if (t >= 12 && t < 18) return "lightgreen"
         if (t >= 18 && t < 26) return "yellow"
@@ -236,28 +235,6 @@ class WorldMap extends Component {
                                 </text>
                             </svg>
                         ))}
-                    </g>
-                    <g className="more-info">
-                        <Link to="./search">
-                            <text
-                                className="bottom-text"
-                                x="2%"
-                                y="55%"
-                                fill="dodgerblue"
-                            >
-                              &#128279; Climate Change Prediction (US only)
-                            </text>
-                        </Link>  
-                        <Link to="./worldsearch">
-                            <text
-                                className="bottom-text"
-                                x="2%"
-                                y="60%"
-                                fill="dodgerblue"
-                            >
-                              &#128279; Historical Weather Data (Country)
-                            </text>
-                        </Link>  
                     </g>
                 </svg>
                 <div id="bottom"/>
