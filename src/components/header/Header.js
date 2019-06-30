@@ -14,6 +14,18 @@ const Header = (props) => {
           <div className="logo">
             <NavLink to="/" className="title">Climate Spy</NavLink>
           </div>
+          <div className="dropdown">
+            <button className="dropbtn">Climate Data
+            </button>
+            <div className="dropdown-content">
+              <div>
+                <NavLink to="/search" className="nav-link"><span className="link-text">US Climate Data</span></NavLink>
+              </div>
+              <div>
+                <NavLink to="/worldsearch" className="nav-link"><span className="link-text">World Climate Data</span></NavLink>
+              </div>
+            </div>
+          </div>
           <div className="spacer"></div>
           <div className="nav-right">
             <ul className="links">
@@ -31,14 +43,6 @@ const Header = (props) => {
                   style={{ color: `white`, textDecoration: `none` }}
                 >
                   <span className="link-text">Sign In</span>
-                </NavLink>
-              </li>
-              <li className="nav-link">
-                <NavLink
-                  to="/users"
-                  style={{ color: `white`, textDecoration: `none` }}
-                >
-                  <span className="link-text">Users</span>
                 </NavLink>
               </li>
             </ul>
