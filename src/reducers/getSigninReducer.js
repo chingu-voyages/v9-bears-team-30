@@ -3,7 +3,9 @@ import {
   GET_SIGNIN_FAILURE, 
   GET_SIGNIN_STARTED } from '../actions/getSigninAction';
 
-export const getSigninReducer = (state = {saving: false, newSignin: [], error: null}, action) => {
+const isEmpty = require("is-empty");
+
+export const getSigninReducer = (state = {saving: false, isAuthenticated: false, user: {}, error: null}, action) => {
   switch (action.type) {
     case GET_SIGNIN_STARTED:
       return {
@@ -11,17 +13,20 @@ export const getSigninReducer = (state = {saving: false, newSignin: [], error: n
         saving: true
       };
     case GET_SIGNIN_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         saving: false,
+        isAuthenticated: !isEmpty(action.payload),
         error: null,
-        newSignin: [...state.newSignin, action.payload]
+        user: action.payload
       };
     case GET_SIGNIN_FAILURE:
+      console.log(action.payload);
       return {
         ...state,
         saving: false,
-        error: action.payload.error.response.data
+        error: action.payload
       };
     default:
       return state;

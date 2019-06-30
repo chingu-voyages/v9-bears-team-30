@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const path = require("path")
 const cors = require("cors")
 const DB = require("./server/db")
+const passport = require("passport");
 const userRouter = require("./server/routes/userApi")
 
 const app = express()
@@ -13,6 +14,11 @@ app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./server/config/passport")(passport);
 
 app.use("/user", userRouter)
 

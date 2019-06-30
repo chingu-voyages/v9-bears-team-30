@@ -68,7 +68,7 @@ export class SignInPage extends Component {
     return (
       <Layout>
         <div className='signup-page signin-page'>
-          {this.props.success.length == 0 ? (
+          {Object.entries(this.props.success).length === 0 && this.props.success.constructor === Object ? (
             <div className='signup-container'>
               <div className='signup-heading-container'>
                 <h1 className='signup-heading-h1'>Log In</h1>
@@ -112,7 +112,7 @@ const mapStateToProps = ( state ) => {
     signinEmail: state.signinEmail.signinEmail,
     signinPassword: state.signinPassword.signinPassword,
     saving: state.getSignin.saving,
-    success: state.getSignin.newSignin,
+    success: state.getSignin.user,
     error: state.getSignin.error
   }
 };
