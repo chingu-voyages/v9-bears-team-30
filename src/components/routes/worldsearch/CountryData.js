@@ -60,10 +60,10 @@ const CountryData = () => {
     return (
         <Layout>
             <div className="page-wrapper">
-                <div className="column">
+                <div>
                     <WorldWeatherSearch click={getCountryCode} />
                 </div>
-                <div className="column">
+                <div>
                     {worldDataViz}
                     {worldDataViz2}
                 </div>
