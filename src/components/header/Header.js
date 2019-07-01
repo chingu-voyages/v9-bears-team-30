@@ -9,6 +9,12 @@ const Header = (props) => {
   //links hooks with store using useSelector
   const auth = useSelector(state => state.auth);
 
+  //when button is clicked, sends action to react store
+  function handleClick() {
+    console.log('logging out...');
+    this.props.logoutUser();
+  }
+
     return (
       <div className="header">
         <div>
@@ -48,6 +54,16 @@ const Header = (props) => {
                   style={{ color: `white`, textDecoration: `none` }}
                 >
                   <span className="link-text">Dashboard</span>
+                </NavLink>
+              </li>
+            }
+            { !auth &&
+              <li className="nav-link">
+                <NavLink
+                  to="/dashboard"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text" onClick={handleClick}>Sign Out</span>
                 </NavLink>
               </li>
               }
