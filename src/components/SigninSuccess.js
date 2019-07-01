@@ -5,12 +5,23 @@ import { Link } from "react-router-dom";
 export class SigninSuccess extends Component {
 
   constructor(props) {
-    super(props);
+    super(props);    
+    this.state = {
+      redirectTimeout: null
+    }
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     console.log(this.props);
-    setTimeout(function(){ window.location.replace("http://localhost:8080/dashboard"); }, 5000);
+    this.setState({
+      redirectTimeout: setTimeout(function(){ window.location.replace("http://localhost:8080/dashboard"); }, 5000)
+    })
+  }
+
+  handleClick() {
+    clearTimeout(this.state.redirectTimeout);
   }
 
   render() {
@@ -29,7 +40,7 @@ export class SigninSuccess extends Component {
               to="/dashboard"
               style={{ color: `white`, textDecoration: 'none'}}
             >
-              <span className="link-text">Dashboard</span>
+              <span className="link-text" onClick={this.handleClick}>Dashboard</span>
             </Link>
             &nbsp;in 5 seconds...</p>
           </div>
