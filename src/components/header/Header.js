@@ -53,3 +53,22 @@ const Header = (props) => {
 }
 
 export default Header
+
+//pass store state as props. value must equal a valid store key. 
+const mapStateToProps = ( state ) => {   
+  return { 
+    auth: state.getSignin
+  }
+};
+
+//passes actions as props. dispatch(callback()) must equal an imported action name
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutUser: () => {
+      dispatch(logoutUser())
+    }
+  }
+};
+
+//connects store actions and states to component
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
