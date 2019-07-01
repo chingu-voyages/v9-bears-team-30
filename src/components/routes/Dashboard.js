@@ -15,6 +15,7 @@ export class Dashboard extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  //when button is clicked, sends action to react store
   handleClick(e) {
     console.log('logging out...');
     this.props.logoutUser();
