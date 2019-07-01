@@ -29,7 +29,7 @@ export class Dashboard extends Component {
     return (
       <Layout>
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
-          Welcome {user.toString()}
+          Welcome User {user.id}
           <button onClick={this.handleClick}>
             Logout
           </button>
