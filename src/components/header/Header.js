@@ -5,8 +5,9 @@ import DrawerToggleButton from "../sidedrawer/DrawerToggleButton"
 import "./header.css"
 
 const Header = (props) => {
-  const auth = useSelector(state => state.auth);
 
+  //links hooks with store using useSelector
+  const auth = useSelector(state => state.auth);
 
     return (
       <div className="header">
@@ -40,6 +41,16 @@ const Header = (props) => {
                   <span className="link-text">Sign Up</span>
                 </NavLink>
               </li>
+              { !auth &&
+              <li className="nav-link">
+                <NavLink
+                  to="/dashboard"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text">Dashboard</span>
+                </NavLink>
+              </li>
+              }
               { auth &&
               <li className="nav-link">
                 <NavLink
