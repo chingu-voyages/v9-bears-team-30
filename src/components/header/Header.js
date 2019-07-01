@@ -1,19 +1,17 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import { connect, useSelector } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import DrawerToggleButton from "../sidedrawer/DrawerToggleButton"
 import "./header.css"
+import { logoutUser } from '../../actions/getSigninAction';
 
 const Header = (props) => {
 
-  //links hooks with store using useSelector
+  //Allows you to extract data from the Redux store state, using a selector function.
   const auth = useSelector(state => state.auth);
 
-  //when button is clicked, sends action to react store
-  function handleClick() {
-    console.log('logging out...');
-    this.props.logoutUser();
-  }
+  //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+  const dispatch = useDispatch();
 
     return (
       <div className="header">
@@ -63,7 +61,7 @@ const Header = (props) => {
                   to="/dashboard"
                   style={{ color: `white`, textDecoration: `none` }}
                 >
-                  <span className="link-text" onClick={handleClick}>Sign Out</span>
+                  <span className="link-text" onClick={() => dispatch(logoutUser())}>Sign Out</span>
                 </NavLink>
               </li>
               }
