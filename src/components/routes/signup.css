@@ -28,6 +28,10 @@
   min-width:300px;
 }
 
+.signup-container.dashboard {
+  margin-top:20px;
+}
+
 .signup-heading-container {
   color:white;
   background-color: rgba(0, 0, 0, 0.73);

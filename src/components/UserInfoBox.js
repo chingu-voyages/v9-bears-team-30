@@ -10,7 +10,7 @@ export class UserInfoBox extends Component {
 
   render() {
     return (
-      <div className='signup-container'>
+      <div className='signup-container dashboard'>
         <div className='signup-heading-container'>
           <h1 className='signup-heading-h1'>Welcome!</h1>
         </div>
