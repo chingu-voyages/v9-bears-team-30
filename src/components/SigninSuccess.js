@@ -9,8 +9,6 @@ export class SigninSuccess extends Component {
     this.state = {
       redirectTimeout: null
     }
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -20,14 +18,11 @@ export class SigninSuccess extends Component {
     })
   }
 
-  handleClick() {
+  componentWillUnmount() {    
     clearTimeout(this.state.redirectTimeout);
   }
 
   render() {
-
-
-
     return (
       <div className='signup-container'>
         <div className='signup-heading-container'>
@@ -40,7 +35,7 @@ export class SigninSuccess extends Component {
               to="/dashboard"
               style={{ color: `white`, textDecoration: 'none'}}
             >
-              <span className="link-text" onClick={this.handleClick}>Dashboard</span>
+              <span className="link-text">Dashboard</span>
             </Link>
             &nbsp;in 5 seconds...</p>
           </div>
