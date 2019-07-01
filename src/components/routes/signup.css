@@ -17,6 +17,10 @@
   background-image: url(./signin-bg-large-min.jpg);
 }
 
+.dashboard-page {
+  background-image: url(./signin-bg-large-min.jpg);  
+}
+
 .signup-container {  
   width:400px;
   max-width:95%;

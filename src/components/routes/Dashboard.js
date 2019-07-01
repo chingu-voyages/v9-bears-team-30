@@ -28,7 +28,7 @@ export class Dashboard extends Component {
 
     return (
       <Layout>
-        <div style={{marginTop:100}}>
+        <div className="signup-page dashboard-page" style={{marginTop:80}}>
           Welcome {user.toString()}
           <button onClick={this.handleClick}>
             Logout
