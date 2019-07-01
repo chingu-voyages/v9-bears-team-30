@@ -37,6 +37,7 @@ const Header = (props) => {
           <div className="spacer"></div>
           <div className="nav-right">
             <ul className="links">
+            { auth &&
               <li className="nav-link">
                 <NavLink
                   to="/signup"
@@ -45,7 +46,8 @@ const Header = (props) => {
                   <span className="link-text">Sign Up</span>
                 </NavLink>
               </li>
-              { !auth &&
+            }
+            { !auth &&
               <li className="nav-link">
                 <NavLink
                   to="/dashboard"
@@ -64,8 +66,8 @@ const Header = (props) => {
                   <span className="link-text" onClick={() => dispatch(logoutUser())}>Sign Out</span>
                 </NavLink>
               </li>
-              }
-              { auth &&
+            }
+            { auth &&
               <li className="nav-link">
                 <NavLink
                   to="/signin"
@@ -74,7 +76,7 @@ const Header = (props) => {
                   <span className="link-text">Sign In</span>
                 </NavLink>
               </li>
-              }
+            }
             </ul>
           </div>
         </nav>

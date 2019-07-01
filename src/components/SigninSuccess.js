@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 //import './routs/signup.css';
 
 export class SigninSuccess extends Component {
@@ -16,8 +17,13 @@ export class SigninSuccess extends Component {
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message'>Thank you for signing in!</p>
-            <a className='signup-success-link' href="">Go back</a>
+            <p className='signup-success-message'>Thank you for signing in!</p>            
+            <Link
+              to="/dashboard"
+              style={{ color: `white`, textDecoration: `none` }}
+            >
+              <span className="link-text">Dashboard</span>
+            </Link>
           </div>
         </div>
       </div>
