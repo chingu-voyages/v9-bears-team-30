@@ -8,7 +8,14 @@ export class SigninSuccess extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log(this.props);
+    setTimeout(function(){ window.location.replace("http://localhost:8080/dashboard"); }, 5000);
+  }
+
   render() {
+
+
 
     return (
       <div className='signup-container'>
