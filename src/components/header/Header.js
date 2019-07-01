@@ -1,10 +1,13 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-
+import { connect, useSelector } from 'react-redux';
 import DrawerToggleButton from "../sidedrawer/DrawerToggleButton"
 import "./header.css"
 
 const Header = (props) => {
+  const auth = useSelector(state => state.auth);
+
+
     return (
       <div className="header">
         <div>
@@ -37,6 +40,7 @@ const Header = (props) => {
                   <span className="link-text">Sign Up</span>
                 </NavLink>
               </li>
+              { auth &&
               <li className="nav-link">
                 <NavLink
                   to="/signin"
@@ -45,6 +49,7 @@ const Header = (props) => {
                   <span className="link-text">Sign In</span>
                 </NavLink>
               </li>
+              }
             </ul>
           </div>
         </nav>
@@ -54,21 +59,21 @@ const Header = (props) => {
 
 export default Header
 
-//pass store state as props. value must equal a valid store key. 
-const mapStateToProps = ( state ) => {   
-  return { 
-    auth: state.getSignin
-  }
-};
+// //pass store state as props. value must equal a valid store key. 
+// const mapStateToProps = ( state ) => {   
+//   return { 
+//     auth: state.getSignin
+//   }
+// };
 
-//passes actions as props. dispatch(callback()) must equal an imported action name
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logoutUser: () => {
-      dispatch(logoutUser())
-    }
-  }
-};
+// //passes actions as props. dispatch(callback()) must equal an imported action name
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     logoutUser: () => {
+//       dispatch(logoutUser())
+//     }
+//   }
+// };
 
 //connects store actions and states to component
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+// export default connect(mapStateToProps, mapDispatchToProps)(Header);
