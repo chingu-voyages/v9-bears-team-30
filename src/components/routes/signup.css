@@ -18,8 +18,7 @@
 }
 
 .dashboard-page {
-  background-image: url(./dashboard-bg-large-min.jpg);  
-  align-items: start;
+  background-image: url(./dashboard-bg-large-min.jpg); 
   justify-content: start;
 }
 
