@@ -24,14 +24,14 @@ export class SigninSuccess extends Component {
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message'>Thank you for signing in! You will be redirected to the 
+            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in! You will be redirected to the&nbsp;
             <Link
               to="/dashboard"
-              style={{ color: `white`, textDecoration: `none` }}
+              style={{ color: `white`, textDecoration: 'none'}}
             >
-              <span className="link-text">{" Dashboard "}</span>
+              <span className="link-text">Dashboard</span>
             </Link>
-             in 5 seconds...</p>
+            &nbsp;in 5 seconds...</p>
           </div>
         </div>
       </div>
