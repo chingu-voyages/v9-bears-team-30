@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "lint": "eslint src/**/*.js src/**/*.jsx",
+    "build": "npm run build --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
