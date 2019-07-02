@@ -4,7 +4,7 @@
   "description": "A weather-data aggregation and visualization app",
   "main": "server.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
