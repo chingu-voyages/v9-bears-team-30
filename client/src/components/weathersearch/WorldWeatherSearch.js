@@ -2,24 +2,24 @@ import React, { useState, useEffect } from "react"
 
 import "./weathersearch.css"
 
-const WeatherSearch = (props) => {
-  const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
-  const [city, setCity] = useState("")
-  const [USState, setUSState] = useState("")  
-  const [weather, setWeather] = useState({
-      location: "", 
-      country: "",
-      currentTemp: 0,
-      maxTemp: 0,
-      minTemp: 0,
-      humidity: 0,
-      skies: ""
+const WorldWeatherSearch = (props) => {
+    const [coordinates, setCoordinates] = useState({ latitude: 28.65, longitude: 77.22 })
+    const [city, setCity] = useState("")
+    const [country, setCountry] = useState("")
+    const [weather, setWeather] = useState({
+        location: "",
+        country: "",
+        currentTemp: 0,
+        maxTemp: 0,
+        minTemp: 0,
+        humidity: 0,
+        skies: ""
     })
 
 
     const getRemoteWeather = async (event) => {
         event.preventDefault()
-        await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -38,17 +38,17 @@ const WeatherSearch = (props) => {
                     setWeather(weatherUpdate)
                 })
             })
-         props.click(city, USState)   
+        props.click(city, country)
     }
     const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
             const localCoordinates = { latitude: position.coords.latitude, longitude: position.coords.longitude }
             setCoordinates(localCoordinates)
         })
-        
+
         event.preventDefault()
-        
-        await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
+
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -67,13 +67,13 @@ const WeatherSearch = (props) => {
                     setWeather(weatherUpdate)
                 })
             })
-        
+
 
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.OPEN_WEATHER}`)
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
                 .then(response => {
                     if (response.status !== 200) {
                         console.log(`There was a problem: ${response.status}`);
@@ -91,14 +91,16 @@ const WeatherSearch = (props) => {
                         }
                         setWeather(weatherUpdate)
                     })
-                })    
+                })
         }
-        fetchData()          
-    },[coordinates])
+        fetchData()
+    }, [coordinates])
 
     return (
         <div className="search-wrapper">
-            <h3 id="title">Weather for {weather.location ? weather.location: "Data Loading..."} </h3>
+            <h3 id="title">
+                Weather for {weather.location ? weather.location : "Data Loading..."}, {weather.country ? weather.country: "Data Loading..."}
+            </h3>
             <div className="weather-data">
                 <div className="temp">
                     <div className="temp">
@@ -141,20 +143,21 @@ const WeatherSearch = (props) => {
                             />
                         </div>
                         <div className="input">
-                            <label htmlFor="state">State (Example: NY)</label>
+                            <label htmlFor="city">Country (Example: US)</label>
                             <input
                                 type="text"
                                 placeholder="State name (case sensitive)"
-                                value={USState}
+                                value={country}
                                 onChange={event => {
                                     event.preventDefault()
-                                    setUSState(event.target.value)
+                                    setCountry(event.target.value)
                                 }}
                             />
                         </div>
                         <button id="remote-weather" type="submit" onClick={getRemoteWeather}>
                             Get Climate Data
                         </button>
+                        <p id="message">Only country data will be displayed</p>
                     </div>
                 </div>
             </div>
@@ -162,5 +165,5 @@ const WeatherSearch = (props) => {
     )
 }
 
-export default WeatherSearch
+export default WorldWeatherSearch
 

@@ -7,7 +7,7 @@ import { getSigninSucess, logoutUser } from "../../actions/getSigninAction";
 
 import { store } from "../../store";
 
-import Home from "./home";
+import Home from "./Home";
 import User from "./Users";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";

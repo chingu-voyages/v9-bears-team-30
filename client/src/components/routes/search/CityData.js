@@ -16,7 +16,7 @@ const CityData = () => {
         const url = 'https://app.climate.azavea.com/api/city/?page_size=1771'
         await fetch(url, {
             method: 'GET',
-            headers: { 'Authorization': 'Token' + ' ' + process.env.AZAVEA_TOKEN }
+            headers: { 'Authorization': 'Token' + ' ' + process.env.REACT_APP_AZAVEA_TOKEN }
         }).then(response => {
             if (response.status !== 200) {
                 console.log(`There was a problem: ${response.status}`);
@@ -38,7 +38,7 @@ const CityData = () => {
 
         fetch(url, {
             method: 'GET',
-            headers: { 'Authorization': 'Token' + ' ' + process.env.AZAVEA_TOKEN }
+            headers: { 'Authorization': 'Token' + ' ' + process.env.REACT_APP_AZAVEA_TOKEN }
         }).then(response => {
             if (response.status !== 200) {
                 console.log(`There was a problem: ${response.status}`);
