@@ -1,10 +1,19 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-
+import { connect, useSelector, useDispatch } from 'react-redux';
 import DrawerToggleButton from "../sidedrawer/DrawerToggleButton"
 import "./header.css"
+import { logoutUser } from '../../actions/getSigninAction';
 
 const Header = (props) => {
+
+  //Allows you to extract data from the Redux store state, using a selector function.
+  var auth = useSelector(state => state.getSignin.isAuthenticated);
+  console.log('auth is: ' + JSON.stringify(auth));
+
+  //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+  var dispatch = useDispatch();
+
     return (
       <div className="header">
         <div>
@@ -29,6 +38,7 @@ const Header = (props) => {
           <div className="spacer"></div>
           <div className="nav-right">
             <ul className="links">
+            { !auth &&
               <li className="nav-link">
                 <NavLink
                   to="/signup"
@@ -37,6 +47,8 @@ const Header = (props) => {
                   <span className="link-text">Sign Up</span>
                 </NavLink>
               </li>
+            }
+            { !auth &&
               <li className="nav-link">
                 <NavLink
                   to="/signin"
@@ -45,6 +57,27 @@ const Header = (props) => {
                   <span className="link-text">Sign In</span>
                 </NavLink>
               </li>
+            }            
+            { auth &&
+              <li className="nav-link">
+                <NavLink
+                  to="/dashboard"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text">Dashboard</span>
+                </NavLink>
+              </li>
+            }
+            { auth &&
+              <li className="nav-link">
+                <NavLink
+                  to="/dashboard"
+                  style={{ color: `white`, textDecoration: `none` }}
+                >
+                  <span className="link-text" onClick={() => dispatch(logoutUser())}>Sign Out</span>
+                </NavLink>
+              </li>
+            }
             </ul>
           </div>
         </nav>
@@ -53,3 +86,22 @@ const Header = (props) => {
 }
 
 export default Header
+
+// //pass store state as props. value must equal a valid store key. 
+// const mapStateToProps = ( state ) => {   
+//   return { 
+//     auth: state.getSignin
+//   }
+// };
+
+// //passes actions as props. dispatch(callback()) must equal an imported action name
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     logoutUser: () => {
+//       dispatch(logoutUser())
+//     }
+//   }
+// };
+
+//connects store actions and states to component
+// export default connect(mapStateToProps, mapDispatchToProps)(Header);
