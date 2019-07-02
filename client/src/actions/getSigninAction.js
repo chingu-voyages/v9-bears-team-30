@@ -16,7 +16,7 @@ export const getSignin = (emailAndPassword) => {
 		//first dispatch an immediate synchronous action to the store to indicate that we’ve started saving 
 		dispatch(getSigninStarted());
 
-		return axios.get("http://localhost:5000/user/api/signin", {
+		return axios.get("/user/api/signin", {
 			params: {
 				email: emailAndPassword.signinEmail,
 				password: emailAndPassword.signinPassword

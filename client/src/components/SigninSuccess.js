@@ -14,7 +14,7 @@ export class SigninSuccess extends Component {
   componentDidMount() {
     console.log(this.props);
     this.setState({
-      redirectTimeout: setTimeout(function(){ window.location.replace("http://localhost:8080/dashboard"); }, 5000)
+      redirectTimeout: setTimeout(function(){ window.location.replace("http://localhost:3000/dashboard"); }, 5000)
     })
   }
 

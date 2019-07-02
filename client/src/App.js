@@ -1,12 +1,12 @@
 import React from "react";
-import "./app.css";
-import Routes from "./routes";
+import "./App.css";
+import Routes from "./components/routes/index";
 import { connect } from 'react-redux';
 
 const App = () => {
-    return (
-      <Routes />
-    )
+  return (
+    <Routes />
+  )
 }
 
 export default connect(null, null)(App);

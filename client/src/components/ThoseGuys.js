@@ -5,7 +5,7 @@ const ThoseGuys = () => {
     //console.log('mode is: ' + process.env.NODE_ENV)
 
     useEffect(() => {
-        fetch("http://localhost:5000/user/api/thoseguys")
+        fetch("/user/api/thoseguys")
             .then(res => res.json())
             .then(guys => setThoseGuys([
                 ...thoseGuys, ...guys
@@ -15,7 +15,7 @@ const ThoseGuys = () => {
     //console.log(thoseGuys)
 
     return (
-        <div className="those-guys">
+        <div className="those-guys" style={{backgroundColor: `white`}}>
             <h2>Those Guys</h2>
             {thoseGuys.map(guy => {
                return (
