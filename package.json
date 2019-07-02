@@ -10,7 +10,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "test": "jest"
+    "test": "npm run test --prefix client"
   },
   "author": "DMethan and willjw3",
   "license": "MIT",
@@ -38,6 +38,8 @@
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^7.1.0-rc.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
