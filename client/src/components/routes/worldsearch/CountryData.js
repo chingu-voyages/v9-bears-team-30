@@ -13,7 +13,7 @@ const CountryData = () => {
 
     const getCountryCode = async (city, country) => {
         setLocationInfo({ "city": city, "country": country })
-        const url = `https://api.worldbank.org/v2/country/${country}?format=json`
+        const url = `http://api.worldbank.org/v2/country/${country}?format=json`
         await fetch(url, {
             method: 'GET'
         }).then(response => {
@@ -29,7 +29,7 @@ const CountryData = () => {
     }
 
     useEffect(() => {
-        const url = `https://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/${countryCode}`
+        const url = `http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/${countryCode}`
 
         fetch(url, {
             method: 'GET'
