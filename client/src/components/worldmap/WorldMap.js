@@ -170,7 +170,7 @@ class WorldMap extends Component {
             });
         });
 
-        fetch(`http://api.openweathermap.org/data/2.5/group?id=1850147,1642911,1273294,1816670,5128581,3448439,3530597,524901,108410,5368361,1609350,3435910,3369157,2314302,6547285,6183235,5861897,2158177,756135,6542283&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
+        fetch(`https://api.openweathermap.org/data/2.5/group?id=1850147,1642911,1273294,1816670,5128581,3448439,3530597,524901,108410,5368361,1609350,3435910,3369157,2314302,6547285,6183235,5861897,2158177,756135,6542283&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
