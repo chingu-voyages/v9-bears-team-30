@@ -10,7 +10,7 @@ const WorldDataViz2 = (props) => {
         const years = Object.keys(props.data)
         const temps = Object.values(props.data)
         temps.length && drawBarChart(city, country, years, temps)
-    }, [props.data])
+    }, [props.data, props.location.city, props.location.country])
 
     const drawBarChart = (city, country, years, temps) => {
         const margin = { top: 30, bottom: 60, right: 37, left: 30 },

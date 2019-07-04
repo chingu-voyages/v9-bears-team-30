@@ -136,7 +136,7 @@ export class SignUpPage extends Component {
     return (
       <Layout>
         <div className='signup-page'>
-          {this.props.success.length == 0 ? (
+          {this.props.success.length === 0 ? (
             <div className='signup-container'>
               <div className='signup-heading-container'>
                 <h1 className='signup-heading-h1'>Join ClimateSpy today, it&apos;s Free.</h1>

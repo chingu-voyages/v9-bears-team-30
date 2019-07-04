@@ -11,6 +11,7 @@ const CityData = () => {
     const [climateData, setClimateData] = useState({})
     const [locationInfo, setLocationInfo] = useState({"city": "New York", "state": "NY"})
 
+    // Gets city id from azavea.com to use for looking up weather by city id
     const getCityId = async (city, USState) => {
         setLocationInfo({"city": city, "state": USState})
         const url = 'https://app.climate.azavea.com/api/city/?page_size=1771'
@@ -24,7 +25,7 @@ const CityData = () => {
             }
             response.json().then(cityids => {
                 cityids.features.forEach(cityinfo => {
-                    if (city == cityinfo.properties.name && USState == cityinfo.properties.admin) {
+                    if (city === cityinfo.properties.name && USState === cityinfo.properties.admin) {
                         setCityId(cityinfo.id)
                     }
                 }) 
@@ -33,6 +34,7 @@ const CityData = () => {
 
     }
 
+    // Gets city weather info on state update
     useEffect(() => {
         const url = `https://app.climate.azavea.com/api/climate-data/${cityId}/RCP45/indicator/average_high_temperature/?years=2010:2050&units=C`
 
