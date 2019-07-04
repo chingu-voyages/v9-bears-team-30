@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { changeSigninEmail } from '../../actions/changeSigninEmailAction';
+import { changeSigninPassword } from '../../actions/changeSigninPasswordAction';
+import { getSignin } from '../../actions/getSigninAction';
 import { logoutUser } from '../../actions/getSigninAction';
 import './signup.css';
 import Layout from "../layouts/layout";

@@ -25,7 +25,7 @@ const CityData = () => {
             }
             response.json().then(cityids => {
                 cityids.features.forEach(cityinfo => {
-                    if (city === cityinfo.properties.name && USState === cityinfo.properties.admin) {
+                    if (city == cityinfo.properties.name && USState == cityinfo.properties.admin) {
                         setCityId(cityinfo.id)
                     }
                 }) 
