@@ -10,7 +10,7 @@ const DataViz = (props) => {
         const years = Object.keys(props.data)
         const temps = Object.values(props.data)
         temps.length && drawBarChart(city, state, years, temps)
-    }, [props.data])
+    }, [props.data, props.location.city, props.location.state])
 
     const drawBarChart = (city, state, years, temps) => {
         const margin = { top: 30, bottom: 60, right: 41, left: 30 },

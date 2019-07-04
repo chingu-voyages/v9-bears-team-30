@@ -8,7 +8,6 @@ import { getSigninSucess, logoutUser } from "../../actions/getSigninAction";
 import { store } from "../../store";
 
 import Home from "./Home";
-import User from "./Users";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
 import CityData from "./search/CityData"
@@ -39,7 +38,6 @@ export default () => {
   return (
 	<BrowserRouter>
 		<Route exact path="/" component={Home} />
-		<Route path="/users" component={User} />
 		<Route path="/signup" component={SignUpPage} />
 		<Route path="/signin" component={SignInPage} />
 		<Route path="/search" component={CityData} />

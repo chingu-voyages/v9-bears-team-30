@@ -5,6 +5,8 @@ import SideDrawer from "../sidedrawer/SideDrawer"
 
 const Layout = (props) => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+
+    // Sets drawer to be open or closed depending on previous state
     const drawerToggleClickHandler = () => {
         if (sideDrawerOpen === false) {
             setSideDrawerOpen(true)

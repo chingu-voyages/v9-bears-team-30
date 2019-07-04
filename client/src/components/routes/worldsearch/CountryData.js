@@ -11,6 +11,7 @@ const CountryData = () => {
     const [climateData, setClimateData] = useState({})
     const [locationInfo, setLocationInfo] = useState({ "city": "Delhi", "country": "IND" })
 
+    // gets 3-letter country code for weather info lookup
     const getCountryCode = async (city, country) => {
         setLocationInfo({ "city": city, "country": country })
         const url = `http://api.worldbank.org/v2/country/${country}?format=json`
@@ -28,6 +29,7 @@ const CountryData = () => {
 
     }
 
+    // Gets country weather info on state update based on 3-letter country code
     useEffect(() => {
         const url = `http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/${countryCode}`
 
