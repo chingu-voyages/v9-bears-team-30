@@ -41,15 +41,15 @@ const SideDrawer = (props) => {
               to="/search"
               style={{ color: `black`, textDecoration: `none` }}
             >
-              <span className="link-text">US Climate Data</span>
+              <span className="link-text">US Temperature Data</span>
             </Link>
           </li>
           <li className="drawer-links">
             <Link
-              to="/worldsearch"
+              to="/precipitation"
               style={{ color: `black`, textDecoration: `none` }}
             >
-              <span className="link-text">World Climate Data</span>
+              <span className="link-text">US Rainfall Data</span>
             </Link>
           </li>
           <li>
