@@ -85,7 +85,7 @@ const RainDataViz = (props) => {
             .attr("y", 35)
             .attr("class", "graph-subtitle")
             .attr("fill", "white")
-            .text("Average Annual Rainfall")
+            .text("Total Annual Rainfall")
 
         svg.selectAll('rect')
             .data(scaledVals)
