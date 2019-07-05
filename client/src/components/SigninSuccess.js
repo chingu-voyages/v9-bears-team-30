@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-//import './routs/signup.css';
+import { Link, Redirect} from "react-router-dom";
+//import './routes/signup.css';
 
 export class SigninSuccess extends Component {
 
   constructor(props) {
     super(props);    
     this.state = {
-      redirectTimeout: null
+      redirect: false
     }
   }
 
   componentDidMount() {
     console.log(this.props);
-    this.setState({
-      redirectTimeout: setTimeout(function(){ window.location.replace("http://localhost:3000/dashboard"); }, 5000)
-    })
+    setTimeout(() => {
+      this.setState({ redirect: true })
+    }, 5000)
+    
+
   }
 
-  componentWillUnmount() {    
-    clearTimeout(this.state.redirectTimeout);
+  componentWillUnmount() {   
+    clearTimeout(this.state.redirect);
   }
 
   render() {
+    if (this.state.redirect === true) {
+        return <Redirect to='/dashboard' />
+    }
+
     return (
       <div className='signup-container'>
         <div className='signup-heading-container'>
