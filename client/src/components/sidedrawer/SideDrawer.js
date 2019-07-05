@@ -18,52 +18,52 @@ const SideDrawer = (props) => {
 
     return (
       <nav className={drawerClass}>
-        <h1>Climate Spy</h1>
-        <ul>
-          <li className="drawer-links">
-            <Link
-              to="/signup"
-              style={{ color: `black`, textDecoration: `none` }}
-            >
-              <span className="link-text">Sign Up</span>
-            </Link>
-          </li>
-          <li className="drawer-links">
-            <Link
-              to="/signin"
-              style={{ color: `black`, textDecoration: `none` }}
-            >
-              <span className="link-text">Sign In</span>
-            </Link>
-          </li>
-          <li className="drawer-links">
-            <Link
-              to="/search"
-              style={{ color: `black`, textDecoration: `none` }}
-            >
-              <span className="link-text">US Temperature Data</span>
-            </Link>
-          </li>
-          <li className="drawer-links">
-            <Link
-              to="/precipitation"
-              style={{ color: `black`, textDecoration: `none` }}
-            >
-              <span className="link-text">US Rainfall Data</span>
-            </Link>
-          </li>
-          <li>
-            <button className="close-button" onClick={closeClickHandler}>
-              <FontAwesomeIcon
-                className="left-arrow-icon"
-                icon={faArrowAltCircleLeft}
-                size="2x"
-                transform="shrink-1"
-                color="#fe0c0b"
-              /> Close
+          <h1>Climate Spy</h1>
+          <ul>
+            <li className="drawer-links">
+              <Link
+                to="/signup"
+                style={{ color: `black`, textDecoration: `none` }}
+              >
+                <span className="link-text">Sign Up</span>
+              </Link>
+            </li>
+            <li className="drawer-links">
+              <Link
+                to="/signin"
+                style={{ color: `black`, textDecoration: `none` }}
+              >
+                <span className="link-text">Sign In</span>
+              </Link>
+            </li>
+            <li className="drawer-links">
+              <Link
+                to="/search"
+                style={{ color: `black`, textDecoration: `none` }}
+              >
+                <span className="link-text">US Temperature Data</span>
+              </Link>
+            </li>
+            <li className="drawer-links">
+              <Link
+                to="/precipitation"
+                style={{ color: `black`, textDecoration: `none` }}
+              >
+                <span className="link-text">US Rainfall Data</span>
+              </Link>
+            </li>
+            <li>
+              <button className="close-button" onClick={closeClickHandler}>
+                <FontAwesomeIcon
+                  className="left-arrow-icon"
+                  icon={faArrowAltCircleLeft}
+                  size="2x"
+                  transform="shrink-1"
+                  color="#fe0c0b"
+                /> Close
             </button>
-          </li>
-        </ul>
+            </li>
+          </ul>
       </nav>
     );
 }

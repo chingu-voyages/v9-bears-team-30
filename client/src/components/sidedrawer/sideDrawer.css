@@ -12,7 +12,7 @@
 }
 
 .side-drawer {
-    position: absolute;
+    position: fixed;
     display: block;
     background: white;
     height: 100%;
@@ -29,7 +29,7 @@
 }
 
 .side-drawer.close {
-    position: absolute;
+    position: fixed;
     display: block;
     height: 100%;
     background: white;
