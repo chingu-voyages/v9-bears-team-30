@@ -27,7 +27,9 @@ const Layout = (props) => {
     return (
        <div style={{height: `100%`}}>
             <Header drawerClickHandler={drawerToggleClickHandler} />
-            {sideDrawer}
+            <div className="drawer">
+                {sideDrawer}
+            </div>
             <div>{props.children}</div>
        </div> 
     )
