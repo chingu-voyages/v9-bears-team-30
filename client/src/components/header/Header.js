@@ -23,16 +23,12 @@ const Header = (props) => {
           <div className="logo">
             <NavLink to="/" className="title">Climate Spy</NavLink>
           </div>
-          <div className="dropdown">
-            <button className="dropbtn">Climate Data
-            </button>
-            <div className="dropdown-content">
-              <div>
-                <NavLink to="/search" className="nav-link"><span className="link-text">US Climate Data</span></NavLink>
-              </div>
-              <div>
-                <NavLink to="/worldsearch" className="nav-link"><span className="link-text">World Climate Data</span></NavLink>
-              </div>
+          <div className="data-links">
+            <div>
+              <NavLink to="/search" className="nav-link"><span className="link-text">US Temperature Data</span></NavLink>
+            </div>
+            <div>
+              <NavLink to="/precipitation" className="nav-link"><span className="link-text">US Rainfall Data</span></NavLink>
             </div>
           </div>
           <div className="spacer"></div>

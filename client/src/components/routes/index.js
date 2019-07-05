@@ -13,7 +13,6 @@ import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
 import CityData from "./search/CityData"
 import CityRainData from "./search/CityRainData"
-import CountryData from "./worldsearch/CountryData"
 import PrivateRoute from "../PrivateRoute";
 import Dashboard from "./Dashboard";
 
@@ -45,7 +44,6 @@ export default () => {
 		<Route path="/signin" component={SignInPage} />
 		<Route path="/search" component={CityData} />
 		<Route path="/precipitation" component={CityRainData} />
-		<Route path="/worldsearch" component={CountryData} />
 		<Switch>
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 		</Switch>
