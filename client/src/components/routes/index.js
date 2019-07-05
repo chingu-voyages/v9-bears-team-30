@@ -4,15 +4,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../../utils/setAuthToken";
 import { getSigninSucess, logoutUser } from "../../actions/getSigninAction";
-
+import "../app.css"
 import { store } from "../../store";
 
 import Home from "./Home";
-import User from "./Users";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
 import CityData from "./search/CityData"
-import CountryData from "./worldsearch/CountryData"
+import CityRainData from "./search/CityRainData"
 import PrivateRoute from "../PrivateRoute";
 import Dashboard from "./Dashboard";
 
@@ -39,11 +38,10 @@ export default () => {
   return (
 	<BrowserRouter>
 		<Route exact path="/" component={Home} />
-		<Route path="/users" component={User} />
 		<Route path="/signup" component={SignUpPage} />
 		<Route path="/signin" component={SignInPage} />
 		<Route path="/search" component={CityData} />
-		<Route path="/worldsearch" component={CountryData} />
+		<Route path="/precipitation" component={CityRainData} />
 		<Switch>
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 		</Switch>

@@ -45,34 +45,11 @@ nav {
     color: #49fb35;
 }
 
-.dropdown {
-    margin-left: 20px;
-    overflow: hidden;
-}
-
-.dropbtn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-family: "Quantico";
-    font-size: 16px;
-}
-
-.dropdown-content {
-    position: absolute;
-    display: none;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  position: fixed;
-  z-index: 100;
-}
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .nav-right{display: none;}
-    .dropdown{display: none;}
+    .data-links{display: none}
     .header {
         height:60px;        
     }
