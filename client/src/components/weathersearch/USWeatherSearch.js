@@ -5,7 +5,8 @@ import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
     //this will be used for redux "city/state" state
-    //var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
+    var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
+    console.log(searchCityName);
     //var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
@@ -143,10 +144,10 @@ const WeatherSearch = (props) => {
                             <input
                                 type="text"
                                 placeholder="City name (case sensitive)"
-                                value={city}
+                                value={searchCityName}
                                 onChange={event => {
                                     event.preventDefault()
-                                    setCity(event.target.value)
+                                    dispatch(updateSearchCity(event.target.value))
                                 }}
                             />
                         </div>
