@@ -9,7 +9,7 @@
 - Navigate into the project root.
 - Install all dependencies. From the project root: `npm install`. 
 - Run in development mode. From the project root: `npm run dev`. If you get any webpack errors, try `npm install --save-dev -g webpack webpack-dev-server`.
-- To run just the server and use GraphQL Playground, from the project root: `npm run server`.
+- To run just the server, from the project root: `npm run server`.
 - Run Eslint. From the project root: `npm run lint`.
 - Run tests. From the project root: `npm run test`.
 
