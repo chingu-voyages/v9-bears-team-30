@@ -32,10 +32,6 @@ export class Dashboard extends Component {
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
 
         <UserInfoBox/>
-          Welcome User {user.id}
-          <button onClick={this.handleClick}>
-            Logout
-          </button>
         </div>
       </Layout>
     )
