@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-//import { updateSearchHistory } from '../../actions/updateSearchHistoryAction';
+//import { updateSearchHistory } from '../../actions/SearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
@@ -8,6 +8,8 @@ const WeatherSearch = (props) => {
     //var cityNameSearch = useSelector(state => state.searchHistory.cityName);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+    //In JSX for example: onClick={() => dispatch(logoutUser())}
+    //make sure the action is imported
     var dispatch = useDispatch();
 
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
