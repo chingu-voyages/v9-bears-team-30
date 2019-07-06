@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react"
-
+import { useSelector, useDispatch } from 'react-redux';
+//import { updateSearchHistory } from '../../actions/updateSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-  const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
-  const [city, setCity] = useState("")
-  const [USState, setUSState] = useState("")  
-  const [weather, setWeather] = useState({
-      location: "", 
-      country: "",
-      currentTemp: 0,
-      maxTemp: 0,
-      minTemp: 0,
-      humidity: 0,
-      skies: ""
+    //this will be used for redux "city/state" state
+    //var cityNameSearch = useSelector(state => state.searchHistory.cityName);
+    
+    //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+    var dispatch = useDispatch();
+
+    const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
+    const [city, setCity] = useState("")
+    const [USState, setUSState] = useState("")  
+    const [weather, setWeather] = useState({
+        location: "", 
+        country: "",
+        currentTemp: 0,
+        maxTemp: 0,
+        minTemp: 0,
+        humidity: 0,
+        skies: ""
     })
 
 
