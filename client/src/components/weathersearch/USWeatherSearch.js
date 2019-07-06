@@ -5,7 +5,7 @@ import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
     //this will be used for redux "city/state" state
-    //var cityNameSearch = useSelector(state => state.searchHistory.cityName);
+    //var cityNameSearch = useSelector(state => state.updateSearchHistory.cityName);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}
