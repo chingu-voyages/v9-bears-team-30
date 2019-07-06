@@ -4,7 +4,7 @@ export const UPDATEUSSEARCHSTATE = 'UPDATEUSSEARCHSTATE';
 export const updateSearchCity = (cityName) => {
 	return {
 		type: UPDATEUSSEARCHCITY,
-		searchCity: city
+		searchCity: cityName
 	}
 };
 

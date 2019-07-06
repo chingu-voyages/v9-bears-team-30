@@ -1,11 +1,16 @@
 import { 
-  UPDATESEARCHHISTORY } from '../actions/updateSearchHistoryAction';
+  UPDATEUSSEARCHCITY,
+  UPDATEUSSEARCHSTATE } from '../actions/updateSearchHistoryAction';
 
-export const update = (state = {searchData: ''}, action) => {
+export const update = (state = {searchCity: '', searchState: ''}, action) => {
   switch (action.type) {
-    case UPDATESEARCHHISTORY:
+    case UPDATEUSSEARCHCITY:
       // don't mutate state here
-      var newObject = {searchData: action.data};
+      var newObject = {searchCity: action.searchCity};
+      return Object.assign({}, state, newObject);
+    case UPDATEUSSEARCHSTATE:
+      // don't mutate state here
+      var newObject = {searchState: action.searchState};
       return Object.assign({}, state, newObject);
     default:
       return state;
