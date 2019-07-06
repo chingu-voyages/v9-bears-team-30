@@ -30,8 +30,7 @@ export class Dashboard extends Component {
     return (
       <Layout>
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
-
-        <UserInfoBox/>
+          <UserInfoBox/>
         </div>
       </Layout>
     )
