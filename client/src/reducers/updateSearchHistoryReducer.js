@@ -2,7 +2,8 @@ import {
   UPDATEUSSEARCHCITY,
   UPDATEUSSEARCHSTATE } from '../actions/updateSearchHistoryAction';
 
-export const update = (state = {searchCity: '', searchState: ''}, action) => {
+
+export const updateSearchHistoryReducer = (state = {searchCity: '', searchState: ''}, action) => {
   switch (action.type) {
     case UPDATEUSSEARCHCITY:
       // don't mutate state here

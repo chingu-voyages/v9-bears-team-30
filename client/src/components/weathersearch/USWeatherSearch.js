@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-//import { updateSearchHistory } from '../../actions/SearchHistoryAction';
+import { updateSearchCity } from '../../actions/updateSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
     //this will be used for redux "city/state" state
-    //var cityNameSearch = useSelector(state => state.updateSearchHistory.cityName);
+    //var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
+    //var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}
