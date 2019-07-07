@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSearchCity } from '../../actions/updateSearchHistoryAction';
+import { updateSearchState } from '../../actions/updateSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
     //this will be used for redux "city/state" state
     var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
-    console.log(searchCityName);
-    //var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
+    var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}
@@ -15,7 +15,9 @@ const WeatherSearch = (props) => {
     var dispatch = useDispatch();
 
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
+    /*replaced by useSelector and useDispatch
     const [city, setCity] = useState("")
+    */
     const [USState, setUSState] = useState("")  
     const [weather, setWeather] = useState({
         location: "", 
@@ -30,7 +32,7 @@ const WeatherSearch = (props) => {
 
     const getRemoteWeather = async (event) => {
         event.preventDefault()
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCityName}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -49,7 +51,7 @@ const WeatherSearch = (props) => {
                     setWeather(weatherUpdate)
                 })
             })
-         props.click(city, USState)   
+         props.click(searchCityName, USState)   
     }
     const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
