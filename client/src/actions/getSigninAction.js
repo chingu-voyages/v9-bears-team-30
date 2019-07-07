@@ -13,7 +13,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const getSignin = (emailAndPassword) => {
 	return dispatch => {
 
-		//first dispatch an immediate synchronous action to the store to indicate that we’ve started saving 
+		//first dispatch an immediate synchronous action to the store to indicate that we’ve started signing in 
 		dispatch(getSigninStarted());
 
 		return axios.get("/user/api/signin", {
@@ -31,6 +31,7 @@ export const getSignin = (emailAndPassword) => {
 			setAuthToken(token);
 			//decode token to get user data
 			const decoded = jwt_decode(token);
+			decoded.email=emailAndPassword.signinEmail;
 			//set current user
 			//dispatch(setCurrentUser(decoded));
 			dispatch(getSigninSucess(decoded));
