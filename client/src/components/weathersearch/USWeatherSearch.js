@@ -34,9 +34,10 @@ const WeatherSearch = (props) => {
 
         //dispatch action to save search to user
         if (auth) {
+            console.log('sending saveToUserSearchHistory action: ' + searchCityName);
             dispatch(saveToUserSearchHistory({searchCity: searchCityName, searchState: searchStateName}, userEmail));
         }
-        
+
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCityName}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {

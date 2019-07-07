@@ -27,7 +27,9 @@ export class Dashboard extends Component {
           <UserInfoBox
             user={this.props.auth}
           />
-          <SearchHistory/>
+          <SearchHistory
+            history={this.props.history}
+          />
         </div>
       </Layout>
     )
@@ -37,7 +39,8 @@ export class Dashboard extends Component {
 //pass store state as props. value must equal a valid store key. 
 const mapStateToProps = ( state ) => {   
   return { 
-    auth: state.getSignin
+    auth: state.getSignin,
+    history: state.searchHistory
   }
 };
 

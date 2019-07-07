@@ -13,7 +13,7 @@ export const saveToUserSearchHistory = (searchCityAndState, email) => {
 			email
 		})
 		.then(res => {
-			console.log('save success');
+			console.log('save success: '+res.data);
 			dispatch(saveSearchHistorySucess(res.data));
 		})
 		.catch(err => {

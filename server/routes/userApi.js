@@ -103,7 +103,7 @@ router.get("/api/signin", function (req, res) {
 //updates user's search History whenever a search is made
 router.put("/api/update-search-history", function (req, res) {
   //declare variables
-  console.log('updating search history');
+  console.log('updating search history: '+req.body.searchCityAndState);
   let history = req.body.searchCityAndState;
   let email = req.body.email;
 
@@ -112,7 +112,10 @@ router.put("/api/update-search-history", function (req, res) {
      { "email" : email },
      { $push: { "searchHistory" : history } },
      { returnNewDocument: true }
-  ).then(function(data) {
+  ).then(function(err, data) {
+    if (err) {
+      throw err;
+    }
     return res.send(data);
   });
 });
