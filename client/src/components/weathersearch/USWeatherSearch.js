@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchCity } from '../../actions/updateSearchHistoryAction';
-import { updateSearchState } from '../../actions/updateSearchHistoryAction';
 import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
     //the city and state values are from the Redux store, auth is if a user is signed in
-    var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
-    var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     var auth = useSelector(state => state.getSignin.isAuthenticated);
     var userEmail = useSelector (state => state.getSignin.user.email);
     
@@ -16,7 +12,8 @@ const WeatherSearch = (props) => {
     //In JSX for example: onClick={() => dispatch(logoutUser())}
     //make sure the action is imported
     var dispatch = useDispatch();
-
+    const [city, setCity] = useState("")
+    const [USState, setUSState] = useState("")  
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
     const [weather, setWeather] = useState({
         location: "", 
@@ -34,11 +31,11 @@ const WeatherSearch = (props) => {
 
         //dispatch action to save search to user
         if (auth) {
-            console.log('sending saveToUserSearchHistory action: ' + searchCityName);
-            dispatch(saveToUserSearchHistory({searchCity: searchCityName, searchState: searchStateName}, userEmail));
+            console.log('sending saveToUserSearchHistory action: ' + city);
+            dispatch(saveToUserSearchHistory({searchCity: city, searchState: USState}, userEmail));
         }
 
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCityName}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
                     console.log(`There was a problem: ${response.status}`);
@@ -57,7 +54,7 @@ const WeatherSearch = (props) => {
                     setWeather(weatherUpdate)
                 })
             })
-         props.click(searchCityName, searchStateName)   
+         props.click(city, USState)   
     }
     const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -152,10 +149,10 @@ const WeatherSearch = (props) => {
                             <input
                                 type="text"
                                 placeholder="City name (case sensitive)"
-                                value={searchCityName}
+                                value={city}
                                 onChange={event => {
                                     event.preventDefault()
-                                    dispatch(updateSearchCity(event.target.value))
+                                    setCity(event.target.value)
                                 }}
                             />
                         </div>
@@ -164,10 +161,10 @@ const WeatherSearch = (props) => {
                             <input
                                 type="text"
                                 placeholder="State name (case sensitive)"
-                                value={searchStateName}
+                                value={USState}
                                 onChange={event => {
                                     event.preventDefault()
-                                    dispatch(updateSearchState(event.target.value))
+                                    setUSState(event.target.value)
                                 }}
                             />
                         </div>
