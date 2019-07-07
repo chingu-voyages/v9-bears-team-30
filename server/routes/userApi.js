@@ -107,14 +107,10 @@ router.put("/api/update-search-history", function (req, res) {
   let email = req.body.email;
 
   //finds and pushes new value to user's searchHistory
-  try {
-     User.updateOne(
-        { "email" : email },
-        { $push: { "searchHistory" : history } }
-     );
-  } catch (e) {
-     print(e);
-  }
+  User.findOneAndUpdate(
+     { "email" : email },
+     { $push: { "searchHistory" : history } }
+  );  
 });
 
 
