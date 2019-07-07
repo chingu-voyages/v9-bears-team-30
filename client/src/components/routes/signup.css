@@ -17,10 +17,19 @@
   background-image: url(./signin-bg-large-min.jpg);
 }
 
+.dashboard-page {
+  background-image: url(./dashboard-bg-large-min.jpg); 
+  justify-content: start;
+}
+
 .signup-container {  
   width:400px;
   max-width:95%;
   min-width:300px;
+}
+
+.signup-container.dashboard {
+  margin-top:20px;
 }
 
 .signup-heading-container {
@@ -182,6 +191,10 @@
   .signin-page {    
     background-image:url(./signin-bg-med-min.jpg);
   }
+
+  .dashboard-page {    
+    background-image:url(./dashboard-bg-med-min.jpg);
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -191,6 +204,10 @@
 
   .signin-page {    
     background-image:url(./signin-bg-small-min.jpg);
+  }
+
+  .dashboard-page {    
+    background-image:url(./dashboard-bg-med-min.jpg);
   }
 
   .signup-heading-h1 {

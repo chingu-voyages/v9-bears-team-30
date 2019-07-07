@@ -4,6 +4,7 @@ import { changeSigninEmail } from '../../actions/changeSigninEmailAction';
 import { changeSigninPassword } from '../../actions/changeSigninPasswordAction';
 import { getSignin } from '../../actions/getSigninAction';
 import { logoutUser } from '../../actions/getSigninAction';
+import { UserInfoBox } from '../UserInfoBox';
 import './signup.css';
 import Layout from "../layouts/layout";
 
@@ -28,11 +29,8 @@ export class Dashboard extends Component {
 
     return (
       <Layout>
-        <div style={{marginTop:100}}>
-          Welcome {user.toString()}
-          <button onClick={this.handleClick}>
-            Logout
-          </button>
+        <div className="signup-page dashboard-page" style={{marginTop:80}}>
+          <UserInfoBox/>
         </div>
       </Layout>
     )
