@@ -5,16 +5,19 @@ export const SAVE_SEARCH_HISTORY_FAILURE = 'SAVE_SEARCH_HISTORY_FAILURE';
 
 //takes recent search city, state and an e-mail
 export const saveToUserSearchHistory = (searchCityAndState, email) => {
-	return axios.post("/api/update-search-history", {
-		searchCityAndState,
-		email
-	})
-	.then(res => {
-		dispatch(saveSearchHistorySucess(res.data));
-	})
-	.catch(err => {
-		dispatch(saveSearchHistoryFailure(err));
-	});
+	return dispatch => {
+
+		return axios.put("/api/update-search-history", {
+			searchCityAndState,
+			email
+		})
+		.then(res => {
+			dispatch(saveSearchHistorySucess(res.data));
+		})
+		.catch(err => {
+			dispatch(saveSearchHistoryFailure(err));
+		});
+	}
 }
 
 const saveSearchHistorySucess = newHistory => ({
