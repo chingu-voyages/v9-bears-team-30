@@ -32,7 +32,7 @@ export class Dashboard extends Component {
 const mapStateToProps = ( state ) => {   
   return { 
     auth: state.getSignin,
-    history: state.getSignin.user.searchHistory
+    history: state.getSignin.user.searchHistory.reverse()
   }
 };
 
