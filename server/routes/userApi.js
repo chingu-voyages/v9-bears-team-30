@@ -76,7 +76,8 @@ router.get("/api/signin", function (req, res) {
         //create JWT Payload
         const payload = {
           id: data.id,
-          name: data.name
+          name: data.name,
+          email: email
         }
         //sign token
         jwt.sign(
