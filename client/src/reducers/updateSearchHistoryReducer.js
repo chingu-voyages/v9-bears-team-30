@@ -14,10 +14,6 @@ export const updateSearchHistoryReducer = (state = {searchCity: 'New York', sear
       // don't mutate state here
       var newObject = {searchState: action.searchState};
       return Object.assign({}, state, newObject);
-    case UPDATEUSERSEARCHHISTORY:
-      // don't mutate state here
-      var newUserSearchHistory = {searchCityAndState: action.searchCityAndState};
-      return Object.assign({}, state, newUserSearchHistory);
     default:
       return state;
   }
