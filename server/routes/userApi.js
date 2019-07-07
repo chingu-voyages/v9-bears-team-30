@@ -103,9 +103,10 @@ router.get("/api/signin", function (req, res) {
 //updates user's search History whenever a search is made
 router.put("/api/update-search-history", function (req, res) {
   //declare variables
-  let history = req.body.searchHistory;
+  let history = req.body.searchCityAndState;
   let email = req.body.email;
-  
+
+  //finds and pushes new value to user's searchHistory
   try {
      User.updateOne(
         { "email" : email },
