@@ -16,9 +16,9 @@ const WeatherSearch = (props) => {
 
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
     /*replaced by useSelector and useDispatch
-    const [city, setCity] = useState("")
+    const [city, setCity] = useState("")   
+    const [USState, setUSState] = useState("")
     */
-    const [USState, setUSState] = useState("")  
     const [weather, setWeather] = useState({
         location: "", 
         country: "",
@@ -51,7 +51,7 @@ const WeatherSearch = (props) => {
                     setWeather(weatherUpdate)
                 })
             })
-         props.click(searchCityName, USState)   
+         props.click(searchCityName, searchStateName)   
     }
     const getLocalWeather = async (event) => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -158,10 +158,10 @@ const WeatherSearch = (props) => {
                             <input
                                 type="text"
                                 placeholder="State name (case sensitive)"
-                                value={USState}
+                                value={searchStateName}
                                 onChange={event => {
                                     event.preventDefault()
-                                    setUSState(event.target.value)
+                                    dispatch(updateSearchState(event.target.value))
                                 }}
                             />
                         </div>
