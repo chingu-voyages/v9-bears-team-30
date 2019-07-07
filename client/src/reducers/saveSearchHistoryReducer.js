@@ -6,11 +6,6 @@ import {
 //searchHistory is an array, when reducer receives save action, pushes search to end of array
 export const saveSearchHistoryReducer = (state = { searchHistory: [], error: null }, action) => {
   switch (action.type) {
-    case SAVE_SEARCH_HISTORY :
-      return { 
-          ...state,
-          searchHistory: [...state.searchHistory, action.searchCityAndState]
-      }
     case SAVE_SEARCH_HISTORY_SUCCESS :
       return {
         ...state,
