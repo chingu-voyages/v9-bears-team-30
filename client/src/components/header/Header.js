@@ -13,6 +13,7 @@ const Header = (props) => {
   console.log('auth is: ' + JSON.stringify(auth));
 
   //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+  //used below to send logoutUser() action 
   //See more: https://react-redux.js.org/next/api/hooks#usedispatch
   var dispatch = useDispatch();
 
