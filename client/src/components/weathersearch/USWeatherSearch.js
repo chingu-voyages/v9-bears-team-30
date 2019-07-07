@@ -4,7 +4,7 @@ import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-    //the city and state values are from the Redux store, auth is if a user is signed in
+    //auth an userEmail are supplied by redux store's getSignin state
     var auth = useSelector(state => state.getSignin.isAuthenticated);
     var userEmail = useSelector (state => state.getSignin.user.email);
     
@@ -12,6 +12,7 @@ const WeatherSearch = (props) => {
     //In JSX for example: onClick={() => dispatch(logoutUser())}
     //make sure the action is imported
     var dispatch = useDispatch();
+    
     const [city, setCity] = useState("")
     const [USState, setUSState] = useState("")  
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
