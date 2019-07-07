@@ -100,7 +100,21 @@ router.get("/api/signin", function (req, res) {
   });
 });
 
-
+//updates user's search History whenever a search is made
+router.put("/api/update-search-history", function (req, res) {
+  //declare variables
+  let history = req.body.searchHistory;
+  let email = req.body.email;
+  
+  try {
+     User.updateOne(
+        { "email" : email },
+        { $push: { "searchHistory" : history } }
+     );
+  } catch (e) {
+     print(e);
+  }
+});
 
 
 

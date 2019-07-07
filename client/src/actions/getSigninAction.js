@@ -33,7 +33,6 @@ export const getSignin = (emailAndPassword) => {
 			const decoded = jwt_decode(token);
 			decoded.email=emailAndPassword.signinEmail;
 			//set current user
-			//dispatch(setCurrentUser(decoded));
 			dispatch(getSigninSucess(decoded));
 		})
 		.catch(err => {
