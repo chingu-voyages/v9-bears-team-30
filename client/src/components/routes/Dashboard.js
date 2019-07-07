@@ -21,9 +21,6 @@ export class Dashboard extends Component {
   }
 
   render() {
-
-    const { user } = this.props.auth;
-
     return (
       <Layout>
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
