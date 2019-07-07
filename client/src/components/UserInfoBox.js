@@ -16,7 +16,7 @@ export class UserInfoBox extends Component {
     return (
       <div className='signup-container dashboard'>
         <div className='signup-heading-container'>
-          <h1 className='signup-heading-h1'>Welcome {this.props.user.user.id}!</h1>
+          <h1 className='signup-heading-h1'>Welcome {this.props.user.user.email}!</h1>
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
