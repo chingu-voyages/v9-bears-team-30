@@ -16,10 +16,9 @@ export const updateSearchState = (stateName) => {
 	}
 };
 
-export const updateUserSearchHistory = (cityName, stateName) => {
+export const updateUserSearchHistory = (searchCityAndState) => {
 	return {
 		type: UPDATEUSERSEARCHHISTORY,
-		searchCity: cityName,
-		searchState: stateName
+		searchCityAndState: searchCityAndState
 	}
 }

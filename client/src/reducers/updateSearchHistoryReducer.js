@@ -1,9 +1,10 @@
 import { 
   UPDATEUSSEARCHCITY,
-  UPDATEUSSEARCHSTATE } from '../actions/updateSearchHistoryAction';
+  UPDATEUSSEARCHSTATE,
+  UPDATEUSERSEARCHHISTORY } from '../actions/updateSearchHistoryAction';
 
 
-export const updateSearchHistoryReducer = (state = {searchCity: 'New York', searchState: 'NY'}, action) => {
+export const updateSearchHistoryReducer = (state = {searchCity: 'New York', searchState: 'NY', searchCityAndState: {}}, action) => {
   switch (action.type) {
     case UPDATEUSSEARCHCITY:
       // don't mutate state here
@@ -13,6 +14,10 @@ export const updateSearchHistoryReducer = (state = {searchCity: 'New York', sear
       // don't mutate state here
       var newObject = {searchState: action.searchState};
       return Object.assign({}, state, newObject);
+    case UPDATEUSERSEARCHHISTORY:
+      // don't mutate state here
+      var newUserSearchHistory = {searchCityAndState: action.searchCityAndState};
+      return Object.assign({}, state, newUserSearchHistory);
     default:
       return state;
   }
