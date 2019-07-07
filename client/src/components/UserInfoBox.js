@@ -16,11 +16,11 @@ export class UserInfoBox extends Component {
     return (
       <div className='signup-container dashboard'>
         <div className='signup-heading-container'>
-          <h1 className='signup-heading-h1'>Welcome {this.props.user.user.email}!</h1>
+          <h1 className='signup-heading-h1'>Welcome!</h1>
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in!</p>
+            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in {this.props.user.user.email}</p>
           </div>
         </div>
       </div>

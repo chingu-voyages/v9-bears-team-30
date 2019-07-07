@@ -1,5 +1,6 @@
 export const UPDATEUSSEARCHCITY = 'UPDATEUSSEARCHCITY';
 export const UPDATEUSSEARCHSTATE = 'UPDATEUSSEARCHSTATE';
+export const UPDATEUSERSEARCHHISTORY = 'UPDATEUSERSEARCHHISTORY';
 
 export const updateSearchCity = (cityName) => {
 	return {
@@ -14,3 +15,11 @@ export const updateSearchState = (stateName) => {
 		searchState: stateName
 	}
 };
+
+export const updateUserSearchHistory = (cityName, stateName) => {
+	return {
+		type: UPDATEUSERSEARCHHISTORY,
+		searchCity: cityName,
+		searchState: stateName
+	}
+}
