@@ -1,5 +1,4 @@
 import { 
-  SAVE_SEARCH_HISTORY, 
   SAVE_SEARCH_HISTORY_SUCCESS,
   SAVE_SEARCH_HISTORY_FAILURE } from '../actions/saveSearchHistoryAction';
 

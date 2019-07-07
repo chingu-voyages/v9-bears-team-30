@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSearchCity } from '../../actions/updateSearchHistoryAction';
 import { updateSearchState } from '../../actions/updateSearchHistoryAction';
+import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
