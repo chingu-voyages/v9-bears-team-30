@@ -6,9 +6,11 @@ import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-    //the city and state values are from the Redux store
+    //the city and state values are from the Redux store, auth is if a user is signed in
     var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
     var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
+    var auth = useSelector(state => state.getSignin.isAuthenticated);
+    var userEmail = useSelector (state => state.getSignin.user.user)
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}
@@ -28,7 +30,12 @@ const WeatherSearch = (props) => {
 
 
     const getRemoteWeather = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
+        //dispatch action to save search to user
+        if (auth) {
+            dispatch(saveToUserSearchHistory({searchCity: searchCityName, searchState: searchStateName}, userEmail));
+        }
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCityName}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
