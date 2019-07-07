@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     required: true
   },
   searchHistory: {
-    type: Array,
+    type: [String],
     required: false
   }
 });

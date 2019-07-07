@@ -10,7 +10,7 @@ const WeatherSearch = (props) => {
     var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
     var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     var auth = useSelector(state => state.getSignin.isAuthenticated);
-    var userEmail = useSelector (state => state.getSignin.user.user)
+    var userEmail = useSelector (state => state.getSignin.user.email);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}

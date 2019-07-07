@@ -103,22 +103,25 @@ router.get("/api/signin", function (req, res) {
 //updates user's search History whenever a search is made
 router.put("/api/update-search-history", function (req, res) {
   //declare variables
-  console.log('updating search history: '+req.body.searchCityAndState);
-  let history = req.body.searchCityAndState;
+  let history = req.body.searchCityAndState.searchCity + ", " + req.body.searchCityAndState.searchState;
   let email = req.body.email;
 
+  console.log(email);
+  console.log(history);
+
   //finds and pushes new value to user's searchHistory
-  User.findOneAndUpdate(
-     { "email" : email },
-     { $push: { "searchHistory" : history } },
-     { returnNewDocument: true }
-  ).then(function(err, data) {
-    if (err) {
-      throw err;
-    }
-    return res.send(data);
+  User.updateOne(
+    { email: email },
+    { $push: {searchHistory: history } },
+    { new: true },
+    (err, doc) => {
+      if (err) {
+        console.log('Something wrong when updating data');
+      }
+      return res.send(doc);
   });
 });
+
 
 
 
