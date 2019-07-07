@@ -7,6 +7,7 @@ import { signinEmailReducer } from './signinEmailReducer';
 import { signinPasswordReducer } from './signinPasswordReducer';
 import { getSigninReducer } from './getSigninReducer';
 import { updateSearchHistoryReducer } from './updateSearchHistoryReducer';
+import { saveSearchHistoryReducer } from './saveSearchHistoryReducer';
 
 export const rootReducer = combineReducers({
 	title: titleReducer,
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
 	signinEmail: signinEmailReducer,
 	signinPassword: signinPasswordReducer,
 	getSignin: getSigninReducer,
-	updateSearchHistory: updateSearchHistoryReducer
+	updateSearchHistory: updateSearchHistoryReducer,
+	searchHistory: saveSearchHistoryReducer
 });

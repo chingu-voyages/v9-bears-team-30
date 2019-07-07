@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 export class SearchHistory extends Component {
 
@@ -17,3 +18,9 @@ export class SearchHistory extends Component {
     )
   }
 }
+
+const mapStateToProps = ( state ) => {   
+  return { 
+    auth: state.getSignin
+  }
+};
