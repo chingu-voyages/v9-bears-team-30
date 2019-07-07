@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-//import './routs/signup.css';
 
 export class UserInfoBox extends Component {
 
@@ -9,11 +8,15 @@ export class UserInfoBox extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className='signup-container dashboard'>
         <div className='signup-heading-container'>
-          <h1 className='signup-heading-h1'>Welcome {console.log(this.props)}!</h1>
+          <h1 className='signup-heading-h1'>Welcome!</h1>
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
@@ -28,7 +31,7 @@ export class UserInfoBox extends Component {
 //pass store state as props. value must equal a valid store key. 
 const mapStateToProps = ( state ) => {   
   return { 
-    username: state.getSignin.user.email
+    username: state.getSignin
   }
 };
 //connects store actions and states to component

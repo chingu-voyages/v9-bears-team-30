@@ -23,7 +23,6 @@ export class Dashboard extends Component {
   render() {
 
     const { user } = this.props.auth;
-    console.log(this.props.auth);
 
     return (
       <Layout>
