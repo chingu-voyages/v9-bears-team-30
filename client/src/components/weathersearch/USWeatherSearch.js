@@ -5,7 +5,7 @@ import { updateSearchState } from '../../actions/updateSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-    //this will be used for redux "city/state" state
+    //the city and state values are from the Redux store
     var searchCityName = useSelector(state => state.updateSearchHistory.searchCity);
     var searchStateName = useSelector(state => state.updateSearchHistory.searchState);
     
@@ -15,10 +15,6 @@ const WeatherSearch = (props) => {
     var dispatch = useDispatch();
 
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
-    /*replaced by useSelector and useDispatch
-    const [city, setCity] = useState("")   
-    const [USState, setUSState] = useState("")
-    */
     const [weather, setWeather] = useState({
         location: "", 
         country: "",
