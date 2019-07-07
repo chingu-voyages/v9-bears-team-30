@@ -51,6 +51,8 @@ export class SignInPage extends Component {
     let button;
     let inputErrorClass = this.props.error;
 
+    console.log(this.props);
+
     if (this.props.saving) {
       button = (
         <button className='signup-button'>
@@ -68,7 +70,7 @@ export class SignInPage extends Component {
     return (
       <Layout>
         <div className='signup-page signin-page'>
-          {!this.props.success ? (
+          {this.props.success == null ? (
             <div className='signup-container'>
               <div className='signup-heading-container'>
                 <h1 className='signup-heading-h1'>Log In</h1>
