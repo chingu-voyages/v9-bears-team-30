@@ -8,7 +8,7 @@ export class SearchHistory extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.history.searchHistory);
+    console.log(this.props.history);
   }
 
   render() {
@@ -16,7 +16,11 @@ export class SearchHistory extends Component {
       <div className='signup-container dashboard'>
         <div className='signup-heading-container'>
           <h1 className='signup-heading-h1'>Search History</h1>
-          {JSON.stringify(this.props.history.searchHistory)}
+          {this.props.history.map(item => 
+            <p style={{lineHeight:'24px'}} key={item}>
+              {item}
+            </p>
+          )}
         </div>
       </div>
     )

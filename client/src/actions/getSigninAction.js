@@ -24,7 +24,6 @@ export const getSignin = (emailAndPassword) => {
 		})
 		.then(res => {
 			//save to local storage
-			console.log(res.data);
 			const { token } = res.data;
 			localStorage.setItem("jwtToken", token);
 			//set token to Auth header
