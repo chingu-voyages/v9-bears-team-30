@@ -73,11 +73,12 @@ router.get("/api/signin", function (req, res) {
         //user matched
 
       console.log('password matched');
-        //create JWT Payload
+        //create JWT Payload which includes id, name, email, and searchHistory
         const payload = {
           id: data.id,
           name: data.name,
-          email: email
+          email: email,
+          searchHistory: data.searchHistory
         }
         //sign token
         jwt.sign(

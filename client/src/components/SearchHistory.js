@@ -22,3 +22,4 @@ export class SearchHistory extends Component {
     )
   }
 }
+
