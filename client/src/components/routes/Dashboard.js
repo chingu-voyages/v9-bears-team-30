@@ -12,10 +12,6 @@ export class Dashboard extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    console.log(this.props.auth);
-  }
-
   render() {
     return (
       <Layout>
@@ -36,7 +32,7 @@ export class Dashboard extends Component {
 const mapStateToProps = ( state ) => {   
   return { 
     auth: state.getSignin,
-    history: state.getSignin.userSearchHistory.reverse()
+    history: state.getSignin.userSearchHistory
   }
 };
 

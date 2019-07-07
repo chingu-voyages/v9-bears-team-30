@@ -6,13 +6,13 @@ import "./weathersearch.css"
 const WeatherSearch = (props) => {
     //auth an userEmail are supplied by redux store's getSignin state
     var auth = useSelector(state => state.getSignin.isAuthenticated);
-    var userEmail = useSelector (state => state.getSignin.user.email);
+    var userEmail = useSelector (state => state.getSignin.user);
     
     //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
     //In JSX for example: onClick={() => dispatch(logoutUser())}
     //make sure the action is imported
     var dispatch = useDispatch();
-    
+
     const [city, setCity] = useState("")
     const [USState, setUSState] = useState("")  
     const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
@@ -32,7 +32,7 @@ const WeatherSearch = (props) => {
 
         //dispatch action to save search to user
         if (auth) {
-            console.log('sending saveToUserSearchHistory action: ' + city);
+            console.log('sending saveToUserSearchHistory action: ' + city + userEmail);
             dispatch(saveToUserSearchHistory({searchCity: city, searchState: USState}, userEmail));
         }
 
