@@ -6,7 +6,7 @@ export const GETSIGNIN = 'GETSIGNIN';
 export const GET_SIGNIN_SUCCESS = 'GET_SIGNIN_SUCCESS';
 export const GET_SIGNIN_FAILURE = 'GET_SIGNIN_FAILURE';
 export const GET_SIGNIN_STARTED = 'GET_SIGNIN_STARTED';
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const UPDATE_SEARCH_HISTORY = 'UPDATE_SEARCH_HISTORY';
 
 //tutorial from https://alligator.io/redux/redux-thunk/
 //auth from https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-2-frontend-6eac4e38ee82
@@ -67,3 +67,9 @@ export const logoutUser = () => dispatch => {
 	//set current user to empty object which will set isAuthenticated to false
 	dispatch(getSigninSucess({}));
 }
+
+//update searchHistory in token
+export const updateTokenSearchHistory = newItem => ({
+	type: UPDATE_SEARCH_HISTORY,
+	payload: newItem
+});
