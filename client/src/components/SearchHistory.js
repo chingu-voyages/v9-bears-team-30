@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
 
 export class SearchHistory extends Component {
 
@@ -8,13 +7,9 @@ export class SearchHistory extends Component {
     super(props);    
   }
 
-  componentWillMount() {
-    console.log(this.props.history);
-  }
-
   //renders search history array as paragraph elements or "no search histroy" if no searches
   render() {
-    //make separate var for prop
+    //update search history
     let userHistory=this.props.history[0];
 
     return (
@@ -31,12 +26,3 @@ export class SearchHistory extends Component {
     )
   }
 }
-
-const mapStateToProps = ( state ) => {   
-  return { 
-    history: state.searchHistory.searchHistory
-  }
-};
-
-//connects store actions and states to component
-export default connect(mapStateToProps)(SearchHistory);

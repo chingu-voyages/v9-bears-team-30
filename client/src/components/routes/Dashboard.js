@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/getSigninAction';
+import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import { UserInfoBox } from '../UserInfoBox';
 import { SearchHistory } from '../SearchHistory';
 import './signup.css';
@@ -12,6 +13,10 @@ export class Dashboard extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    saveToUserSearchHistory(null, this.props.userEmail);
+  }
+
   render() {
     return (
       <Layout>
@@ -19,7 +24,9 @@ export class Dashboard extends Component {
           <UserInfoBox
             user={this.props.auth}
           />
-          <SearchHistory/>
+          <SearchHistory
+            history={this.props.history}
+          />
         </div>
       </Layout>
     )
@@ -30,7 +37,9 @@ export class Dashboard extends Component {
 //history is 
 const mapStateToProps = ( state ) => {   
   return { 
-    auth: state.getSignin
+    auth: state.getSignin,
+    history: state.searchHistory.searchHistory,
+    userEmail: state.getSignin.user
   }
 };
 
@@ -39,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logoutUser: () => {
       dispatch(logoutUser())
+    },    
+    saveToUserSearchHistory: (searchCityAndState, email) => {
+      dispatch(saveToUserSearchHistory(searchCityAndState, email))
     }
   }
 };
