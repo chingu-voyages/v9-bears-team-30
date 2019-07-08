@@ -119,8 +119,16 @@ router.put("/api/update-search-history", function (req, res) {
       if (err) {
         console.log('Something wrong when updating data');
       }
-      return res.send(doc);
-  });
+      else {
+        User.findOne({ email: email }).then(data => {
+          //check if user exists
+          if(data) {
+            return res.send({data});
+          }
+        })
+      }
+    }
+  )
 });
 
 

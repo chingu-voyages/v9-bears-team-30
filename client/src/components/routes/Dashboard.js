@@ -29,6 +29,7 @@ export class Dashboard extends Component {
 }
 
 //pass store state as props. value must equal a valid store key. 
+//history is 
 const mapStateToProps = ( state ) => {   
   return { 
     auth: state.getSignin,
