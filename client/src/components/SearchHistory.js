@@ -11,6 +11,7 @@ export class SearchHistory extends Component {
   render() {
     //make separate var for prop
     let userHistory=this.props.history;
+    console.log(userHistory);
 
     return (
       <div className='signup-container dashboard'>

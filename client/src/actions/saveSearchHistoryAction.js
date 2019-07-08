@@ -30,7 +30,7 @@ export const saveToUserSearchHistory = (searchCityAndState, email) => {
 const saveSearchHistorySucess = newHistory => ({
 	type: SAVE_SEARCH_HISTORY_SUCCESS,
 	payload: {
-		...newHistory
+		newHistory
 	}
 });
 

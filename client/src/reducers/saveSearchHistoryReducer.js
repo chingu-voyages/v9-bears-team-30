@@ -9,7 +9,7 @@ export const saveSearchHistoryReducer = (state = { searchHistory: [], error: nul
       return {
         ...state,
         error: null,
-        searchHistory: [...state.searchHistory, action.payload]
+        searchHistory: [...state.searchHistory, action.payload.newHistory]
       };
     case SAVE_SEARCH_HISTORY_FAILURE :
       return {
