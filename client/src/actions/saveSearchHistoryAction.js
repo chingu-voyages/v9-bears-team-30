@@ -8,7 +8,7 @@ export const SAVE_SEARCH_HISTORY_FAILURE = 'SAVE_SEARCH_HISTORY_FAILURE';
 //takes recent search city, state and an e-mail
 //sends the search to the user's search history in the database
 export const saveToUserSearchHistory = (searchCityAndState, email) => {
-	console.log('save history action called: '+searchCityAndState.searchCity+', '+searchCityAndState.searchState)
+	//console.log('save history action called: '+searchCityAndState.searchCity+', '+searchCityAndState.searchState);
 	return dispatch => {
 
 		//send call to backend

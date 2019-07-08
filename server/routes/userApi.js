@@ -104,31 +104,41 @@ router.get("/api/signin", function (req, res) {
 //updates user's search History whenever a search is made
 router.put("/api/update-search-history", function (req, res) {
   //declare variables
-  let history = req.body.searchCityAndState.searchCity + ", " + req.body.searchCityAndState.searchState;
   let email = req.body.email;
 
-  console.log(email);
-  console.log(history);
+  //check if updating search history or just querying
+  if (!req.body.searchCityAndState.searchCity) {
+    //if there's no query, then it is just a query
+    User.findOne({ email: email }).then(data => {
+      //check if user exists
+      if(data) {
+        return res.send({data});
+      }
+    })
+  } else {
+    let history = req.body.searchCityAndState.searchCity + ", " + req.body.searchCityAndState.searchState;
+    //finds and pushes new value to user's searchHistory
+    User.updateOne(
+      { email: email },
+      { $push: {searchHistory: history } },
+      { new: true },
+      (err, doc) => {
+        if (err) {
+          console.log('Something wrong when updating data');
+        }
+        else {
+          User.findOne({ email: email }).then(data => {
+            //check if user exists
+            if(data) {
+              return res.send({data});
+            }
+          })
+        }
+      }
+    )
+  }
 
-  //finds and pushes new value to user's searchHistory
-  User.updateOne(
-    { email: email },
-    { $push: {searchHistory: history } },
-    { new: true },
-    (err, doc) => {
-      if (err) {
-        console.log('Something wrong when updating data');
-      }
-      else {
-        User.findOne({ email: email }).then(data => {
-          //check if user exists
-          if(data) {
-            return res.send({data});
-          }
-        })
-      }
-    }
-  )
+
 });
 
 

@@ -8,6 +8,10 @@ export class SearchHistory extends Component {
     super(props);    
   }
 
+  componentWillMount() {
+    console.log(this.props.history);
+  }
+
   //renders search history array as paragraph elements or "no search histroy" if no searches
   render() {
     //make separate var for prop
