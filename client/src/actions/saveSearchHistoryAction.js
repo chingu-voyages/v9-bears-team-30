@@ -17,9 +17,8 @@ export const saveToUserSearchHistory = (searchCityAndState, email) => {
 			email
 		})
 		.then(res => {
-			console.log('save success: '+(JSON.stringify(res.data)));
-			//updates redux searchhistory object
-			dispatch(saveSearchHistorySucess(res.data));
+			//sends new search history to redux store for saving
+			dispatch(saveSearchHistorySucess(res.data.data.searchHistory));
 		})
 		.catch(err => {
 			console.log('save fail');
