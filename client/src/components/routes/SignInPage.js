@@ -51,8 +51,6 @@ export class SignInPage extends Component {
     let button;
     let inputErrorClass = this.props.error;
 
-    console.log(this.props);
-
     if (this.props.saving) {
       button = (
         <button className='signup-button'>
