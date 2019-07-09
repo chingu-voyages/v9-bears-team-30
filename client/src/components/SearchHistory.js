@@ -17,11 +17,13 @@ export class SearchHistory extends Component {
       <div className='signup-container dashboard' style={{marginBottom:20}}>
         <div className='signup-heading-container'>
           <h1 className='signup-heading-h1'>Search History</h1>
-          {!userHistory ? <p>No search history</p> : userHistory.map((item, i) => 
-            <p style={{lineHeight:'24px'}} key={item + i}>
-              {item}
-            </p>
-          )}
+          <div className='search-history-container' style={{paddingBottom:40, width:'90%', textAlign:'center'}}>
+            {!userHistory ? <p>No search history</p> : userHistory.map((item, i) => 
+              <p style={{marginLeft:0, lineHeight:'24px'}} key={item + i}>
+                {item}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     )
