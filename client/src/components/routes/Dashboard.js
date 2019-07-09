@@ -19,7 +19,7 @@ export class Dashboard extends Component {
       <Layout>
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
           <UserInfoBox
-            user={this.props.auth}
+            user={this.props.userEmail}
           />
           <SearchHistory
             history={this.props.history}
@@ -34,7 +34,6 @@ export class Dashboard extends Component {
 //history is 
 const mapStateToProps = ( state ) => {   
   return { 
-    auth: state.getSignin,
     history: state.searchHistory.searchHistory,
     userEmail: state.getSignin.user
   }

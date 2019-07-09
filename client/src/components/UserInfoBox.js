@@ -9,7 +9,7 @@ export class UserInfoBox extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.user.user);
+    console.log(this.props.user);
   }
 
   render() {
@@ -20,7 +20,7 @@ export class UserInfoBox extends Component {
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in {this.props.user.user.email}</p>
+            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in {this.props.user}</p>
           </div>
         </div>
       </div>
