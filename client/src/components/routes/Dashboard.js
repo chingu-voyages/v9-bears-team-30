@@ -9,12 +9,9 @@ import Layout from "../layouts/layout";
 
 export class Dashboard extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
-    saveToUserSearchHistory(null, this.props.userEmail);
+    console.log('calling put request ' + this.props.userEmail);
+    this.props.saveToUserSearchHistory({searchCity: null, searchState: null}, this.props.userEmail);
   }
 
   render() {
@@ -33,7 +30,7 @@ export class Dashboard extends Component {
   }
 }
 
-//pass store state as props. value must equal a valid store key. 
+//pass store state as props. value must equal a valid store key (see rootReducer). 
 //history is 
 const mapStateToProps = ( state ) => {   
   return { 

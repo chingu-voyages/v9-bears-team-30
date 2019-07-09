@@ -104,7 +104,10 @@ router.get("/api/signin", function (req, res) {
 //updates user's search History whenever a search is made
 router.put("/api/update-search-history", function (req, res) {
   //declare variables
+  console.log('received put request');
   let email = req.body.email;
+
+  console.log('email is: '+email);
 
   //check if updating search history or just querying
   if (!req.body.searchCityAndState.searchCity) {
@@ -128,7 +131,7 @@ router.put("/api/update-search-history", function (req, res) {
         }
         else {
           User.findOne({ email: email }).then(data => {
-            //check if user exists
+            //returns user new search history
             if(data) {
               return res.send({data});
             }

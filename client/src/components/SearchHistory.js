@@ -10,10 +10,11 @@ export class SearchHistory extends Component {
   //renders search history array as paragraph elements or "no search histroy" if no searches
   render() {
     //update search history
-    let userHistory=this.props.history[0];
+    let userHistory=this.props.history[this.props.history.length-1];
+    console.log(this.props.history);
 
     return (
-      <div className='signup-container dashboard'>
+      <div className='signup-container dashboard' style={{marginBottom:20}}>
         <div className='signup-heading-container'>
           <h1 className='signup-heading-h1'>Search History</h1>
           {!userHistory ? <p>No search history</p> : userHistory.map((item, i) => 
