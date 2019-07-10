@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
-//import './routs/signup.css';
 
 export class UserInfoBox extends Component {
 
   constructor(props) {
-    super(props);    
+    super(props);
+  }
+
+  componentWillMount() {
+    console.log(this.props.user);
   }
 
   render() {
@@ -16,7 +20,7 @@ export class UserInfoBox extends Component {
         </div>
         <div className='signup-form'>
           <div className='user-input-container'>
-            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in!</p>
+            <p className='signup-success-message' style={{textAlign:'center', lineHeight:'24px', marginRight:'5%'}}>Thank you for signing in {this.props.user}</p>
           </div>
         </div>
       </div>

@@ -8,10 +8,13 @@ import { logoutUser } from '../../actions/getSigninAction';
 const Header = (props) => {
 
   //Allows you to extract data from the Redux store state, using a selector function.
+  //See more: https://react-redux.js.org/next/api/hooks#useselector-examples
   var auth = useSelector(state => state.getSignin.isAuthenticated);
   console.log('auth is: ' + JSON.stringify(auth));
 
   //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+  //used below to send logoutUser() action 
+  //See more: https://react-redux.js.org/next/api/hooks#usedispatch
   var dispatch = useDispatch();
 
     return (

@@ -68,7 +68,7 @@ export class SignInPage extends Component {
     return (
       <Layout>
         <div className='signup-page signin-page'>
-          {Object.entries(this.props.success).length === 0 && this.props.success.constructor === Object ? (
+          {this.props.success == null ? (
             <div className='signup-container'>
               <div className='signup-heading-container'>
                 <h1 className='signup-heading-h1'>Log In</h1>

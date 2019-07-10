@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeSigninEmail } from '../../actions/changeSigninEmailAction';
-import { changeSigninPassword } from '../../actions/changeSigninPasswordAction';
-import { getSignin } from '../../actions/getSigninAction';
 import { logoutUser } from '../../actions/getSigninAction';
+import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import { UserInfoBox } from '../UserInfoBox';
+import { SearchHistory } from '../SearchHistory';
 import './signup.css';
 import Layout from "../layouts/layout";
 
 export class Dashboard extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  //when button is clicked, sends action to react store
-  handleClick(e) {
-    console.log('logging out...');
-    this.props.logoutUser();
+  componentWillMount() {
+    console.log('calling put request ' + this.props.userEmail);
+    this.props.saveToUserSearchHistory({searchCity: null, searchState: null}, this.props.userEmail);
   }
 
   render() {
-
-    const { user } = this.props.auth;
-    console.log(this.props.auth);
-
     return (
       <Layout>
         <div className="signup-page dashboard-page" style={{marginTop:80}}>
-          <UserInfoBox/>
+          <UserInfoBox
+            user={this.props.userEmail}
+          />
+          <SearchHistory
+            history={this.props.history}
+          />
         </div>
       </Layout>
     )
   }
 }
 
-//pass store state as props. value must equal a valid store key. 
+//pass store state as props. value must equal a valid store key (see rootReducer). 
+//history is 
 const mapStateToProps = ( state ) => {   
   return { 
-    auth: state.getSignin
+    history: state.searchHistory.searchHistory,
+    userEmail: state.getSignin.user
   }
 };
 
@@ -49,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logoutUser: () => {
       dispatch(logoutUser())
+    },    
+    saveToUserSearchHistory: (searchCityAndState, email) => {
+      dispatch(saveToUserSearchHistory(searchCityAndState, email))
     }
   }
 };
