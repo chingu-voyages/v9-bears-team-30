@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false);
 
 async function dbConnection() {
   const db = mongoose.connection;

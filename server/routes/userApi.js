@@ -73,10 +73,12 @@ router.get("/api/signin", function (req, res) {
         //user matched
 
       console.log('password matched');
-        //create JWT Payload
+        //create JWT Payload which includes id, name, email, and searchHistory
         const payload = {
           id: data.id,
-          name: data.name
+          name: data.name,
+          email: email,
+          searchHistory: data.searchHistory
         }
         //sign token
         jwt.sign(
@@ -99,6 +101,48 @@ router.get("/api/signin", function (req, res) {
   });
 });
 
+//updates user's search History whenever a search is made
+router.put("/api/update-search-history", function (req, res) {
+  //declare variables
+  console.log('received put request');
+  let email = req.body.email;
+
+  console.log('email is: '+email);
+
+  //check if updating search history or just querying
+  if (!req.body.searchCityAndState.searchCity) {
+    //if there's no query, then it is just a query
+    User.findOne({ email: email }).then(data => {
+      //check if user exists
+      if(data) {
+        return res.send({data});
+      }
+    })
+  } else {
+    let history = req.body.searchCityAndState.searchCity + ", " + req.body.searchCityAndState.searchState;
+    //finds and pushes new value to user's searchHistory
+    User.updateOne(
+      { email: email },
+      { $push: {searchHistory: history } },
+      { new: true },
+      (err, doc) => {
+        if (err) {
+          console.log('Something wrong when updating data');
+        }
+        else {
+          User.findOne({ email: email }).then(data => {
+            //returns user new search history
+            if(data) {
+              return res.send({data});
+            }
+          })
+        }
+      }
+    )
+  }
+
+
+});
 
 
 

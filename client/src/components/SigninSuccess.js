@@ -11,15 +11,15 @@ export class SigninSuccess extends Component {
     }
   }
 
+  //waits 5 seconds before redirecting
   componentDidMount() {
     console.log(this.props);
     setTimeout(() => {
       this.setState({ redirect: true })
-    }, 5000)
-    
-
+    }, 5000);
   }
 
+  //if user nevigates away from page, stop the timeout
   componentWillUnmount() {   
     clearTimeout(this.state.redirect);
   }

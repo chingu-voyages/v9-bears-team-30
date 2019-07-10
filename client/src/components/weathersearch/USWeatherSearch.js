@@ -1,24 +1,41 @@
 import React, { useState, useEffect } from "react"
-
+import { useSelector, useDispatch } from 'react-redux';
+import { saveToUserSearchHistory } from '../../actions/saveSearchHistoryAction';
 import "./weathersearch.css"
 
 const WeatherSearch = (props) => {
-  const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
-  const [city, setCity] = useState("")
-  const [USState, setUSState] = useState("")  
-  const [weather, setWeather] = useState({
-      location: "", 
-      country: "",
-      currentTemp: 0,
-      maxTemp: 0,
-      minTemp: 0,
-      humidity: 0,
-      skies: ""
+    //auth an userEmail are supplied by redux store's getSignin state
+    var auth = useSelector(state => state.getSignin.isAuthenticated);
+    var userEmail = useSelector (state => state.getSignin.user);
+    
+    //This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+    //In JSX for example: onClick={() => dispatch(logoutUser())}
+    //make sure the action is imported
+    var dispatch = useDispatch();
+
+    const [city, setCity] = useState("")
+    const [USState, setUSState] = useState("")  
+    const [coordinates, setCoordinates] = useState({ latitude: 40.73, longitude: -73.93})
+    const [weather, setWeather] = useState({
+        location: "", 
+        country: "",
+        currentTemp: 0,
+        maxTemp: 0,
+        minTemp: 0,
+        humidity: 0,
+        skies: ""
     })
 
 
     const getRemoteWeather = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
+        //dispatch action to save search to user
+        if (auth) {
+            console.log('sending saveToUserSearchHistory action: ' + city + userEmail);
+            dispatch(saveToUserSearchHistory({searchCity: city, searchState: USState}, userEmail));
+        }
+
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER}`)
             .then(response => {
                 if (response.status !== 200) {
